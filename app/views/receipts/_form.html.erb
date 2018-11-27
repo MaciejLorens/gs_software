@@ -1,0 +1,62 @@
+<%= form_with(model: receipt, local: true) do |form| %>
+  <% if receipt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(receipt.errors.count, "error") %> prohibited this receipt from being saved:</h2>
+
+      <ul>
+      <% receipt.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :car_number %>
+    <%= form.text_field :car_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :semitrailer_number %>
+    <%= form.text_field :semitrailer_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= form.number_field :company_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.number_field :product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expiration_from %>
+    <%= form.datetime_select :expiration_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expiration_to %>
+    <%= form.datetime_select :expiration_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hidden %>
+    <%= form.check_box :hidden %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hidden_at %>
+    <%= form.datetime_select :hidden_at %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -4,6 +4,16 @@
   )
 end
 
+User.create(
+  first_name: "Maciej",
+  last_name: "Lorens",
+  email: "maciej.lorens@gmail.com",
+  password: '1234567890',
+  password_confirmation: '1234567890',
+  role: 'admin',
+  company_id: Company.all.to_a.sample.id
+)
+
 6.times do |index|
   company = Company.all.to_a.sample
 

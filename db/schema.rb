@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_173121) do
     t.string "semitrailer_number", null: false
     t.datetime "expiration_from", null: false
     t.datetime "expiration_to", null: false
-    t.boolean "hidden", default: false, null: false
+    t.boolean "hidden"
     t.datetime "hidden_at"
     t.integer "product_id", null: false
     t.integer "driver_id", null: false

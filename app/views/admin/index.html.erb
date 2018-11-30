@@ -1,0 +1,1014 @@
+<nav class='navbar navbar-default navbar-fixed-top'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <button class='navbar-toggle collapsed' data-target='#secondary-navigation' data-toggle='collapse' type='button'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <a class='navbar-brand pjax' href='/'>
+        Gs Software
+        <small>Admin</small>
+      </a>
+    </div>
+    <div class='collapse navbar-collapse' id='secondary-navigation'>
+      <ul class='nav navbar-nav navbar-right root_links'>
+        <li class='dashboard_root_link'><a class="pjax" href="/">Dashboard</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+</nav>
+
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-sm-3 col-md-2 sidebar-nav'>
+      <ul class='nav nav-pills nav-stacked'><li class='dropdown-header'>Navigation</li><li data-model="company"><a class="pjax" href="http://localhost:3000/company">Companies</a></li><li data-model="product"><a class="pjax" href="http://localhost:3000/product">Products</a></li><li data-model="receipt"><a class="pjax" href="http://localhost:3000/receipt">Receipts</a></li><li data-model="user"><a class="pjax" href="http://localhost:3000/user">Users</a></li></ul>
+      <ul class='nav nav-pills nav-stacked'></ul>
+
+    </div>
+    <div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2'>
+      <div class='content' data-pjax-container><script>
+        $('.nav.nav-pills li.active').removeClass('active');
+        $('.nav.nav-pills li[data-model="receipt"]').addClass('active');
+      </script>
+        <title>Receipt | Gs Software Admin</title>
+        <div class='page-header'>
+          <h1>List of Receipts</h1>
+        </div>
+        <ol class="breadcrumb"><li class="false"><a class="pjax" href="http://localhost:3000/">Dashboard</a></li><li class="active">Receipts</li></ol>
+        <ul class='nav nav-tabs'>
+
+          <li title="" rel="" class="icon index_collection_link active">
+            <a class="pjax" href="http://localhost:3000/receipt">
+              <i class="icon-th-list"></i>
+              <span>List</span>
+            </a>
+          </li>
+
+          <li title="" rel="" class="icon new_collection_link ">
+            <a class="pjax" href="http://localhost:3000/receipt/new">
+              <i class="icon-plus"></i>
+              <span>Add new</span>
+            </a>
+          </li>
+
+          <li title="" rel="" class="icon export_collection_link ">
+            <a class="pjax" href="http://localhost:3000/receipt/export">
+              <i class="icon-share"></i>
+              <span>Export</span>
+            </a>
+          </li>
+
+          <li class="dropdown" style="float:right"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Selected items <b class="caret"></b></a><ul class="dropdown-menu" style="left:auto; right:0;"><li><a onclick="jQuery(&#39;#bulk_action&#39;).val(&#39;export&#39;); jQuery(&#39;#bulk_form&#39;).submit(); return false;" href="#">Export selected Receipts</a></li><li><a onclick="jQuery(&#39;#bulk_action&#39;).val(&#39;bulk_delete&#39;); jQuery(&#39;#bulk_form&#39;).submit(); return false;" href="#">Delete selected Receipts</a></li></ul></li>
+          <li class='dropdown' style='float:right'>
+            <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+              Add filter
+              <b class='caret'></b>
+            </a>
+            <ul class='dropdown-menu' id='filters' style='left:auto; right:0;'>
+              <li>
+                <a data-field-label='Id' data-field-name='id' data-field-options='' data-field-type='integer' data-field-value='' href='#'>Id</a>
+              </li>
+              <li>
+                <a data-field-label='Number' data-field-name='number' data-field-options='' data-field-type='string' data-field-value='' href='#'>Number</a>
+              </li>
+              <li>
+                <a data-field-label='Car number' data-field-name='car_number' data-field-options='' data-field-type='string' data-field-value='' href='#'>Car number</a>
+              </li>
+              <li>
+                <a data-field-label='Semitrailer number' data-field-name='semitrailer_number' data-field-options='' data-field-type='string' data-field-value='' href='#'>Semitrailer number</a>
+              </li>
+              <li>
+                <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Expiration from' data-field-name='expiration_from' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Expiration from</a>
+              </li>
+              <li>
+                <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Expiration to' data-field-name='expiration_to' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Expiration to</a>
+              </li>
+              <li>
+                <a data-field-label='Hidden' data-field-name='hidden' data-field-options='' data-field-type='boolean' data-field-value='' href='#'>Hidden</a>
+              </li>
+              <li>
+                <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Hidden at' data-field-name='hidden_at' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Hidden at</a>
+              </li>
+              <li>
+                <a data-field-label='Product' data-field-name='product' data-field-options='' data-field-type='belongs_to_association' data-field-value='' href='#'>Product</a>
+              </li>
+              <li>
+                <a data-field-label='Driver' data-field-name='driver' data-field-options='' data-field-type='belongs_to_association' data-field-value='' href='#'>Driver</a>
+              </li>
+              <li>
+                <a data-field-label='User' data-field-name='user' data-field-options='' data-field-type='belongs_to_association' data-field-value='' href='#'>User</a>
+              </li>
+              <li>
+                <a data-field-label='Company' data-field-name='company' data-field-options='' data-field-type='belongs_to_association' data-field-value='' href='#'>Company</a>
+              </li>
+              <li>
+                <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Created at' data-field-name='created_at' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Created at</a>
+              </li>
+              <li>
+                <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Updated at' data-field-name='updated_at' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Updated at</a>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+        <script>
+          jQuery(function($) {
+
+          });
+        </script>
+        <style>
+        </style>
+        <div id='list'>
+          <form class="pjax-form form-inline" action="/receipt?model_name=receipt" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <div class='well'>
+              <span id='filters_box'></span>
+              <hr class='filters_box' style='display:none'>
+              <div class='input-group'>
+                <input class='form-control input-small' name='query' placeholder='Filter' type='search'>
+                <span class='input-group-btn'>
+<button class='btn btn-primary' data-disable-with='<i class="icon-white icon-refresh"></i> Refresh' type='submit'>
+<i class='icon-white icon-refresh'></i>
+Refresh
+</button>
+<button class='btn btn-info' id='remove_filter' title='Reset filters'>
+<i class='icon-white icon-remove'></i>
+</button>
+</span>
+              </div>
+              <span style='float:right'><a class="btn btn-info" href="/receipt/export?model_name=receipt">Export found Receipts</a></span>
+            </div>
+          </form>
+
+          <form id="bulk_form" class="form" action="/receipt/bulk_action" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="dvfScpsbXdPkXumEZ4kzwiZx7MS2WkP+Fu0BHEnkcjyDIuWg7pKIdLfdm19VAacQLz8gV1LBens89YmfUspK6Q==" />
+            <input type="hidden" name="bulk_action" id="bulk_action" />
+            <table class='table table-condensed table-striped'>
+              <thead>
+              <tr>
+                <th class='shrink'>
+                  <input class='toggle' type='checkbox'>
+                </th>
+                <th class='header pjax  id_field integer_type' data-href='/receipt?model_name=receipt&amp;sort=id' rel='tooltip' title=''>Id</th>
+                <th class='header pjax  number_field string_type' data-href='/receipt?model_name=receipt&amp;sort=number' rel='tooltip' title=''>Number</th>
+                <th class='header pjax  car_number_field string_type' data-href='/receipt?model_name=receipt&amp;sort=car_number' rel='tooltip' title=''>Car number</th>
+                <th class='header pjax  semitrailer_number_field string_type' data-href='/receipt?model_name=receipt&amp;sort=semitrailer_number' rel='tooltip' title=''>Semitrailer number</th>
+                <th class='header pjax  expiration_from_field datetime_type' data-href='/receipt?model_name=receipt&amp;sort=expiration_from' rel='tooltip' title=''>Expiration from</th>
+                <th class='header pjax  expiration_to_field datetime_type' data-href='/receipt?model_name=receipt&amp;sort=expiration_to' rel='tooltip' title=''>Expiration to</th>
+                <th class='other right shrink'>...</th>
+                <th class='last shrink'></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="50" /></td>
+                <td class='id_field integer_type' title='50'>50</td>
+                <td class='number_field string_type' title='receipt_49'>receipt_49</td>
+                <td class='car_number_field string_type' title='car_no_49'>car_no_49</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_49'>semi_no_49</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/50">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/50/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/50/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/50/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="49" /></td>
+                <td class='id_field integer_type' title='49'>49</td>
+                <td class='number_field string_type' title='receipt_48'>receipt_48</td>
+                <td class='car_number_field string_type' title='car_no_48'>car_no_48</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_48'>semi_no_48</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/49">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/49/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/49/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/49/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="48" /></td>
+                <td class='id_field integer_type' title='48'>48</td>
+                <td class='number_field string_type' title='receipt_47'>receipt_47</td>
+                <td class='car_number_field string_type' title='car_no_47'>car_no_47</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_47'>semi_no_47</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/48">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/48/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/48/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/48/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="47" /></td>
+                <td class='id_field integer_type' title='47'>47</td>
+                <td class='number_field string_type' title='receipt_46'>receipt_46</td>
+                <td class='car_number_field string_type' title='car_no_46'>car_no_46</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_46'>semi_no_46</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/47">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/47/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/47/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/47/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="46" /></td>
+                <td class='id_field integer_type' title='46'>46</td>
+                <td class='number_field string_type' title='receipt_45'>receipt_45</td>
+                <td class='car_number_field string_type' title='car_no_45'>car_no_45</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_45'>semi_no_45</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/46">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/46/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/46/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/46/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="45" /></td>
+                <td class='id_field integer_type' title='45'>45</td>
+                <td class='number_field string_type' title='receipt_44'>receipt_44</td>
+                <td class='car_number_field string_type' title='car_no_44'>car_no_44</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_44'>semi_no_44</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/45">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/45/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/45/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/45/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="44" /></td>
+                <td class='id_field integer_type' title='44'>44</td>
+                <td class='number_field string_type' title='receipt_43'>receipt_43</td>
+                <td class='car_number_field string_type' title='car_no_43'>car_no_43</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_43'>semi_no_43</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/44">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/44/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/44/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/44/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="43" /></td>
+                <td class='id_field integer_type' title='43'>43</td>
+                <td class='number_field string_type' title='receipt_42'>receipt_42</td>
+                <td class='car_number_field string_type' title='car_no_42'>car_no_42</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_42'>semi_no_42</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/43">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/43/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/43/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/43/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="42" /></td>
+                <td class='id_field integer_type' title='42'>42</td>
+                <td class='number_field string_type' title='receipt_41'>receipt_41</td>
+                <td class='car_number_field string_type' title='car_no_41'>car_no_41</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_41'>semi_no_41</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/42">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/42/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/42/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/42/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="41" /></td>
+                <td class='id_field integer_type' title='41'>41</td>
+                <td class='number_field string_type' title='receipt_40'>receipt_40</td>
+                <td class='car_number_field string_type' title='car_no_40'>car_no_40</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_40'>semi_no_40</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/41">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/41/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/41/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/41/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="40" /></td>
+                <td class='id_field integer_type' title='40'>40</td>
+                <td class='number_field string_type' title='receipt_39'>receipt_39</td>
+                <td class='car_number_field string_type' title='car_no_39'>car_no_39</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_39'>semi_no_39</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/40">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/40/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/40/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/40/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="39" /></td>
+                <td class='id_field integer_type' title='39'>39</td>
+                <td class='number_field string_type' title='receipt_38'>receipt_38</td>
+                <td class='car_number_field string_type' title='car_no_38'>car_no_38</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_38'>semi_no_38</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/39">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/39/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/39/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/39/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="38" /></td>
+                <td class='id_field integer_type' title='38'>38</td>
+                <td class='number_field string_type' title='receipt_37'>receipt_37</td>
+                <td class='car_number_field string_type' title='car_no_37'>car_no_37</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_37'>semi_no_37</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/38">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/38/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/38/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/38/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="37" /></td>
+                <td class='id_field integer_type' title='37'>37</td>
+                <td class='number_field string_type' title='receipt_36'>receipt_36</td>
+                <td class='car_number_field string_type' title='car_no_36'>car_no_36</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_36'>semi_no_36</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/37">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/37/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/37/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/37/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="36" /></td>
+                <td class='id_field integer_type' title='36'>36</td>
+                <td class='number_field string_type' title='receipt_35'>receipt_35</td>
+                <td class='car_number_field string_type' title='car_no_35'>car_no_35</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_35'>semi_no_35</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/36">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/36/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/36/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/36/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="35" /></td>
+                <td class='id_field integer_type' title='35'>35</td>
+                <td class='number_field string_type' title='receipt_34'>receipt_34</td>
+                <td class='car_number_field string_type' title='car_no_34'>car_no_34</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_34'>semi_no_34</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/35">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/35/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/35/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/35/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="34" /></td>
+                <td class='id_field integer_type' title='34'>34</td>
+                <td class='number_field string_type' title='receipt_33'>receipt_33</td>
+                <td class='car_number_field string_type' title='car_no_33'>car_no_33</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_33'>semi_no_33</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/34">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/34/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/34/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/34/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="33" /></td>
+                <td class='id_field integer_type' title='33'>33</td>
+                <td class='number_field string_type' title='receipt_32'>receipt_32</td>
+                <td class='car_number_field string_type' title='car_no_32'>car_no_32</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_32'>semi_no_32</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/33">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/33/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/33/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/33/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="32" /></td>
+                <td class='id_field integer_type' title='32'>32</td>
+                <td class='number_field string_type' title='receipt_31'>receipt_31</td>
+                <td class='car_number_field string_type' title='car_no_31'>car_no_31</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_31'>semi_no_31</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/32">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/32/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/32/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/32/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class='receipt_row '>
+                <td><input type="checkbox" name="bulk_ids[]" id="bulk_ids_" value="31" /></td>
+                <td class='id_field integer_type' title='31'>31</td>
+                <td class='number_field string_type' title='receipt_30'>receipt_30</td>
+                <td class='car_number_field string_type' title='car_no_30'>car_no_30</td>
+                <td class='semitrailer_number_field string_type' title='semi_no_30'>semi_no_30</td>
+                <td class='expiration_from_field datetime_type' title='November 28, 2018 18:44'>November 28, 2018 18:44</td>
+                <td class='expiration_to_field datetime_type' title='November 30, 2018 18:44'>November 30, 2018 18:44</td>
+                <td class='other right'><a class="pjax" href="/receipt?model_name=receipt&amp;set=1">...</a></td>
+                <td class='last links'>
+                  <ul class='inline list-inline'>
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/31">
+                        <i class="icon-info-sign"></i>
+                        <span style='display:none'>Show</span>
+                      </a>
+                    </li>
+
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/31/edit">
+                        <i class="icon-pencil"></i>
+                        <span style='display:none'>Edit</span>
+                      </a>
+                    </li>
+
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                      <a class="pjax" href="http://localhost:3000/receipt/31/delete">
+                        <i class="icon-remove"></i>
+                        <span style='display:none'>Delete</span>
+                      </a>
+                    </li>
+
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                      <a class="" href="http://localhost:3000/receipt/31/show_in_app">
+                        <i class="icon-eye-open"></i>
+                        <span style='display:none'>Show in app</span>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class='row'>
+              <div class='col-md-6'><ul class='pagination'>
+                <li class='prev disabled'><a href="#">&laquo; Prev</a></li>
+
+                <li class='active'><a class="pjax" href="/receipt?sort=id&amp;sort_reverse=false">1</a></li>
+
+                <li><a class="pjax" href="/receipt?page=2&amp;sort=id&amp;sort_reverse=false">2</a></li>
+
+                <li><a class="pjax" href="/receipt?page=3&amp;sort=id&amp;sort_reverse=false">3</a></li>
+
+                <li class='next'><a class="pjax" href="/receipt?page=2&amp;sort=id&amp;sort_reverse=false">Next &raquo;</a></li>
+
+              </ul>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-md-6'><a class="show-all btn btn-default clearfix pjax" href="/receipt?all=true&amp;model_name=receipt">Show all</a></div>
+            </div>
+            <div class='clearfix total-count'>50 receipts</div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

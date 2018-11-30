@@ -1,40 +1,154 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Receipts</h1>
+<div class="page-header">
+  <h1>List of Receipts</h1>
+</div>
 
-<table>
+<ul class='nav nav-tabs'>
+
+  <li title="" rel="" class="icon index_collection_link active">
+    <a class="pjax" href="http://localhost:3000/receipt">
+      <i class="fa fa-th-list"></i>
+      <span>List</span>
+    </a>
+  </li>
+
+  <li title="" rel="" class="icon new_collection_link ">
+    <a class="pjax" href="http://localhost:3000/receipt/new">
+      <i class="fa fa-plus"></i>
+      <span>Add new</span>
+    </a>
+  </li>
+
+  <li class="dropdown" style="float: right">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Selected items
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right" style="left: auto; right: 0;">
+      <li>
+        <a href="#">Export Receipts</a>
+      </li>
+      <li>
+        <a href="#">Delete Receipts</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class='dropdown' style='float: right'>
+    <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+      Add filter
+    </a>
+    <ul class='dropdown-menu dropdown-menu-right' id='filters' style="left: auto; right: 0;">
+      <li>
+        <a data-field-label='Id' data-field-name='id' data-field-options='' data-field-type='integer' data-field-value='' href='#'>Id</a>
+      </li>
+      <li>
+        <a data-field-label='Number' data-field-name='number' data-field-options='' data-field-type='string' data-field-value='' href='#'>Number</a>
+      </li>
+      <li>
+        <a data-field-label='Car number' data-field-name='car_number' data-field-options='' data-field-type='string' data-field-value='' href='#'>Car
+          number</a>
+      </li>
+      <li>
+        <a data-field-label='Semitrailer number' data-field-name='semitrailer_number' data-field-options='' data-field-type='string' data-field-value='' href='#'>Semitrailer
+          number</a>
+      </li>
+      <li>
+        <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Expiration from' data-field-name='expiration_from' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Expiration
+          from</a>
+      </li>
+      <li>
+        <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Expiration to' data-field-name='expiration_to' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Expiration
+          to</a>
+      </li>
+      <li>
+        <a data-field-label='Hidden' data-field-name='hidden' data-field-options='' data-field-type='boolean' data-field-value='' href='#'>Hidden</a>
+      </li>
+      <li>
+        <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Hidden at' data-field-name='hidden_at' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Hidden
+          at</a>
+      </li>
+      <li>
+        <a data-field-label='Product' data-field-name='product' data-field-options='' data-field-type='belongs_to_association' data-field-value='' href='#'>Product</a>
+      </li>
+      <li>
+        <a data-field-label='Driver' data-field-name='driver' data-field-options='' data-field-type='belongs_to_association' data-field-value='' href='#'>Driver</a>
+      </li>
+      <li>
+        <a data-field-label='User' data-field-name='user' data-field-options='' data-field-type='belongs_to_association' data-field-value='' href='#'>User</a>
+      </li>
+      <li>
+        <a data-field-label='Company' data-field-name='company' data-field-options='' data-field-type='belongs_to_association' data-field-value='' href='#'>Company</a>
+      </li>
+      <li>
+        <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Created at' data-field-name='created_at' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Created
+          at</a>
+      </li>
+      <li>
+        <a data-field-datetimepicker-format='MMMM DD, YYYY HH:mm' data-field-label='Updated at' data-field-name='updated_at' data-field-options='' data-field-type='datetime' data-field-value='' href='#'>Updated
+          at</a>
+      </li>
+    </ul>
+  </li>
+
+</ul>
+
+<div id='list'>
+  <form class="pjax-form form-inline" action="/receipt?model_name=receipt" accept-charset="UTF-8" method="get">
+    <input name="utf8" type="hidden" value="&#x2713;"/>
+    <div class='well'>
+      <span id='filters_box'></span>
+      <hr class='filters_box' style='display:none'>
+      <div class='input-group'>
+        <input class='form-control input-small' name='query' placeholder='Filter' type='search'>
+        <span class='input-group-btn'>
+          <button class='btn btn-primary' data-disable-with='<i class="icon-white icon-refresh"></i> Refresh' type='submit'>
+            <%= fa_icon 'retweet' %>
+            Refresh
+          </button>
+          <button class='btn btn-info' id='remove_filter' title='Reset filters'>
+            <%= fa_icon 'times' %>
+          </button>
+        </span>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<table class="table table-condensed table-striped">
   <thead>
-    <tr>
-      <th>Number</th>
-      <th>Car number</th>
-      <th>Semitrailer number</th>
-      <th>Company</th>
-      <th>Product</th>
-      <th>Expiration from</th>
-      <th>Expiration to</th>
-      <th>Hidden</th>
-      <th>Hidden at</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Number</th>
+    <th>Car number</th>
+    <th>Semitrailer number</th>
+    <th>Company</th>
+    <th>Product</th>
+    <th>Expiration from</th>
+    <th>Expiration to</th>
+    <th>Hidden</th>
+    <th>Hidden at</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @receipts.each do |receipt| %>
-      <tr>
-        <td><%= receipt.number %></td>
-        <td><%= receipt.car_number %></td>
-        <td><%= receipt.semitrailer_number %></td>
-        <td><%= receipt.company_id %></td>
-        <td><%= receipt.product_id %></td>
-        <td><%= receipt.expiration_from %></td>
-        <td><%= receipt.expiration_to %></td>
-        <td><%= receipt.hidden %></td>
-        <td><%= receipt.hidden_at %></td>
-        <td><%= link_to 'Show', receipt %></td>
-        <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
-        <td><%= link_to 'Destroy', receipt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @receipts.each do |receipt| %>
+    <tr>
+      <td><%= receipt.number %></td>
+      <td><%= receipt.car_number %></td>
+      <td><%= receipt.semitrailer_number %></td>
+      <td><%= receipt.company_id %></td>
+      <td><%= receipt.product_id %></td>
+      <td><%= receipt.expiration_from %></td>
+      <td><%= receipt.expiration_to %></td>
+      <td><%= receipt.hidden %></td>
+      <td><%= receipt.hidden_at %></td>
+      <td><%= link_to 'Show', receipt %></td>
+      <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
+      <td><%= link_to 'Destroy', receipt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

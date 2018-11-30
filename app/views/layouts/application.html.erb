@@ -10,9 +10,19 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice" style="display: none"><%= notice %></p>
+    <p class="alert" style="display: none"><%= alert %></p>
 
-    <%= yield %>
+    <%= render partial: 'shared/header' %>
+
+    <div class="main-content container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

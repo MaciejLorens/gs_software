@@ -1,11 +1,11 @@
 <ul class='nav nav-tabs'>
 
   <li class="icon index_collection_link <%= index_active? %>">
-    <%= link_to fa_icon('th-list', text: 'List'), products_path %>
+    <%= link_to fa_icon('th-list', text: 'List'), drivers_path %>
   </li>
 
   <li class="icon new_collection_link <%= new_active? %>">
-    <%= link_to fa_icon('plus', text: 'Add new'), new_product_path %>
+    <%= link_to fa_icon('plus', text: 'Add new'), new_driver_path %>
   </li>
 
   <% if index_action? %>

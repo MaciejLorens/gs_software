@@ -1,32 +1,36 @@
 <ul class='nav nav-tabs'>
 
-  <li class="icon index_collection_link <%= index_active %>">
+  <li class="icon index_collection_link <%= index_active? %>">
     <%= link_to fa_icon('th-list', text: 'List'), receipts_path %>
   </li>
 
-  <li class="icon new_collection_link <%= new_active %>">
+  <li class="icon new_collection_link <%= new_active? %>">
     <%= link_to fa_icon('plus', text: 'Add new'), new_receipt_path %>
   </li>
 
-  <li class="dropdown right">
-    <%= link_to 'Selected items', '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' %>
-    <ul class="dropdown-menu dropdown-menu-right">
-      <li>
-        <%= link_to 'Export Receipts', '#' %>
-      </li>
-      <li>
-        <%= link_to 'Delete Receipts', '#' %>
-      </li>
-    </ul>
-  </li>
+  <% if index_action? %>
 
-  <li class='dropdown right'>
-    <%= link_to 'Add filter', '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' %>
-    <ul class='dropdown-menu dropdown-menu-right' id='filters' style="left: auto; right: 0;">
-      <li>
-        <%= link_to 'Number', '#' %>
-      </li>
-    </ul>
-  </li>
+    <li class="dropdown right">
+      <%= link_to 'Selected items', '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' %>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li>
+          <%= link_to 'Export Receipts', '#' %>
+        </li>
+        <li>
+          <%= link_to 'Delete Receipts', '#' %>
+        </li>
+      </ul>
+    </li>
+
+    <li class='dropdown right'>
+      <%= link_to 'Add filter', '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' %>
+      <ul class='dropdown-menu dropdown-menu-right' id='filters' style="left: auto; right: 0;">
+        <li>
+          <%= link_to 'Number', '#' %>
+        </li>
+      </ul>
+    </li>
+
+  <% end %>
 
 </ul>

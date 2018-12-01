@@ -1,18 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>List of Drivers</h1>
+</div>
 
-<h1>Drivers</h1>
+<%= render partial: 'nav_tabs' %>
+<%= render partial: 'filter' %>
 
-<table>
-  <thead>
+<div class="col-sm-6 without-padding">
+  <table class="table table-condensed table-striped">
+    <thead>
     <tr>
       <th>First name</th>
       <th>Last name</th>
       <th>Company</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @drivers.each do |driver| %>
       <tr>
         <td><%= driver.first_name %></td>
@@ -23,9 +27,6 @@
         <td><%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Driver', new_driver_path %>
+    </tbody>
+  </table>
+</div>

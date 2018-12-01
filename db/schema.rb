@@ -14,8 +14,7 @@ ActiveRecord::Schema.define(version: 2018_12_01_155551) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "street"
-    t.string "number"
+    t.string "address"
     t.string "postcode"
     t.string "city"
     t.string "country"

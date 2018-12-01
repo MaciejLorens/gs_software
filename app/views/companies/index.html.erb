@@ -1,26 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>List of Companies</h1>
+</div>
 
-<h1>Companies</h1>
+<%= render partial: 'nav_tabs' %>
+<%= render partial: 'filter' %>
 
-<table>
-  <thead>
+<div class="col-sm-6 without-padding">
+  <table class="table table-condensed table-striped">
     <tr>
       <th>Name</th>
       <th>Street</th>
-      <th>Number</th>
       <th>Postcode</th>
       <th>City</th>
       <th>Country</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @companies.each do |company| %>
       <tr>
         <td><%= company.name %></td>
-        <td><%= company.street %></td>
-        <td><%= company.number %></td>
+        <td><%= company.address %></td>
         <td><%= company.postcode %></td>
         <td><%= company.city %></td>
         <td><%= company.country %></td>
@@ -29,9 +30,6 @@
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Company', new_company_path %>
+    </tbody>
+  </table>
+</div>

@@ -2,7 +2,7 @@
 
 one:
   name: MyString
-  street: MyString
+  address: MyString
   number: MyString
   postcode: MyString
   city: MyString
@@ -10,7 +10,7 @@ one:
 
 two:
   name: MyString
-  street: MyString
+  address: MyString
   number: MyString
   postcode: MyString
   city: MyString

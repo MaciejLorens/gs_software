@@ -1,6 +1,10 @@
 3.times do |index|
   Company.create(
-    name: "company_#{index}"
+    name: "company_#{index}",
+    address: "address_#{index}",
+    postcode: "postcode_#{index}",
+    city: "city_#{index}",
+    country: "country_#{index}"
   )
 end
 
@@ -42,14 +46,14 @@ end
   )
 end
 
-7.times do |index|
-  company = Company.all.to_a.sample
-
-  Driver.create(
-    first_name: "first_name_#{index}",
-    last_name: "last_name_#{index}",
-    company_id: company.id
-  )
+Company.all.each do |company|
+  3.times do |index|
+    Driver.create(
+      first_name: "first_name_#{index}",
+      last_name: "last_name_#{index}",
+      company_id: company.id
+    )
+  end
 end
 
 10.times do |index|

@@ -17,9 +17,8 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "City", with: @company.city
     fill_in "Country", with: @company.country
     fill_in "Name", with: @company.name
-    fill_in "Number", with: @company.number
     fill_in "Postcode", with: @company.postcode
-    fill_in "Street", with: @company.street
+    fill_in "Address", with: @company.address
     click_on "Create Company"
 
     assert_text "Company was successfully created"
@@ -33,9 +32,8 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "City", with: @company.city
     fill_in "Country", with: @company.country
     fill_in "Name", with: @company.name
-    fill_in "Number", with: @company.number
     fill_in "Postcode", with: @company.postcode
-    fill_in "Street", with: @company.street
+    fill_in "Address", with: @company.address
     click_on "Update Company"
 
     assert_text "Company was successfully updated"

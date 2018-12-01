@@ -24,4 +24,9 @@ class User < ApplicationRecord
     role == 'client'
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 end
+2

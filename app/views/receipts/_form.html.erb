@@ -71,10 +71,7 @@
           <%= fa_icon('check', text: 'Save') %>
         <% end %>
 
-        <button class='btn btn-default  ' data-disable-with='Cancel' formnovalidate name='_continue' type='submit'>
-          <%= fa_icon 'times' %>
-          Cancel
-        </button>
+        <%= link_to fa_icon('times', text: 'Cancel'), receipts_path, class: 'btn btn-secondary' %>
       </div>
     </div>
 

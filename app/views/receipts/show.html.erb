@@ -1,49 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>View Receipt</h1>
+</div>
 
-<p>
-  <strong>Number:</strong>
-  <%= @receipt.number %>
-</p>
+<%= render partial: 'nav_tabs' %>
 
-<p>
-  <strong>Car number:</strong>
-  <%= @receipt.car_number %>
-</p>
+<div class="form-horizontal denser fieldset">
 
-<p>
-  <strong>Semitrailer number:</strong>
-  <%= @receipt.semitrailer_number %>
-</p>
+  <div class="form-group control-group">
+    <%= label_tag :number, 'Number:', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10 controls">
+      <%= text_field_tag :number, @receipt.number, class: 'form-control', readonly: true %>
+    </div>
+  </div>
 
-<p>
-  <strong>Company:</strong>
-  <%= @receipt.company_id %>
-</p>
+  <div class="form-group control-group">
+    <%= label_tag :car_number, 'Car number:', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10 controls">
+      <%= text_field_tag :car_number, @receipt.car_number, class: 'form-control', readonly: true %>
+    </div>
+  </div>
 
-<p>
-  <strong>Product:</strong>
-  <%= @receipt.product_id %>
-</p>
+  <div class="form-group control-group">
+    <%= label_tag :semitrailer_number, 'Semitrailer number:', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10 controls">
+      <%= text_field_tag :semitrailer_number, @receipt.semitrailer_number, class: 'form-control', readonly: true %>
+    </div>
+  </div>
 
-<p>
-  <strong>Expiration from:</strong>
-  <%= @receipt.expiration_from %>
-</p>
+  <div class="form-group control-group">
+    <%= label_tag :expiration_from, 'Expiration from:', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10 controls">
+      <%= text_field_tag :expiration_from, @receipt.expiration_from, class: 'form-control', readonly: true %>
+    </div>
+  </div>
 
-<p>
-  <strong>Expiration to:</strong>
-  <%= @receipt.expiration_to %>
-</p>
+  <div class="form-group control-group">
+    <%= label_tag :expiration_to, 'Expiration to:', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10 controls">
+      <%= text_field_tag :expiration_to, @receipt.expiration_to, class: 'form-control', readonly: true %>
+    </div>
+  </div>
 
-<p>
-  <strong>Hidden:</strong>
-  <%= @receipt.hidden %>
-</p>
+  <div class="form-group control-group">
+    <%= label_tag :product, 'Product:', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10 controls">
+      <%= text_field_tag :product, @receipt.product.name, class: 'form-control', readonly: true %>
+    </div>
+  </div>
 
-<p>
-  <strong>Hidden at:</strong>
-  <%= @receipt.hidden_at %>
-</p>
+  <div class="form-group control-group">
+    <%= label_tag :driver, 'Driver:', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10 controls">
+      <%= text_field_tag :driver, @receipt.driver.full_name, class: 'form-control', readonly: true %>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
-<%= link_to 'Back', receipts_path %>
+</div>

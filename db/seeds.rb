@@ -22,8 +22,8 @@ User.create(
   company = Company.all.to_a.sample
 
   User.create(
-    first_name: "first_name_#{index}",
-    last_name: "last_name_#{index}",
+    first_name: "first_#{index}",
+    last_name: "last_#{index}",
     email: "admin#{index}@gs.com",
     password: '1234567890',
     password_confirmation: '1234567890',
@@ -36,8 +36,8 @@ end
   company = Company.all.to_a.sample
 
   User.create(
-    first_name: "first_name_#{index}",
-    last_name: "last_name_#{index}",
+    first_name: "first__#{index}",
+    last_name: "last_#{index}",
     email: "client#{index}@gs.com",
     password: '1234567890',
     password_confirmation: '1234567890',
@@ -49,8 +49,8 @@ end
 Company.all.each do |company|
   3.times do |index|
     Driver.create(
-      first_name: "first_name_#{index}",
-      last_name: "last_name_#{index}",
+      first_name: "first_#{index}",
+      last_name: "last_#{index}",
       company_id: company.id
     )
   end
@@ -60,8 +60,8 @@ end
   company = Company.all.to_a.sample
 
   Product.create(
-    name: "product_name_#{index}",
-    number: "product_no_#{index}",
+    name: "name_#{index}",
+    number: "number_#{index}",
     company_id: company.id
   )
 end

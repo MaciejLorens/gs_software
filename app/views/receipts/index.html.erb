@@ -3,6 +3,7 @@
 </div>
 
 <%= render partial: 'nav_tabs' %>
+
 <%= render partial: 'filter' %>
 
 <table class="table table-condensed table-striped">
@@ -11,13 +12,15 @@
     <th>Number</th>
     <th>Car number</th>
     <th>Semitrailer number</th>
-    <th>Company</th>
+    <th>Driver</th>
     <th>Product</th>
     <th>Expiration from</th>
     <th>Expiration to</th>
-    <th>Hidden</th>
-    <th>Hidden at</th>
-    <th colspan="3"></th>
+    <th>Last edited by</th>
+    <th>Created by</th>
+    <th>Updated at</th>
+    <th>Created at</th>
+    <th>Actions</th>
   </tr>
   </thead>
 
@@ -27,16 +30,21 @@
       <td><%= receipt.number %></td>
       <td><%= receipt.car_number %></td>
       <td><%= receipt.semitrailer_number %></td>
-      <td><%= receipt.company_id %></td>
-      <td><%= receipt.product_id %></td>
-      <td><%= receipt.expiration_from %></td>
-      <td><%= receipt.expiration_to %></td>
-      <td><%= receipt.hidden %></td>
-      <td><%= receipt.hidden_at %></td>
-      <td><%= link_to 'Show', receipt %></td>
-      <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
-      <td><%= link_to 'Destroy', receipt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= receipt.driver.full_name %></td>
+      <td><%= receipt.product.name %></td>
+      <td><%= date_format(receipt.expiration_from) %></td>
+      <td><%= date_format(receipt.expiration_to) %></td>
+      <td><%= receipt.user.full_name %></td>
+      <td><%= receipt.user.full_name %></td>
+      <td><%= date_format(receipt.updated_at) %></td>
+      <td><%= date_format(receipt.updated_at) %></td>
+      <td class="action-links">
+        <%= link_to fa_icon('eye', text: 'View'), receipt, class: 'action-link' %>
+        <%= link_to fa_icon('pencil', text: 'Edit'), edit_receipt_path(receipt), class: 'action-link' %>
+        <%= link_to fa_icon('times', text: 'Delete'), receipt, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+      </td>
     </tr>
   <% end %>
   </tbody>
 </table>
+

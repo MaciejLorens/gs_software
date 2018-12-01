@@ -8,6 +8,18 @@
     <%= link_to fa_icon('plus', text: 'Add new'), new_receipt_path %>
   </li>
 
+  <% if show_action? %>
+    <li class="icon new_collection_link <%= show_active? %>">
+      <%= link_to fa_icon('eye', text: 'View'), '#' %>
+    </li>
+  <% end %>
+
+  <% if edit_action? %>
+    <li class="icon new_collection_link <%= edit_active? %>">
+      <%= link_to fa_icon('pencil', text: 'Edit'), '#' %>
+    </li>
+  <% end %>
+
   <% if index_action? %>
 
     <li class="dropdown right">

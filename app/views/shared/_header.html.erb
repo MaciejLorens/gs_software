@@ -17,13 +17,13 @@
   </div>
 
   <div class='pull-right'>
-      <% if user_signed_in? %>
-        <span class="login-username">
-          <%= "#{current_user.first_name} #{current_user.last_name}" %>
-        </span>
-        <%= link_to 'Log out', destroy_user_session_path, {method: 'delete', class: 'btn btn-outline-primary'} %>
-      <% else %>
-        <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-primary' %>
-      <% end %>
+    <% if user_signed_in? %>
+      <span class="login-username">
+        <%= "#{current_user.first_name} #{current_user.last_name}" %>
+      </span>
+      <%= link_to 'Log out', destroy_user_session_path, {method: 'delete', class: 'btn btn-outline-primary devise-link'} %>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-primary devise-link' %>
+    <% end %>
   </div>
 </nav>

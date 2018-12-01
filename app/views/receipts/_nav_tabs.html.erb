@@ -45,4 +45,10 @@
 
   <% end %>
 
+  <% if show_action? %>
+    <li class='right'>
+      <%= link_to 'Print', '#', onclick: 'window.print()' %>
+    </li>
+  <% end %>
+
 </ul>

@@ -19,6 +19,7 @@ gem 'rails_admin', '~> 1.3'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
+gem 'rqrcode'
 
 gem 'capistrano-rails', group: :development
 

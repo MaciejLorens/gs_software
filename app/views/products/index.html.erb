@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>List of Products</h1>
+</div>
 
-<h1>Products</h1>
+<%= render partial: 'nav_tabs' %>
+<%= render partial: 'filter' %>
 
-<table>
-  <thead>
+<div class="col-sm-6 without-padding">
+  <table class="table table-condensed table-striped">
+    <thead>
     <tr>
       <th>Name</th>
       <th>Number</th>
@@ -11,9 +15,9 @@
       <th>Hidden at</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
@@ -25,9 +29,6 @@
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+    </tbody>
+  </table>
+</div>

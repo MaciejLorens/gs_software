@@ -61,6 +61,14 @@ a {
     float: left;
     font-size: 18px;
     line-height: 20px;
+    margin-right: 2rem;
+  }
+
+  .link {
+    font-size: 18px;
+    line-height: 20px;
+    padding: 0.3125rem;
+    display: inline-block;
   }
 }
 
@@ -399,4 +407,16 @@ label {
 
 .btn-save {
   margin-right: 20px;
+}
+
+.right {
+  float: right !important;
+}
+
+.left {
+  float: left !important;
+}
+
+.without-padding {
+  padding: 0;
 }

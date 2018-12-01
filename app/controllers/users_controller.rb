@@ -4,7 +4,21 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = current_company.users
+  end
+
+  # GET /users
+  # GET /users.json
+  def clients
+    @users = current_company.users.clients
+    render template: 'users/index'
+  end
+
+  # GET /users
+  # GET /users.json
+  def drivers
+    @users = current_company.users.drivers
+    render template: 'users/index'
   end
 
   # GET /users/1

@@ -1,0 +1,19 @@
+<form class="pjax-form form-inline" action="/receipt?model_name=receipt" accept-charset="UTF-8" method="get">
+  <input name="utf8" type="hidden" value="&#x2713;"/>
+  <div class='well'>
+    <span id='filters_box'></span>
+    <hr class='filters_box' style='display:none'>
+    <div class='input-group'>
+      <input class='form-control input-small' name='query' placeholder='Filter' type='search'>
+      <span class='input-group-btn'>
+          <button class='btn btn-primary' data-disable-with='<i class="icon-white icon-refresh"></i> Refresh' type='submit'>
+            <%= fa_icon 'retweet' %>
+            Refresh
+          </button>
+          <button class='btn btn-info' id='remove_filter' title='Reset filters'>
+            <%= fa_icon 'times' %>
+          </button>
+        </span>
+    </div>
+  </div>
+</form>

@@ -1,8 +1,14 @@
 <nav class="navbar fixed-top navbar-light bg-light">
   <div class="navbar-header">
     <a class="navbar-brand" href="/">
-      Gs Software
+      GS Software
     </a>
+
+    <%= link_to 'Receipts', receipts_path, class: 'link' %>
+    <%= link_to 'Products', products_path, class: 'link' %>
+    <%= link_to 'Drivers', drivers_users_path, class: 'link' %>
+    <%= link_to 'Clients', clients_users_path, class: 'link' %>
+    <%= link_to 'Companies', companies_path, class: 'link' %>
   </div>
 
   <div class='pull-right'>

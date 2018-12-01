@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users
+  resources :users do
+    get 'clients' => 'users#clients', on: :collection
+    get 'drivers' => 'users#drivers', on: :collection
+  end
+
   resources :receipts
   resources :products
 

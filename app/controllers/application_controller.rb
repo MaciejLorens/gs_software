@@ -3,9 +3,17 @@ class ApplicationController < ActionController::Base
 
   # before_action :authenticate_user!
 
+  attr_accessor :current_company
+
   protected
+
+  def current_company
+    @current_company || current_user.company
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:admin])
   end
+
+  helper_method :current_company
 end

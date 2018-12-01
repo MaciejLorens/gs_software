@@ -1,37 +1,49 @@
-<%= form_with(model: product, local: true) do |form| %>
-  <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<%= form_with(model: product, local: true, class: 'form-horizontal denser') do |form| %>
 
-      <ul>
-      <% product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="fieldset">
+    <% if product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(product.errors.count, "error") %> prohibited this
+          product from being saved:</h2>
+
+        <ul>
+          <% product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group control-group">
+      <%= form.label :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :name, class: 'form-control' %>
+        <span class="help-block">Required</span>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="form-group control-group">
+      <%= form.label :number, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :number, class: 'form-control' %>
+        <span class="help-block">Required</span>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div>
+    <div class="form-group control-group">
+      <div class='col-sm-2'>
+      </div>
+      <div class='col-sm-8'>
+        <%= form.button :submit, class: 'btn btn-primary btn-save' do %>
+          <%= fa_icon('check', text: 'Save') %>
+        <% end %>
 
-  <div class="field">
-    <%= form.label :hidden %>
-    <%= form.check_box :hidden %>
-  </div>
+        <button class='btn btn-default  ' data-disable-with='Cancel' formnovalidate name='_continue' type='submit'>
+          <%= fa_icon 'times' %>
+          Cancel
+        </button>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :hidden_at %>
-    <%= form.datetime_select :hidden_at %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

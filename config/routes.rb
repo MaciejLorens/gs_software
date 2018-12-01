@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'clients' => 'users#clients', on: :collection
-    get 'drivers' => 'users#drivers', on: :collection
   end
 
   resources :receipts
   resources :products
+  resources :drivers
 
   root to: 'receipts#index'
 

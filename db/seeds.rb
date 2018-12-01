@@ -10,7 +10,7 @@ User.create(
   email: "maciej.lorens@gmail.com",
   password: '1234567890',
   password_confirmation: '1234567890',
-  role: 'admin',
+  role: 'super_admin',
   company_id: Company.all.to_a.sample.id
 )
 
@@ -45,13 +45,9 @@ end
 7.times do |index|
   company = Company.all.to_a.sample
 
-  User.create(
+  Driver.create(
     first_name: "first_name_#{index}",
     last_name: "last_name_#{index}",
-    email: "driver#{index}@gs.com",
-    password: '1234567890',
-    password_confirmation: '1234567890',
-    role: 'driver',
     company_id: company.id
   )
 end
@@ -69,8 +65,8 @@ end
 50.times do |index|
   company = Company.all.to_a.sample
   product = company.products.sample
-  user = (company.users.clients + company.users.admins).sample
-  driver = company.users.drivers.sample
+  user = (company.users.clients + company.users.admins + company.users.super_admins).sample
+  driver = company.drivers.sample
 
   Receipt.create(
     number: "receipt_#{index}",

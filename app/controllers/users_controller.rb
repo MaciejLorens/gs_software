@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize_admin
+
   before_action :set_user, only: [:show, :destroy]
 
   # GET /users
@@ -11,13 +13,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def clients
     @users = current_company.users.clients
-    render template: 'users/index'
-  end
-
-  # GET /users
-  # GET /users.json
-  def drivers
-    @users = current_company.users.drivers
     render template: 'users/index'
   end
 

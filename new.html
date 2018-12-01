@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+  <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+  <meta content='width=device-width, initial-scale=1'
+        name='viewport; charset=utf-8'>
+  <meta content='NONE,NOARCHIVE' name='robots'>
+  <meta name="csrf-param" content="authenticity_token"/>
+  <meta name="csrf-token"
+        content="A6IKLt5YugX58sk0TfAJHUUf9jyy+EJlmBLPsRdr3mgh6lRfPITLd74sxXoOVxuNrWlA19umONGHOEs98NYxpg=="/>
+  <link rel="stylesheet" media="all"
+        href="/assets/rails_admin/rails_admin.self-b41805e664a6115d7e9b2f1686cef4e89fc22b18579f3b8c3cc86ae93d669002.css?body=1"/>
+  <script
+      src="/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1"></script>
+  <script
+      src="/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1"></script>
+  <script
+      src="/assets/jquery.iframe-transport.self-85655bec3dd50c2171afb2dab28ae57ef7821a2acd631498ebe4cbeb15c5d9d9.js?body=1"></script>
+  <script
+      src="/assets/jquery.remotipart.self-1b90ddc34ebd75d3e598f3c46bfd3a0a8275ef41d25b898c806b16634b0a7efa.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/version.self-c8e3d1203da26ea7efdf83c1eabb3f0ba55cb68e463f5ccf0d77bd15ce6a8e61.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/effect.self-776455da1682afff3a4974146aa96ca840597b879ed3797af0604063527443c6.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/ie.self-163eb039dcb1e0c3471b7d91386eabb8753da6906e84824c019f9ff56bdb83a6.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/widget.self-fca20bcec06d192f97cffa6e734e24360e227237b8ae7d7e7e60754df7d5444f.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/widgets/mouse.self-f0790a202dcf54fab051e71b042335d5346f9cceb0f645223c1dab93f349a04b.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/data.self-2067c82e6fe39a9cba5623206a5dc28d5c60d26b95cd100855b78cacf72865b8.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/scroll-parent.self-38e26a71a450a29fb63425e8f589a7046862f927eb0a1dbf6a6c44da05196d2e.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/widgets/sortable.self-6e5e1f07a29b5a89ec1d359363d2800904e3ae548a38ab2f8eded36746d1adbe.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/keycode.self-ad63cd20acf49dd333bbbc537454d7d475bd610eb5b88de0dca009f0c3d314b1.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/position.self-1b49c8c521e67a4a88bfdad6b4d944d33686d25009a0e40a1e170acdd7b6962a.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/safe-active-element.self-a1f1a1a7dae3269ce03f6fffb2dcc9b4a7490f5d546c65d54417bec3be24b668.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/unique-id.self-66e85ac85cd0b6b8b1bb89369fc65f608f716869dc0930862a8d421a57a9580a.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/widgets/menu.self-0730fe713007bd93e6db569352a20ed92448299505ff6f525bc0dc6dd488254e.js?body=1"></script>
+  <script
+      src="/assets/jquery-ui/widgets/autocomplete.self-6a89d7a43741ec810ef95de143a7c0297e2e4368ebecff64493ebb7a9ac3a524.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/jquery-ui.self-3f8fa3a4eff6d32dd25b59d951c902a2563296f5b25175358b0b5f338bed3965.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/moment-with-locales.self-c29e385ac561ac8d380cf9a68428251c3dd6b6f0f05f6114c6ae7e8114678db8.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/jquery.colorpicker.self-65a540a6a8e61569a39a37bd1456543ae5e5bbe48868247372bed40a1dff2bcf.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/ra.filter-box.self-c07506bf70bc377afbfafd7208386be8a8790cc32ea6a65331b4cf4ff4e01fbe.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/ra.filtering-multiselect.self-4a61ba02ba612d999ddad10d3b04875e472222ca4c35055010ac3dc6b197ff61.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/ra.filtering-select.self-417b328d7414c32ffd8dd67544e6c07b8791e2d062d7e3f6241767a1f1f04afe.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/ra.remote-form.self-6ee31242b35c47eae247621696152697683860be737fcb9fc7705305736c9370.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/jquery.pjax.self-aa02343d5b755c77fd76db8b2d2864cf2aebdba056b56e74b3b91f2e65207444.js?body=1"></script>
+  <script
+      src="/assets/jquery_nested_form.self-d38045d10ebdd28aac44152cb451796232091957b86b47bedad1ab171a3a12cd.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/ra.nested-form-hooks.self-53f400a47e3ece2d820f34e4a9834b229c191801c55619003453eb45c864db04.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/ra.i18n.self-c64717c7bc1f87b9ab7325e689a1fb062e1c354770b5454212f0a27f23b083b2.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap-typeahead.self-2621ced336904d375bef144d46edd9d304889e09c6559d64df325bbd10f4ce8a.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/ra.widgets.self-f4d6f77845aa8cc3cde219f2e15ae24eca39c382441c9bfb515974e946b52465.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/ui.self-5f1671365225e7918e5bf4cb99fc38b189e81884fb859682f79a683f41ee19b7.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/custom/ui.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1"></script>
+  <script
+      src="/assets/rails_admin/rails_admin.self-49845c4836a1476d214788cff889c08d33fa1db30f8989214d2d7f81ef885e67.js?body=1"></script>
+</head>
+<body class='rails_admin'>
+<div
+    data-i18n-options='{&quot;true&quot;:true,&quot;false&quot;:false,&quot;is_present&quot;:&quot;Is present&quot;,&quot;is_blank&quot;:&quot;Is blank&quot;,&quot;date&quot;:&quot;Date ...&quot;,&quot;between_and_&quot;:&quot;Between ... and ...&quot;,&quot;today&quot;:&quot;Today&quot;,&quot;yesterday&quot;:&quot;Yesterday&quot;,&quot;this_week&quot;:&quot;This week&quot;,&quot;last_week&quot;:&quot;Last week&quot;,&quot;number&quot;:&quot;Number ...&quot;,&quot;contains&quot;:&quot;Contains&quot;,&quot;is_exactly&quot;:&quot;Is exactly&quot;,&quot;starts_with&quot;:&quot;Starts with&quot;,&quot;ends_with&quot;:&quot;Ends with&quot;,&quot;too_many_objects&quot;:&quot;Too many objects, use search box above&quot;,&quot;no_objects&quot;:&quot;No objects found&quot;}'
+    id='admin-js'></div>
+<script>
+  RailsAdmin.I18n.init('en', document.getElementById("admin-js").dataset.i18nOptions);
+</script>
+<div class='label label-warning' id='loading'
+     style='display:none; position:fixed; right:20px; bottom:20px; z-index:100000'>
+  Loading...
+</div>
+<nav class='navbar navbar-default navbar-fixed-top'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <button class='navbar-toggle collapsed'
+              data-target='#secondary-navigation' data-toggle='collapse'
+              type='button'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <a class='navbar-brand pjax' href='/admin/'>
+        Gs Software
+        <small>Admin</small>
+      </a>
+    </div>
+    <div class='collapse navbar-collapse' id='secondary-navigation'>
+      <ul class='nav navbar-nav navbar-right root_links'>
+        <li class='dashboard_root_link'><a class="pjax"
+                                           href="/admin/">Dashboard</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+</nav>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-sm-3 col-md-2 sidebar-nav'>
+      <ul class='nav nav-pills nav-stacked'>
+        <li class='dropdown-header'>Navigation</li>
+        <li data-model="company"><a class="pjax"
+                                    href="http://localhost:3000/admin/company">Companies</a>
+        </li>
+        <li data-model="product"><a class="pjax"
+                                    href="http://localhost:3000/admin/product">Products</a>
+        </li>
+        <li data-model="receipt"><a class="pjax"
+                                    href="http://localhost:3000/admin/receipt">Receipts</a>
+        </li>
+        <li data-model="user"><a class="pjax"
+                                 href="http://localhost:3000/admin/user">Users</a>
+        </li>
+      </ul>
+      <ul class='nav nav-pills nav-stacked'></ul>
+
+    </div>
+    <div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2'>
+      <div class='content' data-pjax-container>
+        <script>
+          $('.nav.nav-pills li.active').removeClass('active');
+          $('.nav.nav-pills li[data-model="receipt"]').addClass('active');
+        </script>
+        <title>Receipt | Gs Software Admin</title>
+        <div class='page-header'>
+          <h1>New Receipt</h1>
+        </div>
+        <ol class="breadcrumb">
+          <li class="false"><a class="pjax" href="http://localhost:3000/admin/">Dashboard</a>
+          </li>
+          <li class="false"><a class="pjax"
+                               href="http://localhost:3000/admin/receipt">Receipts</a>
+          </li>
+          <li class="active">New</li>
+        </ol>
+        <ul class='nav nav-tabs'>
+
+          <li title="" rel="" class="icon index_collection_link ">
+            <a class="pjax" href="http://localhost:3000/admin/receipt">
+              <i class="icon-th-list"></i>
+              <span>List</span>
+            </a>
+          </li>
+
+          <li title="" rel="" class="icon new_collection_link active">
+            <a class="pjax" href="http://localhost:3000/admin/receipt/new">
+              <i class="icon-plus"></i>
+              <span>Add new</span>
+            </a>
+          </li>
+
+          <li title="" rel="" class="icon export_collection_link ">
+            <a class="pjax" href="http://localhost:3000/admin/receipt/export">
+              <i class="icon-share"></i>
+              <span>Export</span>
+            </a>
+          </li>
+
+
+        </ul>
+        <form class="form-horizontal denser" id="new_receipt"
+              data-title="New Receipt" enctype="multipart/form-data"
+              action="/admin/receipt/new" accept-charset="UTF-8" method="post">
+          <input name="utf8" type="hidden" value="&#x2713;"/><input
+            type="hidden" name="authenticity_token"
+            value="L8/azDKHjM0pS23kY2hFhQvcE2o6r/sq0/6Z4azxkgW2RqvvxJ3WFPHYrbbO28ncxqna+g/OwTcONL9lbUtARQ=="/><span
+            style="display:none" class="object-infos" data-model-label="Receipt"
+            data-object-label="Receipt (new)"></span>
+          <fieldset>
+            <legend style="display:none"><i class="icon-chevron-down"></i> Basic
+              info
+            </legend>
+            <div class="form-group control-group string_type number_field "
+                 id="receipt_number_field"><label class="col-sm-2 control-label"
+                                                  for="receipt_number">Number</label>
+              <div class="col-sm-10 controls"><input class="form-control"
+                                                     maxlength="255" size="50"
+                                                     type="text"
+                                                     name="receipt[number]"
+                                                     id="receipt_number"/>
+                <span class="help-block">Optional. Length up to 255.</span>
+              </div>
+            </div>
+            <div class="form-group control-group string_type car_number_field "
+                 id="receipt_car_number_field"><label
+                class="col-sm-2 control-label" for="receipt_car_number">Car
+              number</label>
+              <div class="col-sm-10 controls"><input class="form-control"
+                                                     maxlength="255" size="50"
+                                                     type="text"
+                                                     name="receipt[car_number]"
+                                                     id="receipt_car_number"/>
+                <span class="help-block">Optional. Length up to 255.</span>
+              </div>
+            </div>
+            <div
+                class="form-group control-group string_type semitrailer_number_field "
+                id="receipt_semitrailer_number_field"><label
+                class="col-sm-2 control-label" for="receipt_semitrailer_number">Semitrailer
+              number</label>
+              <div class="col-sm-10 controls"><input class="form-control"
+                                                     maxlength="255" size="50"
+                                                     type="text"
+                                                     name="receipt[semitrailer_number]"
+                                                     id="receipt_semitrailer_number"/>
+                <span class="help-block">Optional. Length up to 255.</span>
+              </div>
+            </div>
+            <div
+                class="form-group control-group datetime_type expiration_from_field "
+                id="receipt_expiration_from_field"><label
+                class="col-sm-2 control-label" for="receipt_expiration_from">Expiration
+              from</label>
+              <div class="col-sm-10 controls">
+                <div class='form-inline'>
+                  <div class='input-group'>
+                    <input value="" class="form-control"
+                           data-datetimepicker="true"
+                           data-options="{&quot;showTodayButton&quot;:true,&quot;format&quot;:&quot;MMMM DD, YYYY HH:mm&quot;}"
+                           size="22" type="text" name="receipt[expiration_from]"
+                           id="receipt_expiration_from"/>
+                    <label class="input-group-addon"
+                           for="receipt_expiration_from"><i
+                        class='fa fa-fw fa-calendar'></i>
+                    </label></div>
+                </div>
+                <span class="help-block">Optional. </span></div>
+            </div>
+            <div
+                class="form-group control-group datetime_type expiration_to_field "
+                id="receipt_expiration_to_field"><label
+                class="col-sm-2 control-label" for="receipt_expiration_to">Expiration
+              to</label>
+              <div class="col-sm-10 controls">
+                <div class='form-inline'>
+                  <div class='input-group'>
+                    <input value="" class="form-control"
+                           data-datetimepicker="true"
+                           data-options="{&quot;showTodayButton&quot;:true,&quot;format&quot;:&quot;MMMM DD, YYYY HH:mm&quot;}"
+                           size="22" type="text" name="receipt[expiration_to]"
+                           id="receipt_expiration_to"/>
+                    <label class="input-group-addon"
+                           for="receipt_expiration_to"><i
+                        class='fa fa-fw fa-calendar'></i>
+                    </label></div>
+                </div>
+                <span class="help-block">Optional. </span></div>
+            </div>
+            <div class="form-group control-group boolean_type hidden_field "
+                 id="receipt_hidden_field"><label class="col-sm-2 control-label"
+                                                  for="receipt_hidden">Hidden</label>
+              <div class="col-sm-10 controls">
+                <div class='checkbox'>
+                  <label style='display: block;'>
+                    <input name="receipt[hidden]" type="hidden"
+                           value="0"/><input value="1" type="checkbox"
+                                             name="receipt[hidden]"
+                                             id="receipt_hidden"/>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group control-group datetime_type hidden_at_field "
+                 id="receipt_hidden_at_field"><label
+                class="col-sm-2 control-label" for="receipt_hidden_at">Hidden
+              at</label>
+              <div class="col-sm-10 controls">
+                <div class='form-inline'>
+                  <div class='input-group'>
+                    <input value="" class="form-control"
+                           data-datetimepicker="true"
+                           data-options="{&quot;showTodayButton&quot;:true,&quot;format&quot;:&quot;MMMM DD, YYYY HH:mm&quot;}"
+                           size="22" type="text" name="receipt[hidden_at]"
+                           id="receipt_hidden_at"/>
+                    <label class="input-group-addon" for="receipt_hidden_at"><i
+                        class='fa fa-fw fa-calendar'></i>
+                    </label></div>
+                </div>
+                <span class="help-block">Optional. </span></div>
+            </div>
+            <div
+                class="form-group control-group belongs_to_association_type product_field "
+                id="receipt_product_id_field"><label
+                class="col-sm-2 control-label"
+                for="receipt_product_id">Product</label>
+              <div class="col-sm-10 controls"><select
+                  data-filteringselect="true"
+                  data-options="{&quot;xhr&quot;:false,&quot;remote_source&quot;:&quot;/admin/product?associated_collection=product\u0026compact=true\u0026current_action=create\u0026source_abstract_model=receipt&quot;}"
+                  placeholder="Search" required="required"
+                  name="receipt[product_id]" id="receipt_product_id">
+                <option value=""></option>
+                <option value="10">product_name_9</option>
+                <option value="9">product_name_8</option>
+                <option value="8">product_name_7</option>
+                <option value="7">product_name_6</option>
+                <option value="6">product_name_5</option>
+                <option value="5">product_name_4</option>
+                <option value="4">product_name_3</option>
+                <option value="3">product_name_2</option>
+                <option value="2">product_name_1</option>
+                <option value="1">product_name_0</option>
+              </select>
+                <a data-link="/admin/product/new?modal=true"
+                   class="btn btn-info create" style="margin-left:10px"
+                   href="#"><i class="icon-plus icon-white"></i> Add a new
+                  Product</a>
+                <a data-link="/admin/product/__ID__/edit?modal=true"
+                   class="btn btn-info update disabled" style="margin-left:10px"
+                   href="#"><i class="icon-pencil icon-white"></i> Edit this
+                  Product</a>
+                <span class="help-block">Required. </span></div>
+            </div>
+            <div
+                class="form-group control-group belongs_to_association_type driver_field "
+                id="receipt_driver_id_field"><label
+                class="col-sm-2 control-label"
+                for="receipt_driver_id">Driver</label>
+              <div class="col-sm-10 controls"><select
+                  data-filteringselect="true"
+                  data-options="{&quot;xhr&quot;:false,&quot;remote_source&quot;:&quot;/admin/user?associated_collection=driver\u0026compact=true\u0026current_action=create\u0026source_abstract_model=receipt&quot;}"
+                  placeholder="Search" required="required"
+                  name="receipt[driver_id]" id="receipt_driver_id">
+                <option value=""></option>
+                <option value="29">User #29</option>
+                <option value="28">User #28</option>
+                <option value="27">User #27</option>
+                <option value="26">User #26</option>
+                <option value="25">User #25</option>
+                <option value="24">User #24</option>
+                <option value="23">User #23</option>
+                <option value="22">User #22</option>
+                <option value="21">User #21</option>
+                <option value="20">User #20</option>
+                <option value="19">User #19</option>
+                <option value="18">User #18</option>
+                <option value="17">User #17</option>
+                <option value="16">User #16</option>
+                <option value="15">User #15</option>
+                <option value="14">User #14</option>
+                <option value="13">User #13</option>
+                <option value="12">User #12</option>
+                <option value="11">User #11</option>
+                <option value="10">User #10</option>
+                <option value="9">User #9</option>
+                <option value="8">User #8</option>
+                <option value="7">User #7</option>
+                <option value="6">User #6</option>
+                <option value="5">User #5</option>
+                <option value="4">User #4</option>
+                <option value="3">User #3</option>
+                <option value="2">User #2</option>
+                <option value="1">User #1</option>
+              </select>
+                <a data-link="/admin/user/new?modal=true"
+                   class="btn btn-info create" style="margin-left:10px"
+                   href="#"><i class="icon-plus icon-white"></i> Add a new User</a>
+                <a data-link="/admin/user/__ID__/edit?modal=true"
+                   class="btn btn-info update disabled" style="margin-left:10px"
+                   href="#"><i class="icon-pencil icon-white"></i> Edit this
+                  User</a>
+                <span class="help-block">Required. </span></div>
+            </div>
+            <div
+                class="form-group control-group belongs_to_association_type user_field "
+                id="receipt_user_id_field"><label class="col-sm-2 control-label"
+                                                  for="receipt_user_id">User</label>
+              <div class="col-sm-10 controls"><select
+                  data-filteringselect="true"
+                  data-options="{&quot;xhr&quot;:false,&quot;remote_source&quot;:&quot;/admin/user?associated_collection=user\u0026compact=true\u0026current_action=create\u0026source_abstract_model=receipt&quot;}"
+                  placeholder="Search" required="required"
+                  name="receipt[user_id]" id="receipt_user_id">
+                <option value=""></option>
+                <option value="29">User #29</option>
+                <option value="28">User #28</option>
+                <option value="27">User #27</option>
+                <option value="26">User #26</option>
+                <option value="25">User #25</option>
+                <option value="24">User #24</option>
+                <option value="23">User #23</option>
+                <option value="22">User #22</option>
+                <option value="21">User #21</option>
+                <option value="20">User #20</option>
+                <option value="19">User #19</option>
+                <option value="18">User #18</option>
+                <option value="17">User #17</option>
+                <option value="16">User #16</option>
+                <option value="15">User #15</option>
+                <option value="14">User #14</option>
+                <option value="13">User #13</option>
+                <option value="12">User #12</option>
+                <option value="11">User #11</option>
+                <option value="10">User #10</option>
+                <option value="9">User #9</option>
+                <option value="8">User #8</option>
+                <option value="7">User #7</option>
+                <option value="6">User #6</option>
+                <option value="5">User #5</option>
+                <option value="4">User #4</option>
+                <option value="3">User #3</option>
+                <option value="2">User #2</option>
+                <option value="1">User #1</option>
+              </select>
+                <a data-link="/admin/user/new?modal=true"
+                   class="btn btn-info create" style="margin-left:10px"
+                   href="#"><i class="icon-plus icon-white"></i> Add a new User</a>
+                <a data-link="/admin/user/__ID__/edit?modal=true"
+                   class="btn btn-info update disabled" style="margin-left:10px"
+                   href="#"><i class="icon-pencil icon-white"></i> Edit this
+                  User</a>
+                <span class="help-block">Required. </span></div>
+            </div>
+            <div
+                class="form-group control-group belongs_to_association_type company_field "
+                id="receipt_company_id_field"><label
+                class="col-sm-2 control-label"
+                for="receipt_company_id">Company</label>
+              <div class="col-sm-10 controls"><select
+                  data-filteringselect="true"
+                  data-options="{&quot;xhr&quot;:false,&quot;remote_source&quot;:&quot;/admin/company?associated_collection=company\u0026compact=true\u0026current_action=create\u0026source_abstract_model=receipt&quot;}"
+                  placeholder="Search" required="required"
+                  name="receipt[company_id]" id="receipt_company_id">
+                <option value=""></option>
+                <option value="3">company_2</option>
+                <option value="2">company_1</option>
+                <option value="1">company_0</option>
+              </select>
+                <a data-link="/admin/company/new?modal=true"
+                   class="btn btn-info create" style="margin-left:10px"
+                   href="#"><i class="icon-plus icon-white"></i> Add a new
+                  Company</a>
+                <a data-link="/admin/company/__ID__/edit?modal=true"
+                   class="btn btn-info update disabled" style="margin-left:10px"
+                   href="#"><i class="icon-pencil icon-white"></i> Edit this
+                  Company</a>
+                <span class="help-block">Required. </span></div>
+            </div>
+          </fieldset>
+          <div class='form-group form-actions'>
+            <div class='col-sm-offset-2 col-sm-10'>
+              <input name='return_to' type='hidden'>
+              <button class='btn btn-primary' data-disable-with='Save'
+                      name='_save' type='submit'>
+                <i class='icon-white icon-ok'></i>
+                Save
+              </button>
+              <span class='extra_buttons'>
+<button class='btn btn-info' data-disable-with='Save and add another'
+        name='_add_another' type='submit'>
+Save and add another
+</button>
+<button class='btn btn-info' data-disable-with='Save and edit' name='_add_edit'
+        type='submit'>
+Save and edit
+</button>
+<button class='btn btn-default' data-disable-with='Cancel' formnovalidate
+        name='_continue' type='submit'>
+<i class='icon-remove'></i>
+Cancel
+</button>
+</span>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

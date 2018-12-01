@@ -227,7 +227,7 @@ hr {
 
 .form-control {
   display: block;
-  width: 100%;
+  width: 431px;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
@@ -292,27 +292,111 @@ hr {
   padding: 0 5px
 }
 
+.form-horizontal.denser {
+  margin-top: 30px;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+
+body.rails_admin .form-horizontal.denser legend {
+  margin-bottom: 30px;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: inherit;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  //margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-horizontal .form-group {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.form-horizontal .control-label {
+  text-align: right;
+  margin-bottom: 0;
+  padding-top: 7px;
+}
+
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+  float: left;
+}
+
+.form-inline label {
+  display: block;
+}
 
 
+.input-group-addon {
+  float: left;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #555555;
+  text-align: center;
+  background-color: #eeeeee;
+  border: 1px solid #ccc;
+  border-radius: 0 4px 4px 0;
+  height: 34px;
+  margin-top: 1px;
+  margin-left: -1px;
+}
 
+.fa-fw {
+  margin-top: 2px;
+}
 
+.date-picker {
+  display: inline-block;
 
+  &:nth-child(1) {
+    width: 80px;
+  }
 
+  &:nth-child(2) {
+    width: 115px;
+  }
 
+  &:nth-child(3) {
+    width: 65px;
+  }
 
+  &:nth-child(4) {
+    width: 65px;
+  }
 
+  &:nth-child(5) {
+    width: 65px;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.btn-save {
+  margin-right: 20px;
+}

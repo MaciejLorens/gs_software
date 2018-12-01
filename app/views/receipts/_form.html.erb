@@ -1,62 +1,241 @@
-<%= form_with(model: receipt, local: true) do |form| %>
-  <% if receipt.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(receipt.errors.count, "error") %> prohibited this receipt from being saved:</h2>
+<%= form_with(model: receipt, local: true, class: 'form-horizontal denser') do |form| %>
 
-      <ul>
-      <% receipt.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="fieldset">
+    <% if receipt.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(receipt.errors.count, "error") %> prohibited this
+          receipt from being saved:</h2>
+
+        <ul>
+          <% receipt.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group control-group">
+      <%= form.label :car_number, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :car_number, class: 'form-control' %>
+        <span class="help-block">Required</span>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div>
+    <div class="form-group control-group">
+      <%= form.label :semitrailer_number, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :semitrailer_number, class: 'form-control' %>
+        <span class="help-block">Required</span>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :car_number %>
-    <%= form.text_field :car_number %>
-  </div>
+    <div class="form-group control-group">
+      <%= form.label :expiration_from, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.datetime_select :expiration_from, {}, class: 'form-control date-picker' %>
+        <span class="help-block">Required</span>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :semitrailer_number %>
-    <%= form.text_field :semitrailer_number %>
-  </div>
+    <div class="form-group control-group">
+      <%= form.label :expiration_to, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.datetime_select :expiration_to, {}, class: 'form-control date-picker' %>
+        <span class="help-block">Required</span>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :company_id %>
-    <%= form.number_field :company_id %>
-  </div>
+    <div class="form-group control-group">
+      <%= form.label :product_id, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.number_field :product_id, class: 'form-control' %>
+        <span class="help-block">Required</span>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :product_id %>
-    <%= form.number_field :product_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :expiration_from %>
-    <%= form.datetime_select :expiration_from %>
-  </div>
+    <div class="form-group control-group">
+      <div class='col-sm-2'>
+      </div>
+      <div class='col-sm-8'>
+        <%= form.button :submit, class: 'btn btn-primary btn-save' do %>
+          <%= fa_icon('check', text: 'Save') %>
+        <% end %>
 
-  <div class="field">
-    <%= form.label :expiration_to %>
-    <%= form.datetime_select :expiration_to %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hidden %>
-    <%= form.check_box :hidden %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hidden_at %>
-    <%= form.datetime_select :hidden_at %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+        <button class='btn btn-default' data-disable-with='Cancel' formnovalidate name='_continue' type='submit'>
+          <%= fa_icon 'times' %>
+          Cancel
+        </button>
+      </div>
+    </div>
   </div>
 <% end %>
+
+
+<form class="form-horizontal denser" id="new_receipt"
+      data-title="New Receipt" enctype="multipart/form-data"
+      action="/admin/receipt/new" accept-charset="UTF-8" method="post">
+
+  <fieldset>
+    <div class="form-group control-group string_type car_number_field "
+         id="receipt_car_number_field">
+      <label class="col-sm-2 control-label" for="receipt_car_number">
+        Car number
+      </label>
+      <div class="col-sm-10 controls">
+        <input class="form-control"
+               maxlength="255" size="50"
+               type="text"
+               name="receipt[car_number]"
+               id="receipt_car_number"/>
+        <span class="help-block">Optional. Length up to 255.</span>
+      </div>
+    </div>
+
+    <div
+      class="form-group control-group string_type semitrailer_number_field "
+      id="receipt_semitrailer_number_field"><label
+      class="col-sm-2 control-label" for="receipt_semitrailer_number">Semitrailer
+      number</label>
+      <div class="col-sm-10 controls"><input class="form-control"
+                                             maxlength="255" size="50"
+                                             type="text"
+                                             name="receipt[semitrailer_number]"
+                                             id="receipt_semitrailer_number"/>
+        <span class="help-block">Optional. Length up to 255.</span>
+      </div>
+    </div>
+
+    <div
+      class="form-group control-group datetime_type expiration_from_field "
+      id="receipt_expiration_from_field"><label
+      class="col-sm-2 control-label" for="receipt_expiration_from">Expiration
+      from</label>
+      <div class="col-sm-10 controls">
+        <div class='form-inline'>
+          <div class='input-group'>
+            <input value="" class="form-control pull-left"
+                   data-datetimepicker="true"
+                   data-options="{&quot;showTodayButton&quot;:true,&quot;format&quot;:&quot;MMMM DD, YYYY HH:mm&quot;}"
+                   size="22" type="text" name="receipt[expiration_from]"
+                   id="receipt_expiration_from"/>
+            <label class="input-group-addon"
+                   for="receipt_expiration_from"><i
+              class='fa fa-fw fa-calendar'></i>
+            </label></div>
+        </div>
+        <span class="help-block">Optional. </span></div>
+    </div>
+
+    <div
+      class="form-group control-group datetime_type expiration_to_field "
+      id="receipt_expiration_to_field"><label
+      class="col-sm-2 control-label" for="receipt_expiration_to">Expiration
+      to</label>
+      <div class="col-sm-10 controls">
+        <div class='form-inline'>
+          <div class='input-group'>
+            <input value="" class="form-control pull-left"
+                   data-datetimepicker="true"
+                   data-options="{&quot;showTodayButton&quot;:true,&quot;format&quot;:&quot;MMMM DD, YYYY HH:mm&quot;}"
+                   size="22" type="text" name="receipt[expiration_to]"
+                   id="receipt_expiration_to"/>
+            <label class="input-group-addon"
+                   for="receipt_expiration_to"><i
+              class='fa fa-fw fa-calendar'></i>
+            </label></div>
+        </div>
+        <span class="help-block">Optional. </span></div>
+    </div>
+    <div
+      class="form-group control-group belongs_to_association_type product_field "
+      id="receipt_product_id_field"><label
+      class="col-sm-2 control-label"
+      for="receipt_product_id">Product</label>
+      <div class="col-sm-10 controls"><select
+        data-filteringselect="true"
+        data-options="{&quot;xhr&quot;:false,&quot;remote_source&quot;:&quot;/admin/product?associated_collection=product\u0026compact=true\u0026current_action=create\u0026source_abstract_model=receipt&quot;}"
+        placeholder="Search" required="required"
+        name="receipt[product_id]" id="receipt_product_id">
+        <option value=""></option>
+        <option value="10">product_name_9</option>
+        <option value="9">product_name_8</option>
+        <option value="8">product_name_7</option>
+        <option value="7">product_name_6</option>
+        <option value="6">product_name_5</option>
+        <option value="5">product_name_4</option>
+        <option value="4">product_name_3</option>
+        <option value="3">product_name_2</option>
+        <option value="2">product_name_1</option>
+        <option value="1">product_name_0</option>
+      </select>
+
+        <span class="help-block">Required. </span></div>
+    </div>
+    <div
+      class="form-group control-group belongs_to_association_type driver_field "
+      id="receipt_driver_id_field"><label
+      class="col-sm-2 control-label"
+      for="receipt_driver_id">Driver</label>
+      <div class="col-sm-10 controls"><select
+        data-filteringselect="true"
+        data-options="{&quot;xhr&quot;:false,&quot;remote_source&quot;:&quot;/admin/user?associated_collection=driver\u0026compact=true\u0026current_action=create\u0026source_abstract_model=receipt&quot;}"
+        placeholder="Search" required="required"
+        name="receipt[driver_id]" id="receipt_driver_id">
+        <option value=""></option>
+        <option value="29">User #29</option>
+        <option value="28">User #28</option>
+        <option value="27">User #27</option>
+        <option value="26">User #26</option>
+        <option value="25">User #25</option>
+        <option value="24">User #24</option>
+        <option value="23">User #23</option>
+        <option value="22">User #22</option>
+        <option value="21">User #21</option>
+        <option value="20">User #20</option>
+        <option value="19">User #19</option>
+        <option value="18">User #18</option>
+        <option value="17">User #17</option>
+        <option value="16">User #16</option>
+        <option value="15">User #15</option>
+        <option value="14">User #14</option>
+        <option value="13">User #13</option>
+        <option value="12">User #12</option>
+        <option value="11">User #11</option>
+        <option value="10">User #10</option>
+        <option value="9">User #9</option>
+        <option value="8">User #8</option>
+        <option value="7">User #7</option>
+        <option value="6">User #6</option>
+        <option value="5">User #5</option>
+        <option value="4">User #4</option>
+        <option value="3">User #3</option>
+        <option value="2">User #2</option>
+        <option value="1">User #1</option>
+      </select>
+        <span class="help-block">Required. </span></div>
+    </div>
+
+  </fieldset>
+  <div class='form-group form-actions'>
+    <div class='col-sm-2'>
+    </div>
+    <div class='col-sm-offset-2 col-sm-10'>
+      <input name='return_to' type='hidden'>
+      <button class='btn btn-primary' data-disable-with='Save' name='_save' type='submit'>
+        <i class='icon-white icon-ok'></i>
+        Save
+      </button>
+
+      <button class='btn btn-default' data-disable-with='Cancel' formnovalidate name='_continue' type='submit'>
+        <i class='icon-remove'></i>
+        Cancel
+      </button>
+    </div>
+  </div>
+
+</form>
+<br>
+<br>
+<br>

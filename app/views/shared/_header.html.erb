@@ -7,7 +7,7 @@
     <% if admin? %>
       <%= link_to 'Products', products_path, class: 'link' %>
       <%= link_to 'Drivers', drivers_path, class: 'link' %>
-      <%= link_to 'Clients', clients_users_path, class: 'link' %>
+      <%= link_to 'Clients', users_path, class: 'link' %>
     <% end %>
 
     <% if super_admin? %>

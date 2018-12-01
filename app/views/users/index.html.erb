@@ -1,27 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>List of Clients</h1>
+</div>
 
-<h1>Users</h1>
+<%= render partial: 'nav_tabs' %>
+<%= render partial: 'filter' %>
 
-<table>
-  <thead>
+<div class="col-sm-6 without-padding">
+  <table class="table table-condensed table-striped">
+    <thead>
     <tr>
+      <th>Email</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Created at</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= user.email %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.created_at %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<td><%= link_to 'Logout', destroy_user_session_path, method: :delete %></td>
-
-<br>
-
-<%= link_to 'New User', new_user_registration_path %>
+    </tbody>
+  </table>
+</div>

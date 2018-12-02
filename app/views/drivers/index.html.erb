@@ -12,6 +12,8 @@
     <tr>
       <th>First name</th>
       <th>Last name</th>
+      <th>Updated at</th>
+      <th>Created at</th>
       <th>Actions</th>
     </tr>
     </thead>
@@ -21,6 +23,8 @@
       <tr>
         <td><%= driver.first_name %></td>
         <td><%= driver.last_name %></td>
+        <td><%= date_format(driver.updated_at) %></td>
+        <td><%= date_format(driver.created_at) %></td>
         <td class="action-links">
           <%= link_to fa_icon('pencil', text: 'Edit'), edit_driver_path(driver), class: 'action-link' %>
           <%= link_to fa_icon('times', text: 'Delete'), driver, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>

@@ -2,7 +2,9 @@
   <div class="navbar-header">
     <%= link_to 'GS Software', root_path, class: 'navbar-brand' %>
 
-    <%= link_to 'Receipts', receipts_path, class: 'link' %>
+    <% if user_signed_in? %>
+      <%= link_to 'Receipts', receipts_path, class: 'link' %>
+    <% end %>
 
     <% if admin? %>
       <%= link_to 'Products', products_path, class: 'link' %>

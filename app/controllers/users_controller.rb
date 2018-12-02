@@ -4,10 +4,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = current_company.users.clients
-  end
-
-  def show
+    @users = current_company.users.clients.visible
+               .order(created_at: :desc)
   end
 
   def new
@@ -18,12 +16,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = current_company.users.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to users_path, notice: 'User was successfully created.' }
+        format.json { render :index, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -34,8 +32,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+        format.json { render :index, status: :ok, location: @user }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -44,7 +42,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    @user.hide!
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
@@ -58,7 +57,13 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.fetch(:user, {})
+    params.require(:user).permit(
+      :email,
+      :first_name,
+      :last_name,
+      :password,
+      :password_confirmation
+    )
   end
 
 end

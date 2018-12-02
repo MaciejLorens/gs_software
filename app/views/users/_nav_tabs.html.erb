@@ -8,6 +8,12 @@
     <%= link_to fa_icon('plus', text: 'Add new'), new_user_path %>
   </li>
 
+  <% if edit_action? %>
+    <li class="icon new_collection_link <%= edit_active? %>">
+      <%= link_to fa_icon('pencil', text: 'Edit'), '#' %>
+    </li>
+  <% end %>
+
   <% if index_action? %>
 
     <li class="dropdown right">

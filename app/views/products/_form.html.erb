@@ -31,17 +31,13 @@
     </div>
 
     <div class="form-group control-group">
-      <div class='col-sm-2'>
-      </div>
+      <div class='col-sm-2'></div>
       <div class='col-sm-8'>
         <%= form.button :submit, class: 'btn btn-primary btn-save' do %>
           <%= fa_icon('check', text: 'Save') %>
         <% end %>
 
-        <button class='btn btn-default  ' data-disable-with='Cancel' formnovalidate name='_continue' type='submit'>
-          <%= fa_icon 'times' %>
-          Cancel
-        </button>
+        <%= link_to fa_icon('times', text: 'Cancel'), products_path, class: 'btn btn-secondary' %>
       </div>
     </div>
 

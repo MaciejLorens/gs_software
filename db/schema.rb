@@ -78,12 +78,15 @@ ActiveRecord::Schema.define(version: 2018_12_01_155551) do
     t.datetime "locked_at"
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
     t.string "role", default: "client", null: false
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["hidden"], name: "index_users_on_hidden"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role"], name: "index_users_on_role"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true

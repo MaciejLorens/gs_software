@@ -3,6 +3,7 @@
 </div>
 
 <%= render partial: 'nav_tabs' %>
+
 <%= render partial: 'filter' %>
 
 <div class="col-sm-6 without-padding">
@@ -12,8 +13,9 @@
       <th>Email</th>
       <th>First name</th>
       <th>Last name</th>
+      <th>Updated at</th>
       <th>Created at</th>
-      <th colspan="3"></th>
+      <th>Actions</th>
     </tr>
     </thead>
 
@@ -23,10 +25,12 @@
         <td><%= user.email %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= user.created_at %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= date_format(user.updated_at) %></td>
+        <td><%= date_format(user.created_at) %></td>
+        <td class="action-links">
+          <%= link_to fa_icon('pencil', text: 'Edit'), edit_user_path(user), class: 'action-link' %>
+          <%= link_to fa_icon('times', text: 'Delete'), user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+        </td>
       </tr>
     <% end %>
     </tbody>

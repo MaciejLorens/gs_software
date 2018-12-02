@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users
+  resources :users, except: [:create] do
+    post 'create_user' => 'users#create', on: :collection
+  end
   resources :receipts
   resources :products
   resources :drivers

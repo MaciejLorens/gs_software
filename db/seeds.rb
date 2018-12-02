@@ -36,7 +36,7 @@ end
   company = Company.all.to_a.sample
 
   User.create(
-    first_name: "first__#{index}",
+    first_name: "first_#{index}",
     last_name: "last_#{index}",
     email: "client#{index}@gs.com",
     password: '1234567890',

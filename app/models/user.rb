@@ -1,6 +1,9 @@
 class User < ApplicationRecord
 
+  include Hideable
+
   has_many :receipts
+
   belongs_to :company
 
   devise :database_authenticatable, :registerable, :recoverable,
@@ -29,4 +32,3 @@ class User < ApplicationRecord
   end
 
 end
-2

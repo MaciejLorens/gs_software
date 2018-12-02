@@ -17,12 +17,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :first_name,                     null: false, default: nil
       t.string :last_name,                      null: false, default: nil
+      t.boolean :hidden,                        null: false, default: false
+      t.datetime :hidden_at,                    null: true
       t.string :role,                           null: false, default: 'client'
       t.integer :company_id,                    null: false, default: nil
 
       t.timestamps
     end
 
+    add_index :users, :hidden,                  unique: false
     add_index :users, :unlock_token,            unique: true
     add_index :users, :email,                   unique: true
     add_index :users, :reset_password_token,    unique: true

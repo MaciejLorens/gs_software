@@ -3,6 +3,7 @@
 </div>
 
 <%= render partial: 'nav_tabs' %>
+
 <%= render partial: 'filter' %>
 
 <div class="col-sm-6 without-padding">
@@ -11,9 +12,7 @@
     <tr>
       <th>Name</th>
       <th>Number</th>
-      <th>Hidden</th>
-      <th>Hidden at</th>
-      <th colspan="3"></th>
+      <th>Actions</th>
     </tr>
     </thead>
 
@@ -22,11 +21,10 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= product.number %></td>
-        <td><%= product.hidden %></td>
-        <td><%= product.hidden_at %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="action-links">
+          <%= link_to fa_icon('pencil', text: 'Edit'), edit_product_path(product), class: 'action-link' %>
+          <%= link_to fa_icon('times', text: 'Delete'), product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+        </td>
       </tr>
     <% end %>
     </tbody>

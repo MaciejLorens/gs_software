@@ -22,7 +22,7 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       if @receipt.save
-        format.html { redirect_to @receipt, notice: 'Receipt was successfully created.' }
+        format.html { redirect_to receipts_path, notice: 'Receipt was successfully created.' }
         format.json { render :index, status: :created, location: @receipt }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class ReceiptsController < ApplicationController
   def update
     respond_to do |format|
       if @receipt.update(receipt_params)
-        format.html { redirect_to @receipt, notice: 'Receipt was successfully updated.' }
+        format.html { redirect_to receipts_path, notice: 'Receipt was successfully updated.' }
         format.json { render :index, status: :ok, location: @receipt }
       else
         format.html { render :edit }

@@ -3,6 +3,7 @@
 </div>
 
 <%= render partial: 'nav_tabs' %>
+
 <%= render partial: 'filter' %>
 
 <div class="col-sm-6 without-padding">
@@ -11,8 +12,7 @@
     <tr>
       <th>First name</th>
       <th>Last name</th>
-      <th>Company</th>
-      <th colspan="3"></th>
+      <th>Actions</th>
     </tr>
     </thead>
 
@@ -21,10 +21,10 @@
       <tr>
         <td><%= driver.first_name %></td>
         <td><%= driver.last_name %></td>
-        <td><%= driver.company_id %></td>
-        <td><%= link_to 'Show', driver %></td>
-        <td><%= link_to 'Edit', edit_driver_path(driver) %></td>
-        <td><%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="action-links">
+          <%= link_to fa_icon('pencil', text: 'Edit'), edit_driver_path(driver), class: 'action-link' %>
+          <%= link_to fa_icon('times', text: 'Delete'), driver, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+        </td>
       </tr>
     <% end %>
     </tbody>

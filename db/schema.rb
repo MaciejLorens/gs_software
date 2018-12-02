@@ -13,32 +13,37 @@
 ActiveRecord::Schema.define(version: 2018_12_01_155551) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "postcode"
-    t.string "city"
-    t.string "country"
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "postcode", null: false
+    t.string "city", null: false
+    t.string "country", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "drivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "company_id"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
+    t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_drivers_on_company_id"
+    t.index ["hidden"], name: "index_drivers_on_hidden"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "number"
-    t.boolean "hidden"
+    t.string "name", null: false
+    t.string "number", null: false
+    t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
-    t.integer "company_id"
+    t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_products_on_company_id"
+    t.index ["hidden"], name: "index_products_on_hidden"
   end
 
   create_table "receipts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,7 +52,7 @@ ActiveRecord::Schema.define(version: 2018_12_01_155551) do
     t.string "semitrailer_number", null: false
     t.datetime "expiration_from", null: false
     t.datetime "expiration_to", null: false
-    t.boolean "hidden"
+    t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.integer "product_id", null: false
     t.integer "driver_id", null: false
@@ -58,8 +63,8 @@ ActiveRecord::Schema.define(version: 2018_12_01_155551) do
     t.index ["company_id"], name: "index_receipts_on_company_id"
     t.index ["driver_id"], name: "index_receipts_on_driver_id"
     t.index ["hidden"], name: "index_receipts_on_hidden"
-    t.index ["hidden_at"], name: "index_receipts_on_hidden_at"
     t.index ["product_id"], name: "index_receipts_on_product_id"
+    t.index ["user_id"], name: "index_receipts_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

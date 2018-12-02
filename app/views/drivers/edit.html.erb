@@ -1,6 +1,7 @@
-<h1>Editing Driver</h1>
+<div class="page-header">
+  <h1>Edit Driver <%= @driver.full_name %></h1>
+</div>
+
+<%= render partial: 'nav_tabs' %>
 
 <%= render 'form', driver: @driver %>
-
-<%= link_to 'Show', @driver %> |
-<%= link_to 'Back', drivers_path %>

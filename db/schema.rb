@@ -18,8 +18,11 @@ ActiveRecord::Schema.define(version: 2018_12_01_155551) do
     t.string "postcode", null: false
     t.string "city", null: false
     t.string "country", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hidden"], name: "index_companies_on_hidden"
   end
 
   create_table "drivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

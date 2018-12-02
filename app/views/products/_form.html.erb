@@ -1,6 +1,7 @@
 <%= form_with(model: product, local: true, class: 'form-horizontal denser') do |form| %>
 
   <div class="fieldset">
+
     <% if product.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(product.errors.count, "error") %> prohibited this
@@ -42,4 +43,5 @@
     </div>
 
   </div>
+
 <% end %>

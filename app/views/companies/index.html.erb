@@ -3,17 +3,20 @@
 </div>
 
 <%= render partial: 'nav_tabs' %>
+
 <%= render partial: 'filter' %>
 
-<div class="col-sm-6 without-padding">
+<div class="col-sm-8 without-padding">
   <table class="table table-condensed table-striped">
     <tr>
       <th>Name</th>
-      <th>Street</th>
+      <th>Address</th>
       <th>Postcode</th>
       <th>City</th>
       <th>Country</th>
-      <th colspan="3"></th>
+      <th>Updated at</th>
+      <th>Created at</th>
+      <th>Actions</th>
     </tr>
     </thead>
 
@@ -25,9 +28,12 @@
         <td><%= company.postcode %></td>
         <td><%= company.city %></td>
         <td><%= company.country %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= date_format(company.updated_at) %></td>
+        <td><%= date_format(company.updated_at) %></td>
+        <td class="action-links">
+          <%= link_to fa_icon('pencil', text: 'Edit'), edit_company_path(company), class: 'action-link' %>
+          <%= link_to fa_icon('times', text: 'Delete'), company, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+        </td>
       </tr>
     <% end %>
     </tbody>

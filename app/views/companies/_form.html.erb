@@ -1,67 +1,70 @@
 <%= form_with(model: company, local: true, class: 'form-horizontal denser') do |form| %>
-  <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
 
-      <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="fieldset">
+
+    <% if company.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+        <ul>
+        <% company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group control-group">
+      <%= form.label :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :name, class: 'form-control' %>
+        <span class="help-block">Required</span>
+      </div>
     </div>
-  <% end %>
 
-  <div class="form-group control-group">
-    <%= form.label :name, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10 controls">
-      <%= form.text_field :name, class: 'form-control' %>
-      <span class="help-block">Required</span>
+    <div class="form-group control-group">
+      <%= form.label :address, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :address, class: 'form-control' %>
+        <span class="help-block">Required</span>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group control-group">
-    <%= form.label :address, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10 controls">
-      <%= form.text_field :address, class: 'form-control' %>
-      <span class="help-block">Required</span>
+    <div class="form-group control-group">
+      <%= form.label :postcode, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :postcode, class: 'form-control', style: 'width: 150px' %>
+        <span class="help-block">Required</span>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group control-group">
-    <%= form.label :postcode, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10 controls">
-      <%= form.text_field :postcode, class: 'form-control', style: 'width: 150px' %>
-      <span class="help-block">Required</span>
+    <div class="form-group control-group">
+      <%= form.label :city, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :city, class: 'form-control' %>
+        <span class="help-block">Required</span>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group control-group">
-    <%= form.label :city, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10 controls">
-      <%= form.text_field :city, class: 'form-control' %>
-      <span class="help-block">Required</span>
+    <div class="form-group control-group">
+      <%= form.label :country, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :country, class: 'form-control' %>
+        <span class="help-block">Required</span>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group control-group">
-    <%= form.label :country, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10 controls">
-      <%= form.text_field :country, class: 'form-control' %>
-      <span class="help-block">Required</span>
+    <div class="form-group control-group">
+      <div class='col-sm-2'></div>
+      <div class='col-sm-8'>
+        <%= form.button :submit, class: 'btn btn-primary btn-save' do %>
+          <%= fa_icon('check', text: 'Save') %>
+        <% end %>
+
+        <%= link_to fa_icon('times', text: 'Cancel'), companies_path, class: 'btn btn-secondary' %>
+      </div>
     </div>
-  </div>
 
-
-  <div class="form-group control-group">
-    <div class='col-sm-2'>
-    </div>
-    <div class='col-sm-8'>
-      <%= form.button :submit, class: 'btn btn-primary btn-save' do %>
-        <%= fa_icon('check', text: 'Save') %>
-      <% end %>
-
-      <%= link_to fa_icon('times', text: 'Cancel'), companies_path, class: 'btn btn-secondary' %>
-    </div>
   </div>
 
 <% end %>

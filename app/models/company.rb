@@ -1,4 +1,7 @@
 class Company < ApplicationRecord
+
+  include Hideable
+
   has_many :users
   has_many :drivers
   has_many :products

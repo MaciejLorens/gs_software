@@ -6,8 +6,13 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :postcode,           null: false
       t.string :city,               null: false
       t.string :country,            null: false
+      t.boolean :hidden,            null: false, default: false
+      t.datetime :hidden_at,        null: true
 
       t.timestamps
     end
+
+    add_index :companies, :hidden,  unique: false
+
   end
 end

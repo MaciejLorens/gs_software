@@ -6,7 +6,6 @@ default: &default
   timeout: 5000
   username: root
   password:
-  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
@@ -18,6 +17,8 @@ test:
 
 production:
   <<: *default
-  database: gs_software_production
-  username: gs_software
-  password: <%= ENV['GS_SOFTWARE_DATABASE_PASSWORD'] %>
+  host: <%= Rails.application.credentials.production[:host] %>
+  database: <%= Rails.application.credentials.production[:database] %>
+  username: <%= Rails.application.credentials.production[:user] %>
+  password: <%= Rails.application.credentials.production[:password] %>
+

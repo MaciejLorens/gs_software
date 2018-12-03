@@ -50,6 +50,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  def batch_destroy
+    @products = Product.where(id: params[:ids])
+    @products.each { |product| product.hide! }
+
+    respond_to do |format|
+      format.html { redirect_to receipts_url, notice: 'Products was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_product

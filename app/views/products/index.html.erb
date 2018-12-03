@@ -10,6 +10,7 @@
   <table class="table table-condensed table-striped">
     <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Number</th>
       <th>Updated at</th>
@@ -21,6 +22,7 @@
     <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => product.id %></td>
         <td><%= product.name %></td>
         <td><%= product.number %></td>
         <td><%= date_format(product.updated_at) %></td>

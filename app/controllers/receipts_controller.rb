@@ -52,6 +52,16 @@ class ReceiptsController < ApplicationController
     end
   end
 
+  def batch_destroy
+    @receipts = Receipt.where(id: params[:ids])
+    @receipts.each { |receipt| receipt.hide! }
+
+    respond_to do |format|
+      format.html { redirect_to receipts_url, notice: 'Receipts was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_receipt

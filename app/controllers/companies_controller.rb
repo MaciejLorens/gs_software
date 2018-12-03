@@ -50,6 +50,16 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def batch_destroy
+    @companies = Company.where(id: params[:ids])
+    @companies.each { |company| company.hide! }
+
+    respond_to do |format|
+      format.html { redirect_to companies_url, notice: 'Companies was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_company

@@ -50,6 +50,16 @@ class DriversController < ApplicationController
     end
   end
 
+  def batch_destroy
+    @drivers = Driver.where(id: params[:ids])
+    @drivers.each { |driver| driver.hide! }
+
+    respond_to do |format|
+      format.html { redirect_to drivers_url, notice: 'Drivers was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_driver

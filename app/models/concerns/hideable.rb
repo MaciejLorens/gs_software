@@ -11,4 +11,8 @@ module Hideable
     self.update(hidden: true, hidden_at: Time.current)
   end
 
+  def unhide!
+    self.update(hidden: false, hidden_at: nil)
+  end
+
 end

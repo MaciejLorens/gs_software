@@ -50,6 +50,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def batch_destroy
+    @users = User.where(id: params[:ids])
+    @users.each { |user| user.hide! }
+
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'Users was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_user

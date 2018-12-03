@@ -9,6 +9,7 @@
 <table class="table table-condensed table-striped">
   <thead>
   <tr>
+    <th></th>
     <th>Number</th>
     <th>Car number</th>
     <th>Semitrailer number</th>
@@ -27,6 +28,7 @@
   <tbody>
   <% @receipts.each do |receipt| %>
     <tr>
+      <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => receipt.id %></td>
       <td><%= receipt.number %></td>
       <td><%= receipt.car_number %></td>
       <td><%= receipt.semitrailer_number %></td>

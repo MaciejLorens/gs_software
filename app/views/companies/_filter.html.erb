@@ -1,19 +1,42 @@
-<form class="pjax-form form-inline" action="/receipt?model_name=receipt" accept-charset="UTF-8" method="get">
-  <input name="utf8" type="hidden" value="&#x2713;"/>
-  <div class='well'>
-    <span id='filters_box'></span>
-    <hr class='filters_box' style='display:none'>
-    <div class='input-group'>
-      <input class='form-control input-small' name='query' placeholder='Filter' type='search'>
-      <span class='input-group-btn'>
-          <button class='btn btn-primary' data-disable-with='<i class="icon-white icon-refresh"></i> Refresh' type='submit'>
-            <%= fa_icon 'retweet' %>
-            Refresh
-          </button>
-          <button class='btn btn-info' id='remove_filter' title='Reset filters'>
-            <%= fa_icon 'times' %>
-          </button>
-        </span>
+<div class='well'>
+
+  <%= form_tag(companies_path, method: :get) do %>
+
+    <div class="filter-field form-inline">
+
+      <%= text_field_tag :f_name,
+                         params[:f_name],
+                         placeholder: 'All Names',
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_address,
+                         params[:f_address],
+                         placeholder: 'All Addresses',
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_postcode,
+                         params[:f_postcode],
+                         placeholder: 'All postcodes',
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_city,
+                         params[:f_city],
+                         placeholder: 'All Cities',
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_country,
+                         params[:f_country],
+                         placeholder: 'All Countries',
+                         class: 'form-control filter' %>
+
+      <%= link_to fa_icon('times'), companies_path, class: 'btn btn-info pull-right' %>
+
+      <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>
+        <%= fa_icon('retweet', text: 'Refresh') %>
+      <% end %>
+
     </div>
-  </div>
-</form>
+
+  <% end %>
+
+</div>

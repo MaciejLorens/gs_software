@@ -6,33 +6,39 @@
 
 <%= render partial: 'filter' %>
 
-<div class="col-sm-6 without-padding">
-  <table class="table table-condensed table-striped">
-    <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Number</th>
-      <th>Updated at</th>
-      <th>Created at</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
+<% if @products.empty? %>
+  <p> - no results found - </p>
+<% else %>
 
-    <tbody>
-    <% @products.each do |product| %>
+  <div class="col-sm-6 without-padding">
+    <table class="table table-condensed table-striped">
+      <thead>
       <tr>
-        <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => product.id %></td>
-        <td><%= product.name %></td>
-        <td><%= product.number %></td>
-        <td><%= date_format(product.updated_at) %></td>
-        <td><%= date_format(product.created_at) %></td>
-        <td class="action-links">
-          <%= link_to fa_icon('pencil', text: 'Edit'), edit_product_path(product), class: 'action-link' %>
-          <%= link_to fa_icon('times', text: 'Delete'), product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
-        </td>
+        <th></th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Edited at</th>
+        <th>Created at</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+
+      <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => product.id %></td>
+          <td><%= product.name %></td>
+          <td><%= product.number %></td>
+          <td><%= date_format(product.updated_at) %></td>
+          <td><%= date_format(product.created_at) %></td>
+          <td class="action-links">
+            <%= link_to fa_icon('pencil', text: 'Edit'), edit_product_path(product), class: 'action-link' %>
+            <%= link_to fa_icon('times', text: 'Delete'), product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>

@@ -247,26 +247,8 @@ hr {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 
   &.filter {
-    margin-right: 5px;
-
-    &:nth-child(1) {
-      width: 110px;
-    }
-    &:nth-child(2) {
-      width: 130px;
-    }
-    &:nth-child(3) {
-      width: 130px;
-    }
-    &:nth-child(4) {
-      width: 180px;
-    }
-    &:nth-child(5) {
-      width: 180px;
-    }
-    &:nth-child(6) {
-      width: 180px;
-    }
+    margin-right: 10px;
+    width: 160px;
   }
 }
 

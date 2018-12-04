@@ -1,7 +1,49 @@
 module FilterQueryHelper
 
-  def filter_query
-    query = "created_at >= '#{created_at_from}' AND created_at <= '#{created_at_to_value}'"
+  def filter_query(default_field = nil)
+    query = "hidden = false"
+
+    if params[:f_created_at_from].present? || default_field == :created_at
+      value = params[:f_created_at_from].try(:to_date) || 1.month.ago
+      query += " AND created_at >= '#{value.beginning_of_day}'"
+    end
+
+    if params[:f_created_at_to].present? || default_field == :created_at
+      value = params[:f_created_at_to].try(:to_date) || Date.today
+      query += " AND created_at <= '#{value.end_of_day}'"
+    end
+
+    if params[:f_email].present?
+      query += " AND email LIKE '%#{params[:f_email]}%'"
+    end
+
+    if params[:f_first_name].present?
+      query += " AND first_name LIKE '%#{params[:f_first_name]}%'"
+    end
+
+    if params[:f_last_name].present?
+      query += " AND last_name LIKE '%#{params[:f_last_name]}%'"
+    end
+
+    if params[:f_address].present?
+      query += " AND address LIKE '%#{params[:f_address]}%'"
+    end
+
+    if params[:f_postcode].present?
+      query += " AND postcode LIKE '%#{params[:f_postcode]}%'"
+    end
+
+    if params[:f_city].present?
+      query += " AND city LIKE '%#{params[:f_city]}%'"
+    end
+
+    if params[:f_country].present?
+      query += " AND country LIKE '%#{params[:f_country]}%'"
+    end
+
+    if params[:f_name].present?
+      query += " AND name LIKE '%#{params[:f_name]}%'"
+    end
 
     if params[:f_number].present?
       query += " AND number LIKE '%#{params[:f_number]}%'"
@@ -28,22 +70,6 @@ module FilterQueryHelper
     end
 
     query
-  end
-
-  def created_at_from
-    if params[:f_created_at_from].present?
-      params[:f_created_at_from].to_date.beginning_of_day
-    else
-      1.month.ago.beginning_of_day
-    end
-  end
-
-  def created_at_to_value
-    if params[:f_created_at_to].present?
-      params[:f_created_at_to].to_date.end_of_day
-    else
-      Date.today.end_of_day
-    end
   end
 
 end

@@ -6,33 +6,39 @@
 
 <%= render partial: 'filter' %>
 
-<div class="col-sm-6 without-padding">
-  <table class="table table-condensed table-striped">
-    <thead>
-    <tr>
-      <th></th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Updated at</th>
-      <th>Created at</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
+<% if @drivers.empty? %>
+  <p> - no results found - </p>
+<% else %>
 
-    <tbody>
-    <% @drivers.each do |driver| %>
+  <div class="col-sm-6 without-padding">
+    <table class="table table-condensed table-striped">
+      <thead>
       <tr>
-        <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => driver.id %></td>
-        <td><%= driver.first_name %></td>
-        <td><%= driver.last_name %></td>
-        <td><%= date_format(driver.updated_at) %></td>
-        <td><%= date_format(driver.created_at) %></td>
-        <td class="action-links">
-          <%= link_to fa_icon('pencil', text: 'Edit'), edit_driver_path(driver), class: 'action-link' %>
-          <%= link_to fa_icon('times', text: 'Delete'), driver, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
-        </td>
+        <th></th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Edited at</th>
+        <th>Created at</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+
+      <tbody>
+      <% @drivers.each do |driver| %>
+        <tr>
+          <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => driver.id %></td>
+          <td><%= driver.first_name %></td>
+          <td><%= driver.last_name %></td>
+          <td><%= date_format(driver.updated_at) %></td>
+          <td><%= date_format(driver.created_at) %></td>
+          <td class="action-links">
+            <%= link_to fa_icon('pencil', text: 'Edit'), edit_driver_path(driver), class: 'action-link' %>
+            <%= link_to fa_icon('times', text: 'Delete'), driver, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>

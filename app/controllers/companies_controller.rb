@@ -5,6 +5,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all.visible
+                   .where(filter_query)
                    .order(created_at: :desc)
   end
 

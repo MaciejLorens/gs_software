@@ -1,8 +1,11 @@
 <div class='well'>
 
-  <%= form_tag(products_path, method: :get) do %>
+  <%= form_tag(products_path, method: :get, class: 'filter-form') do %>
 
     <div class="filter-field form-inline">
+
+      <%= hidden_field_tag :s_field, params[:s_field] %>
+      <%= hidden_field_tag :s_order, params[:s_order] %>
 
       <%= text_field_tag :f_name,
                          params[:f_name],
@@ -14,7 +17,7 @@
                          placeholder: 'All Numbers',
                          class: 'form-control filter' %>
 
-      <%= link_to fa_icon('times'), products_path, class: 'btn btn-info pull-right' %>
+      <%= link_to fa_icon('times'), products_path(s_field: :created_at, s_order: :desc), class: 'btn btn-info pull-right' %>
 
       <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>
         <%= fa_icon('retweet', text: 'Refresh') %>

@@ -15,11 +15,31 @@
       <thead>
       <tr>
         <th></th>
-        <th>Email</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Updated at</th>
-        <th>Edited at</th>
+        <th>
+          <%= link_to 'Email', '#',
+                      'data-field' => 'email',
+                      class: "sort-link #{sort_class('email')}" %>
+        </th>
+        <th>
+          <%= link_to 'First Name', '#',
+                      'data-field' => 'first_name',
+                      class: "sort-link #{sort_class('first_name')}" %>
+        </th>
+        <th>
+          <%= link_to 'Last Name', '#',
+                      'data-field' => 'last_name',
+                      class: "sort-link #{sort_class('last_name')}" %>
+        </th>
+        <th>
+          <%= link_to 'Edited at', '#',
+                      'data-field' => 'updated_at',
+                      class: "sort-link #{sort_class('updated_at')}" %>
+        </th>
+        <th>
+          <%= link_to 'Created at', '#',
+                      'data-field' => 'created_at',
+                      class: "sort-link #{sort_class('created_at')}" %>
+        </th>
         <th>Actions</th>
       </tr>
       </thead>

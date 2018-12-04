@@ -30,4 +30,4 @@ $(document).on 'turbolinks:load', ->
     else
       $("#s_order").val('asc')
 
-    $("#filter-form").submit()
+    $(".filter-form").submit()

@@ -15,13 +15,41 @@
       <thead>
       <tr>
         <th></th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Postcode</th>
-        <th>City</th>
-        <th>Country</th>
-        <th>Edited at</th>
-        <th>Created at</th>
+        <th>
+          <%= link_to 'Name', '#',
+                      'data-field' => 'name',
+                      class: "sort-link #{sort_class('name')}" %>
+        </th>
+        <th>
+          <%= link_to 'Address', '#',
+                      'data-field' => 'address',
+                      class: "sort-link #{sort_class('address')}" %>
+        </th>
+        <th>
+          <%= link_to 'Postcode', '#',
+                      'data-field' => 'postcode',
+                      class: "sort-link #{sort_class('postcode')}" %>
+        </th>
+        <th>
+          <%= link_to 'City', '#',
+                      'data-field' => 'city',
+                      class: "sort-link #{sort_class('city')}" %>
+        </th>
+        <th>
+          <%= link_to 'Country', '#',
+                      'data-field' => 'country',
+                      class: "sort-link #{sort_class('country')}" %>
+        </th>
+        <th>
+          <%= link_to 'Edited at', '#',
+                      'data-field' => 'updated_at',
+                      class: "sort-link #{sort_class('updated_at')}" %>
+        </th>
+        <th>
+          <%= link_to 'Created at', '#',
+                      'data-field' => 'created_at',
+                      class: "sort-link #{sort_class('created_at')}" %>
+        </th>
         <th>Actions</th>
       </tr>
       </thead>

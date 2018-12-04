@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = current_company.users.clients.visible
                .where(filter_query)
-               .order(sorting_query(:created_at)
+               .order(sorting_query(:created_at))
   end
 
   def new

@@ -4,7 +4,8 @@
     address: "address_#{index}",
     postcode: "postcode_#{index}",
     city: "city_#{index}",
-    country: "country_#{index}"
+    country: "country_#{index}",
+    created_at: rand(10).days.ago
   )
 end
 
@@ -15,7 +16,8 @@ User.create(
   password: '1234567890',
   password_confirmation: '1234567890',
   role: 'super_admin',
-  company_id: Company.all.to_a.sample.id
+  company_id: Company.all.to_a.sample.id,
+  created_at: rand(10).days.ago
 )
 
 6.times do |index|
@@ -28,7 +30,8 @@ User.create(
     password: '1234567890',
     password_confirmation: '1234567890',
     role: 'admin',
-    company_id: company.id
+    company_id: company.id,
+    created_at: rand(10).days.ago
   )
 end
 
@@ -42,7 +45,8 @@ end
     password: '1234567890',
     password_confirmation: '1234567890',
     role: 'client',
-    company_id: company.id
+    company_id: company.id,
+    created_at: rand(10).days.ago
   )
 end
 
@@ -51,7 +55,8 @@ Company.all.each do |company|
     Driver.create(
       first_name: "first_#{index}",
       last_name: "last_#{index}",
-      company_id: company.id
+      company_id: company.id,
+      created_at: rand(10).days.ago
     )
   end
 end
@@ -62,7 +67,8 @@ end
   Product.create(
     name: "name_#{index}",
     number: "number_#{index}",
-    company_id: company.id
+    company_id: company.id,
+    created_at: rand(10).days.ago
   )
 end
 
@@ -83,6 +89,7 @@ end
     product_id: product.id,
     driver_id: driver.id,
     user_id: user.id,
-    company_id: company.id
+    company_id: company.id,
+    created_at: rand(10).days.ago
   )
 end

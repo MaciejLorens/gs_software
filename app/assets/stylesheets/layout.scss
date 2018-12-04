@@ -122,7 +122,6 @@ a {
   font-size: 14px;
   text-align: left;
   background-color: #fff;
-  border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -179,8 +178,6 @@ h1 {
   border-bottom: 1px solid #eeeeee;
 }
 
- //------------------------
-
 .form-inline {
   display: block;
 }
@@ -213,9 +210,10 @@ hr {
   border-collapse: separate;
 }
 
-.form-inline .input-group > .form-control, .navbar-form .input-group > .form-control {
-  width: 178px;
-  height: 34px;
+.form-inline .form-control {
+  &.filter-date-picker {
+    width: 160px;
+  }
 }
 
 .input-group-addon, .input-group-btn, .input-group .form-control {
@@ -247,6 +245,29 @@ hr {
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+  &.filter {
+    margin-right: 5px;
+
+    &:nth-child(1) {
+      width: 110px;
+    }
+    &:nth-child(2) {
+      width: 130px;
+    }
+    &:nth-child(3) {
+      width: 130px;
+    }
+    &:nth-child(4) {
+      width: 180px;
+    }
+    &:nth-child(5) {
+      width: 180px;
+    }
+    &:nth-child(6) {
+      width: 180px;
+    }
+  }
 }
 
 .btn {
@@ -358,7 +379,6 @@ label {
   display: block;
 }
 
-
 .input-group-addon {
   float: left;
   padding: 6px 12px;
@@ -445,8 +465,12 @@ label {
     height: 5px;
   }
 
-  td.black { border-color: #000; }
-  td.white { border-color: #fff; }
+  td.black {
+    border-color: #000;
+  }
+  td.white {
+    border-color: #fff;
+  }
 }
 
 .devise-link {

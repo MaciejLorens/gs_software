@@ -9,11 +9,11 @@ default: &default
 
 development:
   <<: *default
-  database: gs_software_development
+  database: wgt_notify_turow_development
 
 test:
   <<: *default
-  database: gs_software_test
+  database: wgt_notify_turow_test
 
 production:
   <<: *default

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :receipts do
+    get :search, on: :collection
     delete :batch_destroy, on: :collection
   end
 

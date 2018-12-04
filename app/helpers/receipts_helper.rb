@@ -33,15 +33,21 @@ module ReceiptsHelper
     controller.action_name == 'edit' ? 'active' : ''
   end
 
+  def options_for_drivers
+    current_company.drivers.visible.map do |driver|
+      [driver.full_name, driver.id]
+    end
+  end
+
   def options_for_products
     current_company.products.visible.map do |product|
       ["#{product.name} (#{product.number})", product.id]
     end
   end
 
-  def options_for_drivers
-    current_company.drivers.visible.map do |driver|
-      ["#{driver.first_name} #{driver.last_name}", driver.id]
+  def options_for_users
+    current_company.users.visible.map do |user|
+      [user.full_name, user.id]
     end
   end
 

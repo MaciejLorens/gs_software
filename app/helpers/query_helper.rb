@@ -1,4 +1,4 @@
-module FilterQueryHelper
+module QueryHelper
 
   def filter_query(default_field = nil)
     query = "hidden = false"
@@ -67,6 +67,16 @@ module FilterQueryHelper
 
     if params[:f_user_id].present?
       query += " AND user_id = #{params[:f_user_id]}"
+    end
+
+    query
+  end
+
+  def sorting_query(default_field = nil)
+    query = "#{default_field} DESC"
+
+    if params[:s_field].present? && params[:s_order].present?
+      query = "#{params[:s_field]} #{params[:s_order]}"
     end
 
     query

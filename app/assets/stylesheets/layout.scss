@@ -40,15 +40,43 @@ a {
   }
 }
 
-.caret {
+.caret-up::after {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 2px;
-  vertical-align: middle;
-  border-top: 4px solid;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+}
+
+.sort-link {
+  color: #333333;
+
+  &.asc::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+    border-top: 0;
+    border-bottom: 0.3em solid;
+  }
+
+  &.desc::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+    border-top: 0.3em solid;
+    border-bottom: 0;
+  }
 }
 
 .navbar {

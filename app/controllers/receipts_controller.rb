@@ -5,7 +5,7 @@ class ReceiptsController < ApplicationController
     @receipts = current_company.receipts.visible
                   .includes(:product, :user, :driver)
                   .where(filter_query(:created_at))
-                  .order(expiration_to: :desc)
+                  .order(sorting_query(:expiration_to))
   end
 
   def show

@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   def index
     @products = current_company.products.visible
                   .where(filter_query)
-                  .order(created_at: :desc)
+                  .order(sorting_query(:created_at))
   end
 
   def new

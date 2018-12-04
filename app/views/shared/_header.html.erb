@@ -1,19 +1,19 @@
 <nav class="navbar fixed-top navbar-light bg-light">
   <div class="navbar-header">
-    <%= link_to 'WGT Notify Turow', root_path, class: 'navbar-brand' %>
+    <%= link_to 'WGT Notify Turow', root_path(s_field: :expiration_to, s_order: :desc), class: 'navbar-brand' %>
 
     <% if user_signed_in? %>
-      <%= link_to 'Receipts', receipts_path, class: 'link' %>
+      <%= link_to 'Receipts', receipts_path(s_field: :expiration_to, s_order: :desc), class: 'link' %>
     <% end %>
 
     <% if admin? %>
-      <%= link_to 'Products', products_path, class: 'link' %>
-      <%= link_to 'Drivers', drivers_path, class: 'link' %>
-      <%= link_to 'Clients', users_path, class: 'link' %>
+      <%= link_to 'Products', products_path(s_field: :created_at, s_order: :desc), class: 'link' %>
+      <%= link_to 'Drivers', drivers_path(s_field: :created_at, s_order: :desc), class: 'link' %>
+      <%= link_to 'Clients', users_path(s_field: :created_at, s_order: :desc), class: 'link' %>
     <% end %>
 
     <% if super_admin? %>
-      <%= link_to 'Companies', companies_path, class: 'link' %>
+      <%= link_to 'Companies', companies_path(s_field: :created_at, s_order: :desc), class: 'link' %>
     <% end %>
 
   </div>

@@ -14,17 +14,61 @@
     <thead>
     <tr>
       <th></th>
-      <th>Number</th>
-      <th>Car number</th>
-      <th>Semitrailer number</th>
-      <th>Driver</th>
-      <th>Product</th>
-      <th>Expiration from</th>
-      <th>Expiration to</th>
-      <th>Editor</th>
-      <th>Edited at</th>
-      <th>Creator</th>
-      <th>Created at</th>
+      <th>
+        <%= link_to 'Number', '#',
+                    'data-field' => 'number',
+                    class: "sort-link #{sort_class('number')}" %>
+      </th>
+      <th>
+        <%= link_to 'Car number', '#',
+                    'data-field' => 'car_number',
+                    class: "sort-link #{sort_class('car_number')}" %>
+      </th>
+      <th>
+        <%= link_to 'Semitrailer number', '#',
+                    'data-field' => 'semitrailer_number',
+                    class: "sort-link #{sort_class('semitrailer_number')}" %>
+      </th>
+      <th>
+        <%= link_to 'Driver', '#',
+                    'data-field' => 'driver_id',
+                    class: "sort-link #{sort_class('driver_id')}" %>
+      </th>
+      <th>
+        <%= link_to 'Product', '#',
+                    'data-field' => 'product_id',
+                    class: "sort-link #{sort_class('product_id')}" %>
+      </th>
+      <th>
+        <%= link_to 'Expiration from', '#',
+                    'data-field' => 'expiration_from',
+                    class: "sort-link #{sort_class('expiration_from')}" %>
+      </th>
+      <th>
+        <%= link_to 'Expiration to', '#',
+                    'data-field' => 'expiration_to',
+                    class: "sort-link #{sort_class('expiration_to')}" %>
+      </th>
+      <th>
+        <%= link_to 'Editor', '#',
+                    'data-field' => 'user_id',
+                    class: "sort-link #{sort_class('user_id')}" %>
+      </th>
+      <th>
+        <%= link_to 'Edited at', '#',
+                    'data-field' => 'updated_at',
+                    class: "sort-link #{sort_class('updated_at')}" %>
+      </th>
+      <th>
+        <%= link_to 'Creator', '#',
+                    'data-field' => 'user_id',
+                    class: "sort-link #{sort_class('user_id')}" %>
+      </th>
+      <th>
+        <%= link_to 'Created at', '#',
+                    'data-field' => 'created_at',
+                    class: "sort-link #{sort_class('created_at')}" %>
+      </th>
       <th>Actions</th>
     </tr>
     </thead>

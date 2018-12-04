@@ -17,7 +17,17 @@ $(document).on 'turbolinks:load', ->
         $.ajax {
           url: url,
           type: 'DELETE',
-          data: {ids: ids},
-          success: (result) ->
-            console.log('done')
+          data: {ids: ids}
         }
+
+  $("body").on 'click', '.sort-link', (e) ->
+    e.preventDefault()
+
+    field = $(@).data('field')
+    $("#s_field").val(field)
+    if $(@).hasClass('asc')
+      $("#s_order").val('desc')
+    else
+      $("#s_order").val('asc')
+
+    $("#filter-form").submit()

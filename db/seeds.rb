@@ -16,7 +16,7 @@ User.create(
   password: '1234567890',
   password_confirmation: '1234567890',
   role: 'super_admin',
-  company_id: Company.all.to_a.sample.id,
+  company_id: nil,
   created_at: rand(10).days.ago
 )
 

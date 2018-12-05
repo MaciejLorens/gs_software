@@ -11,6 +11,7 @@ class Receipt < ApplicationRecord
 
   def qr_code_string
     {
+      id: id,
       number: number,
       car_number: car_number,
       semitrailer_number: semitrailer_number,
@@ -19,15 +20,11 @@ class Receipt < ApplicationRecord
       hidden: hidden,
       hidden_at: hidden_at.to_i,
       product_id: product_id,
-      product: product.name,
+      product_name: product.name,
       driver_id: driver_id,
-      driver: driver.full_name,
-      user_id: user_id,
-      user: user.full_name,
+      driver_full_name: driver.full_name,
       company_id: company_id,
-      company: company.name,
-      updated_at: updated_at.to_i,
-      created_at: created_at.to_i
+      company_name: company.name
     }.to_json.to_s
   end
 

@@ -1,9 +1,10 @@
 class ReceiptsController < ApplicationController
+
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
 
   def index
-    @receipts = current_company.receipts.visible
-                  .includes(:product, :user, :driver)
+    @receipts = current_receipts.visible
+                  .includes(:product, :user, :driver, :company)
                   .where(filter_query(:created_at))
                   .order(sorting_query(:expiration_to))
   end
@@ -19,7 +20,7 @@ class ReceiptsController < ApplicationController
   end
 
   def create
-    @receipt = current_company.receipts.new(receipt_params)
+    @receipt = current_receipts.new(receipt_params)
 
     respond_to do |format|
       if @receipt.save
@@ -48,7 +49,7 @@ class ReceiptsController < ApplicationController
     @receipt.hide!
 
     respond_to do |format|
-      format.html { redirect_to receipts_url, notice: 'Receipt was successfully destroyed.' }
+      format.html { redirect_to receipts_url, notice: 'Receipt was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -58,7 +59,7 @@ class ReceiptsController < ApplicationController
     @receipts.each { |receipt| receipt.hide! }
 
     respond_to do |format|
-      format.html { redirect_to receipts_url, notice: 'Receipts was successfully destroyed.' }
+      format.html { redirect_to receipts_url, notice: 'Receipts was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +71,7 @@ class ReceiptsController < ApplicationController
   end
 
   def receipt_params
+    # === TODO:Maciej: merge company_id only if super_admin?
     params.require(:receipt).permit(
       :number,
       :car_number,

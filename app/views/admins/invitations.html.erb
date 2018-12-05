@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h1>List of Admins Invitations</h1>
+</div>
+
+<%= render partial: 'nav_tabs' %>
+
+<% if @invitations.empty? %>
+  <p> - no results found - </p>
+<% else %>
+
+  <div class="col-sm-6 without-padding">
+    <table class="table table-condensed table-striped">
+      <thead>
+      <tr>
+        <th>
+          <%= link_to 'Email', '#',
+                      'data-field' => 'email',
+                      class: "sort-link #{sort_class('email')}" %>
+        </th>
+        <th>
+          <%= link_to 'Company', '#',
+                      'data-field' => 'company_id',
+                      class: "sort-link #{sort_class('company_id')}" %>
+        </th>
+        <th>
+          <%= link_to 'Last sent at', '#',
+                      'data-field' => 'sent_at',
+                      class: "sort-link #{sort_class('sent_at')}" %>
+        </th>
+        <th>
+          <%= link_to 'Created at', '#',
+                      'data-field' => 'created_at',
+                      class: "sort-link #{sort_class('created_at')}" %>
+        </th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+
+
+      <tbody>
+      <% @invitations.each do |invitation| %>
+        <tr>
+          <td><%= invitation.email %></td>
+          <td><%= invitation.company.name %></td>
+          <td><%= date_format(invitation.sent_at) %></td>
+          <td><%= date_format(invitation.created_at) %></td>
+          <td class="action-links">
+            <%= link_to fa_icon('envelope', text: 'Resend'), resend_admin_path(invitation), method: :patch, class: 'action-link' %>
+            <%= link_to fa_icon('times', text: 'Delete'), invitation_destroy_admin_path(invitation), method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>

@@ -1,29 +1,42 @@
 Rails.application.routes.draw do
 
-  get 'admin/index'
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
   devise_for :users
 
-  resources :users, except: [:create] do
-    post 'create_user' => 'users#create', on: :collection
+  resources :admins, except: [:show] do
+    get :invitations, on: :collection
+
+    patch :resend, on: :member
+
+    post :invite, on: :collection
+
+    delete :invitation_destroy, on: :member
+    delete :batch_destroy, on: :collection
+  end
+
+  resources :users, except: [:show] do
+    get :invitations, on: :collection
+
+    patch :resend, on: :member
+
+    post :invite, on: :collection
+
+    delete :invitation_destroy, on: :member
     delete :batch_destroy, on: :collection
   end
 
   resources :receipts do
-    get :search, on: :collection
     delete :batch_destroy, on: :collection
   end
 
-  resources :products do
+  resources :products, except: [:show] do
     delete :batch_destroy, on: :collection
   end
 
-  resources :drivers do
+  resources :drivers, except: [:show] do
     delete :batch_destroy, on: :collection
   end
 
-  resources :companies do
+  resources :companies, except: [:show] do
     delete :batch_destroy, on: :collection
   end
 

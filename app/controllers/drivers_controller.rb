@@ -4,7 +4,7 @@ class DriversController < ApplicationController
   before_action :set_driver, only: [:edit, :update, :destroy]
 
   def index
-    @drivers = current_company.drivers.visible
+    @drivers = current_drivers.visible
                   .where(filter_query)
                   .order(sorting_query(:created_at))
   end
@@ -17,7 +17,7 @@ class DriversController < ApplicationController
   end
 
   def create
-    @driver = current_company.drivers.new(driver_params)
+    @driver = current_drivers.new(driver_params)
 
     respond_to do |format|
       if @driver.save
@@ -46,7 +46,7 @@ class DriversController < ApplicationController
     @driver.hide!
 
     respond_to do |format|
-      format.html { redirect_to drivers_url, notice: 'Driver was successfully destroyed.' }
+      format.html { redirect_to drivers_url, notice: 'Driver was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -56,7 +56,7 @@ class DriversController < ApplicationController
     @drivers.each { |driver| driver.hide! }
 
     respond_to do |format|
-      format.html { redirect_to drivers_url, notice: 'Drivers was successfully destroyed.' }
+      format.html { redirect_to drivers_url, notice: 'Drivers was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -68,11 +68,13 @@ class DriversController < ApplicationController
   end
 
   def driver_params
+    # === TODO:Maciej: merge company_id only if super_admin?
     params.require(:driver).permit(
       :first_name,
       :last_name,
       :hidden,
-      :hidden_at
+      :hidden_at,
+      :company_id
     )
   end
 

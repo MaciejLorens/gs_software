@@ -24,6 +24,26 @@ class ApplicationController < ActionController::Base
     @current_company || current_user.company
   end
 
+  def current_receipts
+    @current_receipts = super_admin? ? Receipt.all : current_company.receipts
+  end
+
+  def current_drivers
+    @current_drivers = super_admin? ? Driver.all : current_company.drivers
+  end
+
+  def current_products
+    @current_products = super_admin? ? Product.all : current_company.products
+  end
+
+  def current_users
+    @current_users = super_admin? ? User.all : current_company.users
+  end
+
+  def current_invitations
+    @current_invitations = super_admin? ? Invitation.all : current_company.invitations
+  end
+
   def authorize_super_admin
     unless super_admin?
       redirect_to(root_path)
@@ -40,5 +60,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:admin])
   end
 
-  helper_method :current_company, :super_admin?, :admin?
+  helper_method :current_company, :current_receipts, :current_drivers,
+                :current_products, :current_users, :current_invitations,
+                :super_admin?, :admin?
 end

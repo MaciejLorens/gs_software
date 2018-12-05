@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
-    @products = current_company.products.visible
+    @products = current_products.visible
                   .where(filter_query)
                   .order(sorting_query(:created_at))
   end
@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = current_company.products.new(product_params)
+    @product = current_products.new(product_params)
 
     respond_to do |format|
       if @product.save
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
     @product.hide!
 
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'Product was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
     @products.each { |product| product.hide! }
 
     respond_to do |format|
-      format.html { redirect_to receipts_url, notice: 'Products was successfully destroyed.' }
+      format.html { redirect_to receipts_url, notice: 'Products was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -68,11 +68,13 @@ class ProductsController < ApplicationController
   end
 
   def product_params
+    # === TODO:Maciej: merge company_id only if super_admin?
     params.require(:product).permit(
       :name,
       :number,
       :hidden,
-      :hidden_at
+      :hidden_at,
+      :company_id
     )
   end
 

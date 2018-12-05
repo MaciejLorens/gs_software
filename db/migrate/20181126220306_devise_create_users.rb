@@ -3,8 +3,8 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      t.string :email,                          null: false, default: ""
-      t.string :encrypted_password,             null: false, default: ""
+      t.string :email,                          null: false, default: ''
+      t.string :encrypted_password,             null: false, default: ''
 
       t.string   :reset_password_token,         null: true
       t.datetime :reset_password_sent_at,       null: true
@@ -20,7 +20,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.boolean :hidden,                        null: false, default: false
       t.datetime :hidden_at,                    null: true
       t.string :role,                           null: false, default: 'client'
-      t.integer :company_id,                    null: false, default: nil
+      t.integer :company_id,                    null: true, default: nil
 
       t.timestamps
     end

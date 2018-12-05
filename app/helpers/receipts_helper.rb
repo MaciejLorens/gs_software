@@ -21,6 +21,10 @@ module ReceiptsHelper
     controller.action_name == 'index' ? 'active' : ''
   end
 
+  def invitations_active?
+    controller.action_name == 'invitations' ? 'active' : ''
+  end
+
   def new_active?
     controller.action_name == 'new' ? 'active' : ''
   end
@@ -34,20 +38,26 @@ module ReceiptsHelper
   end
 
   def options_for_drivers
-    current_company.drivers.visible.map do |driver|
+    current_drivers.visible.map do |driver|
       [driver.full_name, driver.id]
     end
   end
 
   def options_for_products
-    current_company.products.visible.map do |product|
+    current_products.visible.map do |product|
       ["#{product.name} (#{product.number})", product.id]
     end
   end
 
   def options_for_users
-    current_company.users.visible.map do |user|
+    current_users.visible.map do |user|
       [user.full_name, user.id]
+    end
+  end
+
+  def options_for_companies
+    Company.visible.map do |company|
+      [company.name, company.id]
     end
   end
 

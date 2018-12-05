@@ -6,5 +6,6 @@ class Company < ApplicationRecord
   has_many :drivers
   has_many :products
   has_many :receipts
+  has_many :invitations
 
 end

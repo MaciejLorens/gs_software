@@ -58,7 +58,8 @@
 
 </form>
 
-<div class="col-sm-5 without-padding qr-code">
+<div class="col-sm-2"></div>
+<div class="col-sm-5 qr-code">
   <% qrcode = RQRCode::QRCode.new(@receipt.qr_code_string) %>
   <%= raw qrcode.as_html %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_01_155551) do
+ActiveRecord::Schema.define(version: 2018_12_05_190355) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(version: 2018_12_01_155551) do
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_drivers_on_company_id"
     t.index ["hidden"], name: "index_drivers_on_hidden"
+  end
+
+  create_table "invitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email"
+    t.string "token"
+    t.integer "company_id"
+    t.string "role"
+    t.datetime "sent_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_invitations_on_company_id"
+    t.index ["email"], name: "index_invitations_on_email"
+    t.index ["role"], name: "index_invitations_on_role"
+    t.index ["token"], name: "index_invitations_on_token"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,7 +98,7 @@ ActiveRecord::Schema.define(version: 2018_12_01_155551) do
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.string "role", default: "client", null: false
-    t.integer "company_id", null: false
+    t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

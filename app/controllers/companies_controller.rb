@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+
   before_action :authorize_super_admin
 
   before_action :set_company, only: [:edit, :update, :destroy]
@@ -46,7 +47,7 @@ class CompaniesController < ApplicationController
     @company.hide!
 
     respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
+      format.html { redirect_to companies_url, notice: 'Company was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -56,7 +57,7 @@ class CompaniesController < ApplicationController
     @companies.each { |company| company.hide! }
 
     respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Companies was successfully destroyed.' }
+      format.html { redirect_to companies_url, notice: 'Companies was successfully deleted.' }
       format.json { head :no_content }
     end
   end

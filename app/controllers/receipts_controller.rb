@@ -4,8 +4,8 @@ class ReceiptsController < ApplicationController
 
   def index
     @receipts = current_receipts.visible
-                  .includes(:product, :user, :driver, :company)
                   .where(filter_query(:created_at))
+                  .includes(:product, :user, :driver, :company)
                   .order(sorting_query(:expiration_to))
   end
 

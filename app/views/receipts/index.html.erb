@@ -69,6 +69,13 @@
                     'data-field' => 'created_at',
                     class: "sort-link #{sort_class('created_at')}" %>
       </th>
+      <% if super_admin? %>
+        <th>
+          <%= link_to 'Company', '#',
+                      'data-field' => 'company_id',
+                      class: "sort-link #{sort_class('company_id')}" %>
+        </th>
+      <% end %>
       <th>Actions</th>
     </tr>
     </thead>
@@ -88,6 +95,9 @@
         <td><%= date_format(receipt.updated_at) %></td>
         <td><%= receipt.user.full_name %></td>
         <td><%= date_format(receipt.created_at) %></td>
+        <% if super_admin? %>
+          <td><%= receipt.company.name %></td>
+        <% end %>
         <td class="action-links">
           <%= link_to fa_icon('eye', text: 'View'), receipt, class: 'action-link' %>
           <%= link_to fa_icon('pencil', text: 'Edit'), edit_receipt_path(receipt), class: 'action-link' %>

@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>List of Users Invitations</h1>
+  <h1>List of Clients Invitations</h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
@@ -8,7 +8,7 @@
   <p> - no results found - </p>
 <% else %>
 
-  <div class="col-sm-6 without-padding">
+  <div class="col-sm-12 without-padding">
     <table class="table table-condensed table-striped">
       <thead>
       <tr>
@@ -27,6 +27,13 @@
                       'data-field' => 'created_at',
                       class: "sort-link #{sort_class('created_at')}" %>
         </th>
+        <% if super_admin? %>
+          <th>
+            <%= link_to 'Company', '#',
+                        'data-field' => 'company_id',
+                        class: "sort-link #{sort_class('company_id')}" %>
+          </th>
+        <% end %>
         <th>Actions</th>
       </tr>
       </thead>
@@ -37,6 +44,9 @@
           <td><%= invitation.email %></td>
           <td><%= date_format(invitation.sent_at) %></td>
           <td><%= date_format(invitation.created_at) %></td>
+          <% if super_admin? %>
+            <td><%= invitation.company.name %></td>
+          <% end %>
           <td class="action-links">
             <%= link_to fa_icon('envelope', text: 'Resend'), resend_user_path(invitation), method: :patch, class: 'action-link' %>
             <%= link_to fa_icon('times', text: 'Delete'), invitation_destroy_user_path(invitation), method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>

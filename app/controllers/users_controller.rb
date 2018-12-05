@@ -8,11 +8,13 @@ class UsersController < ApplicationController
   def index
     @users = current_users.clients.visible
                .where(filter_query)
+               .includes(:company)
                .order(sorting_query(:created_at))
   end
 
   def invitations
     @invitations = current_invitations.clients
+                     .includes(:company)
                      .order(created_at: :desc)
   end
 

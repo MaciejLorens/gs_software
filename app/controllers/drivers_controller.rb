@@ -6,6 +6,7 @@ class DriversController < ApplicationController
   def index
     @drivers = current_drivers.visible
                   .where(filter_query)
+                  .includes(:company)
                   .order(sorting_query(:created_at))
   end
 

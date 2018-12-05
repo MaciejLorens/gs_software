@@ -8,6 +8,7 @@ class AdminsController < ApplicationController
   def index
     @admins = User.admins
                 .where(filter_query)
+                .includes(:company)
                 .order(sorting_query(:created_at))
   end
 

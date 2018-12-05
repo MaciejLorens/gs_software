@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def index
     @products = current_products.visible
                   .where(filter_query)
+                  .includes(:company)
                   .order(sorting_query(:created_at))
   end
 
@@ -56,7 +57,7 @@ class ProductsController < ApplicationController
     @products.each { |product| product.hide! }
 
     respond_to do |format|
-      format.html { redirect_to receipts_url, notice: 'Products was successfully deleted.' }
+      format.html { redirect_to products_url, notice: 'Products was successfully deleted.' }
       format.json { head :no_content }
     end
   end

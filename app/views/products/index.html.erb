@@ -10,7 +10,7 @@
   <p> - no results found - </p>
 <% else %>
 
-  <div class="col-sm-6 without-padding">
+  <div class="col-sm-12 without-padding">
     <table class="table table-condensed table-striped">
       <thead>
       <tr>
@@ -35,6 +35,13 @@
                       'data-field' => 'created_at',
                       class: "sort-link #{sort_class('created_at')}" %>
         </th>
+        <% if super_admin? %>
+          <th>
+            <%= link_to 'Company', '#',
+                        'data-field' => 'company_id',
+                        class: "sort-link #{sort_class('company_id')}" %>
+          </th>
+        <% end %>
         <th>Actions</th>
       </tr>
       </thead>
@@ -47,6 +54,9 @@
           <td><%= product.number %></td>
           <td><%= date_format(product.updated_at) %></td>
           <td><%= date_format(product.created_at) %></td>
+          <% if super_admin? %>
+            <td><%= product.company.name %></td>
+          <% end %>
           <td class="action-links">
             <%= link_to fa_icon('pencil', text: 'Edit'), edit_product_path(product), class: 'action-link' %>
             <%= link_to fa_icon('times', text: 'Delete'), product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>

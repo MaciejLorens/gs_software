@@ -1,4 +1,4 @@
-module ReceiptsHelper
+module NotifiesHelper
 
   def index_action?
     controller.action_name == 'index'

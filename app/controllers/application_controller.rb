@@ -24,8 +24,8 @@ class ApplicationController < ActionController::Base
     @current_company || current_user.company
   end
 
-  def current_receipts
-    @current_receipts = super_admin? ? Receipt.all : current_company.receipts
+  def current_notifies
+    @current_notifies = super_admin? ? Notify.all : current_company.notifies
   end
 
   def current_drivers
@@ -60,7 +60,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:admin])
   end
 
-  helper_method :current_company, :current_receipts, :current_drivers,
+  helper_method :current_company, :current_notifies, :current_drivers,
                 :current_products, :current_users, :current_invitations,
                 :super_admin?, :admin?
 end

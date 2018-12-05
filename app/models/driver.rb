@@ -2,7 +2,7 @@ class Driver < ApplicationRecord
 
   include Hideable
 
-  has_many :receipts
+  has_many :notifies
 
   belongs_to :company
 

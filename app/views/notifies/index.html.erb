@@ -1,12 +1,12 @@
 <div class="page-header">
-  <h1>List of Receipts</h1>
+  <h1>List of Notifies</h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
 
 <%= render partial: 'filter' %>
 
-<% if @receipts.empty? %>
+<% if @notifies.empty? %>
   <p> - no results found - </p>
 <% else %>
 
@@ -81,27 +81,27 @@
     </thead>
 
     <tbody>
-    <% @receipts.each do |receipt| %>
+    <% @notifies.each do |notify| %>
       <tr>
-        <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => receipt.id %></td>
-        <td><%= receipt.number %></td>
-        <td><%= receipt.car_number %></td>
-        <td><%= receipt.semitrailer_number %></td>
-        <td><%= receipt.driver.full_name %></td>
-        <td><%= receipt.product.name %></td>
-        <td><%= date_format(receipt.expiration_from) %></td>
-        <td><%= date_format(receipt.expiration_to) %></td>
-        <td><%= receipt.user.full_name %></td>
-        <td><%= date_format(receipt.updated_at) %></td>
-        <td><%= receipt.user.full_name %></td>
-        <td><%= date_format(receipt.created_at) %></td>
+        <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => notify.id %></td>
+        <td><%= notify.number %></td>
+        <td><%= notify.car_number %></td>
+        <td><%= notify.semitrailer_number %></td>
+        <td><%= notify.driver.full_name %></td>
+        <td><%= notify.product.name %></td>
+        <td><%= date_format(notify.expiration_from) %></td>
+        <td><%= date_format(notify.expiration_to) %></td>
+        <td><%= notify.user.full_name %></td>
+        <td><%= date_format(notify.updated_at) %></td>
+        <td><%= notify.user.full_name %></td>
+        <td><%= date_format(notify.created_at) %></td>
         <% if super_admin? %>
-          <td><%= receipt.company.name %></td>
+          <td><%= notify.company.name %></td>
         <% end %>
         <td class="action-links">
-          <%= link_to fa_icon('eye', text: 'View'), receipt, class: 'action-link' %>
-          <%= link_to fa_icon('pencil', text: 'Edit'), edit_receipt_path(receipt), class: 'action-link' %>
-          <%= link_to fa_icon('times', text: 'Delete'), receipt, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+          <%= link_to fa_icon('eye', text: 'View'), notify, class: 'action-link' %>
+          <%= link_to fa_icon('pencil', text: 'Edit'), edit_notify_path(notify), class: 'action-link' %>
+          <%= link_to fa_icon('times', text: 'Delete'), notify, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
         </td>
       </tr>
     <% end %>

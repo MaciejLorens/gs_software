@@ -3,7 +3,7 @@
     <%= link_to 'WGT Notify Turow', root_path, class: 'navbar-brand' %>
 
     <% if user_signed_in? %>
-      <%= link_to 'Receipts', receipts_path, class: 'link' %>
+      <%= link_to 'Notifies', notifies_path, class: 'link' %>
     <% end %>
 
     <% if admin? %>

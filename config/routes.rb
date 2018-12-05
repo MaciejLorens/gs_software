@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     delete :batch_destroy, on: :collection
   end
 
-  resources :receipts do
+  resources :notifies do
     delete :batch_destroy, on: :collection
   end
 
@@ -40,6 +40,6 @@ Rails.application.routes.draw do
     delete :batch_destroy, on: :collection
   end
 
-  root to: 'receipts#index'
+  root to: 'notifies#index'
 
 end

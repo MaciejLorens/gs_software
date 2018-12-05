@@ -1,13 +1,13 @@
-<%= form_with(model: receipt, local: true, class: 'form-horizontal denser col-sm-12') do |form| %>
+<%= form_with(model: notify, local: true, class: 'form-horizontal denser col-sm-12') do |form| %>
 
   <div class="fieldset">
-    <% if receipt.errors.any? %>
+    <% if notify.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(receipt.errors.count, "error") %> prohibited this
-          receipt from being saved:</h2>
+        <h2><%= pluralize(notify.errors.count, 'error') %> prohibited this
+          notify from being saved:</h2>
 
         <ul>
-          <% receipt.errors.full_messages.each do |message| %>
+          <% notify.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>
@@ -88,7 +88,7 @@
           <%= fa_icon('check', text: 'Save') %>
         <% end %>
 
-        <%= link_to fa_icon('times', text: 'Cancel'), receipts_path, class: 'btn btn-secondary' %>
+        <%= link_to fa_icon('times', text: 'Cancel'), notifies_path, class: 'btn btn-secondary' %>
       </div>
     </div>
 

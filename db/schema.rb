@@ -51,19 +51,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.index ["token"], name: "index_invitations_on_token"
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "number", null: false
-    t.boolean "hidden", default: false, null: false
-    t.datetime "hidden_at"
-    t.integer "company_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_products_on_company_id"
-    t.index ["hidden"], name: "index_products_on_hidden"
-  end
-
-  create_table "receipts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "notifies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "number", null: false
     t.string "car_number", null: false
     t.string "semitrailer_number", null: false
@@ -77,11 +65,23 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_receipts_on_company_id"
-    t.index ["driver_id"], name: "index_receipts_on_driver_id"
-    t.index ["hidden"], name: "index_receipts_on_hidden"
-    t.index ["product_id"], name: "index_receipts_on_product_id"
-    t.index ["user_id"], name: "index_receipts_on_user_id"
+    t.index ["company_id"], name: "index_notifies_on_company_id"
+    t.index ["driver_id"], name: "index_notifies_on_driver_id"
+    t.index ["hidden"], name: "index_notifies_on_hidden"
+    t.index ["product_id"], name: "index_notifies_on_product_id"
+    t.index ["user_id"], name: "index_notifies_on_user_id"
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "number", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
+    t.integer "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_products_on_company_id"
+    t.index ["hidden"], name: "index_products_on_hidden"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -1,4 +1,4 @@
-class Receipt < ApplicationRecord
+class Notify < ApplicationRecord
 
   include Hideable
 
@@ -32,7 +32,7 @@ class Receipt < ApplicationRecord
 
   def set_number
     date = DateTime.now.beginning_of_month
-    this_month_number = self.class.where('created_at >= ?', date).count
+    this_month_number = company.notifies.where('created_at >= ?', date).count
     self.number = "#{date.year}/#{date.month}/#{this_month_number + 1}"
   end
 

@@ -78,8 +78,8 @@ end
   user = (company.users.clients + company.users.admins + company.users.super_admins).sample
   driver = company.drivers.sample
 
-  Receipt.create(
-    number: "receipt_#{index}",
+  Notify.create(
+    number: "notify_#{index}",
     car_number: "car_no_#{index}",
     semitrailer_number: "semi_no_#{index}",
     expiration_from: 1.day.from_now,

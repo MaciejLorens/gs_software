@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>View Receipt <%= @receipt.number %></h1>
+  <h1>View Notify <%= @notify.number %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
@@ -9,49 +9,49 @@
   <div class="form-group control-group">
     <%= label_tag :number, 'Number:', class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :number, @receipt.number, class: 'form-control', readonly: true %>
+      <%= text_field_tag :number, @notify.number, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
     <%= label_tag :car_number, 'Car number:', class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :car_number, @receipt.car_number, class: 'form-control', readonly: true %>
+      <%= text_field_tag :car_number, @notify.car_number, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
     <%= label_tag :semitrailer_number, 'Semitrailer number:', class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :semitrailer_number, @receipt.semitrailer_number, class: 'form-control', readonly: true %>
+      <%= text_field_tag :semitrailer_number, @notify.semitrailer_number, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
     <%= label_tag :expiration_from, 'Expiration from:', class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :expiration_from, @receipt.expiration_from, class: 'form-control', readonly: true %>
+      <%= text_field_tag :expiration_from, @notify.expiration_from, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
     <%= label_tag :expiration_to, 'Expiration to:', class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :expiration_to, @receipt.expiration_to, class: 'form-control', readonly: true %>
+      <%= text_field_tag :expiration_to, @notify.expiration_to, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
     <%= label_tag :product, 'Product:', class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :product, @receipt.product.name, class: 'form-control', readonly: true %>
+      <%= text_field_tag :product, @notify.product.name, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
     <%= label_tag :driver, 'Driver:', class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :driver, @receipt.driver.full_name, class: 'form-control', readonly: true %>
+      <%= text_field_tag :driver, @notify.driver.full_name, class: 'form-control', readonly: true %>
     </div>
   </div>
 
@@ -60,6 +60,6 @@
 
 <div class="col-sm-2"></div>
 <div class="col-sm-5 qr-code">
-  <% qrcode = RQRCode::QRCode.new(@receipt.qr_code_string) %>
+  <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
   <%= raw qrcode.as_html %>
 </div>

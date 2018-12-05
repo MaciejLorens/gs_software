@@ -1,6 +1,6 @@
-class CreateReceipts < ActiveRecord::Migration[5.2]
+class CreateNotifies < ActiveRecord::Migration[5.2]
   def change
-    create_table :receipts do |t|
+    create_table :notifies do |t|
       t.string :number,                   null: false
       t.string :car_number,               null: false
       t.string :semitrailer_number,       null: false
@@ -16,11 +16,12 @@ class CreateReceipts < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :receipts, :product_id,     unique: false
-    add_index :receipts, :driver_id,      unique: false
-    add_index :receipts, :user_id,        unique: false
-    add_index :receipts, :company_id,     unique: false
-    add_index :receipts, :hidden,         unique: false
+    add_index :notifies, :product_id,     unique: false
+    add_index :notifies, :driver_id,      unique: false
+    add_index :notifies, :user_id,        unique: false
+    add_index :notifies, :company_id,     unique: false
+    add_index :notifies, :hidden,         unique: false
+    add_index :notifies, :created_at,     unique: false
 
   end
 end

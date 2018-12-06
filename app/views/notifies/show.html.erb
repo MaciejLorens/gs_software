@@ -55,6 +55,14 @@
     </div>
   </div>
 
+  <% if super_admin? %>
+    <div class="form-group control-group">
+      <%= label_tag :company_id, 'Company:', class: 'col-sm-4 control-label' %>
+      <div class="col-sm-8 controls">
+        <%= text_field_tag :company_id, @notify.company.name, class: 'form-control', readonly: true %>
+      </div>
+    </div>
+  <% end %>
 
 </form>
 

@@ -64,7 +64,7 @@
             <td><%= user.company.name %></td>
           <% end %>
           <td class="action-links">
-            <%= link_to fa_icon('pencil', text: 'Edit'), edit_user_registration_path(user), class: 'action-link' %>
+            <%= link_to fa_icon('pencil', text: 'Edit'), edit_user_path(user), class: 'action-link' %>
             <%= link_to fa_icon('times', text: 'Delete'), user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
           </td>
         </tr>

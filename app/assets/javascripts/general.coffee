@@ -13,7 +13,7 @@ $(document).on 'turbolinks:load', ->
     if ids.length == 0
       alert('No resources selected')
     else
-      if confirm('Are you sure you want delete ' + ids.length + ' records?')
+      if confirm('Are you sure you want to delete ' + ids.length + ' records?')
         $.ajax {
           url: url,
           type: 'DELETE',

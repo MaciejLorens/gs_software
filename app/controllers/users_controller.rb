@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'Client was successfully updated.' }
+        format.html { redirect_to users_path, notice: 'Client was successfully edited.' }
         format.json { render :index, status: :ok, location: @user }
       else
         format.html { render :edit }

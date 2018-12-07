@@ -521,3 +521,16 @@ label {
   width: 15px;
   height: 15px;
 }
+
+.alert {
+  position: absolute;
+  width: 500px;
+  right: calc(50% - 250px);
+  margin-top: 15px;
+  padding: 0.75em 1.25em 0.6em 1.25em;
+  z-index: 1;
+}
+
+.fade:not(.show) {
+  opacity: 100;
+}

@@ -1,12 +1,11 @@
 <nav class="navbar fixed-top navbar-light bg-light">
+
   <div class="navbar-header">
+
     <%= link_to 'WGT Notify Turow', root_path, class: 'navbar-brand' %>
 
-    <% if user_signed_in? %>
-      <%= link_to 'Notifies', notifies_path, class: 'link' %>
-    <% end %>
-
     <% if admin? %>
+      <%= link_to 'Notifies', notifies_path, class: 'link' %>
       <%= link_to 'Products', products_path, class: 'link' %>
       <%= link_to 'Drivers', drivers_path, class: 'link' %>
       <%= link_to 'Clients', users_path, class: 'link' %>
@@ -29,4 +28,5 @@
       <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-primary devise-link' %>
     <% end %>
   </div>
+
 </nav>

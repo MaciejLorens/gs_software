@@ -36,7 +36,7 @@ class NotifiesController < ApplicationController
   def update
     respond_to do |format|
       if @notify.update(notify_params)
-        format.html { redirect_to notifies_path, notice: 'Notify was successfully updated.' }
+        format.html { redirect_to notifies_path, notice: 'Notify was successfully edited.' }
         format.json { render :index, status: :ok, location: @notify }
       else
         format.html { render :edit }

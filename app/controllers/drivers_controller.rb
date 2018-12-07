@@ -34,7 +34,7 @@ class DriversController < ApplicationController
   def update
     respond_to do |format|
       if @driver.update(driver_params)
-        format.html { redirect_to drivers_path, notice: 'Driver was successfully updated.' }
+        format.html { redirect_to drivers_path, notice: 'Driver was successfully edited.' }
         format.json { render :index, status: :ok, location: @driver }
       else
         format.html { render :edit }

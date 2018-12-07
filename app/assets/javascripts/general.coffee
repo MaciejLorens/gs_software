@@ -1,5 +1,9 @@
 $(document).on 'turbolinks:load', ->
 
+  setTimeout ->
+    $(".alert").fadeOut(500)
+  , 1500
+
   $("body").on 'click', '.batch-destroy', (e) ->
     e.preventDefault()
 

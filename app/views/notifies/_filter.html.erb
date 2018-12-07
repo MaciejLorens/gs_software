@@ -42,6 +42,13 @@
                      include_blank: 'All Creators',
                      class: 'form-control filter' %>
 
+      <% if super_admin? %>
+        <%= select_tag :f_company_id,
+                       options_for_select(options_for_companies, params[:f_company_id]),
+                       include_blank: 'All Companies',
+                       class: 'form-control filter' %>
+      <% end %>
+
       <%= date_field_tag :f_created_at_from,
                          params[:f_created_at_from] || Date.today - 1.month,
                          class: 'form-control filter-date-picker' %>

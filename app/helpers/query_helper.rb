@@ -73,6 +73,10 @@ module QueryHelper
       query += " AND user_id = #{params[:f_user_id]}"
     end
 
+    if params[:f_company_id].present?
+      query += " AND company_id = #{params[:f_company_id]}"
+    end
+
     query
   end
 

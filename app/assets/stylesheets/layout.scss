@@ -240,7 +240,7 @@ hr {
 
 .form-inline .form-control {
   &.filter-date-picker {
-    width: 160px;
+    width: 150px;
   }
 }
 
@@ -275,8 +275,8 @@ hr {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 
   &.filter {
-    margin-right: 10px;
-    width: 160px;
+    margin-right: 8px;
+    width: 150px;
   }
 }
 

@@ -22,6 +22,13 @@
                          placeholder: 'All Last Names',
                          class: 'form-control filter' %>
 
+      <% if super_admin? %>
+        <%= select_tag :f_company_id,
+                       options_for_select(options_for_companies, params[:f_company_id]),
+                       include_blank: 'All Companies',
+                       class: 'form-control filter' %>
+      <% end %>
+
       <%= link_to fa_icon('times'), users_path(s_field: :created_at, s_order: :desc), class: 'btn btn-info pull-right' %>
 
       <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>

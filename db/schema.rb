@@ -55,7 +55,8 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.string "car_number", null: false
     t.string "semitrailer_number", null: false
     t.datetime "expiration_from", null: false
-    t.datetime "expiration_to", null: false
+    t.datetime "expiration_to"
+    t.boolean "indefinite", default: false, null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.boolean "active", default: true, null: false

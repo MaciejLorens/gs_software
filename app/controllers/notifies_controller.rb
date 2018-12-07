@@ -80,6 +80,7 @@ class NotifiesController < ApplicationController
       :company_id,
       :product_id,
       :expiration_from,
+      :indefinite,
       :expiration_to,
       :hidden,
       :hidden_at,

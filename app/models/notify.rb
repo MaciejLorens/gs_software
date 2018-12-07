@@ -17,6 +17,7 @@ class Notify < ApplicationRecord
       car_number: car_number,
       semitrailer_number: semitrailer_number,
       expiration_from: expiration_from.to_i,
+      indefinite: indefinite,
       expiration_to: expiration_to.to_i,
       hidden: hidden,
       hidden_at: hidden_at.to_i,
@@ -25,6 +26,7 @@ class Notify < ApplicationRecord
       driver_id: driver_id,
       driver_full_name: driver.full_name,
       active: active,
+      created_at: created_at.to_i,
       company_id: company_id,
       company_name: company.name
     }.to_json.to_s

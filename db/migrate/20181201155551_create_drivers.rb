@@ -10,8 +10,9 @@ class CreateDrivers < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :drivers, :hidden,        unique: false
-    add_index :drivers, :company_id,    unique: false
+    # === TODO:Maciej: fix DB issue with lenght
+    # add_index :drivers, :hidden,        unique: false
+    # add_index :drivers, :company_id,    unique: false
 
   end
 end

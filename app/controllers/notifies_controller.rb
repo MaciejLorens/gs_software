@@ -82,7 +82,8 @@ class NotifiesController < ApplicationController
       :expiration_from,
       :expiration_to,
       :hidden,
-      :hidden_at
+      :hidden_at,
+      :active
     ).merge(
       user_id: current_user.id
     )

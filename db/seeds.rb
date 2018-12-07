@@ -51,11 +51,11 @@ end
   )
 end
 
-Company.all.each do |company|
-  3.times do |index|
+Company.all.each_with_index do |company, i|
+  3.times do |j|
     Driver.create(
-      first_name: "first_#{index}",
-      last_name: "last_#{index}",
+      first_name: "first_#{i}_#{j}",
+      last_name: "last_#{i}_#{j}",
       company_id: company.id,
       created_at: rand(10).days.ago
     )

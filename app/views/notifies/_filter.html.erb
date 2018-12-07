@@ -42,6 +42,11 @@
                      include_blank: 'All Creators',
                      class: 'form-control filter' %>
 
+      <%= select_tag :f_active,
+                     options_for_select(options_for_active, params[:f_active]),
+                     include_blank: 'All Actives',
+                     class: 'form-control filter' %>
+
       <% if super_admin? %>
         <%= select_tag :f_company_id,
                        options_for_select(options_for_companies, params[:f_company_id]),
@@ -49,6 +54,10 @@
                        class: 'form-control filter' %>
       <% end %>
 
+      <br>
+      <br>
+
+      Created:
       <%= date_field_tag :f_created_at_from,
                          params[:f_created_at_from] || Date.today - 1.month,
                          class: 'form-control filter-date-picker' %>
@@ -56,6 +65,8 @@
       <%= date_field_tag :f_created_at_to,
                          params[:f_created_at_to] || Date.today,
                          class: 'form-control filter-date-picker' %>
+
+
 
       <%= link_to fa_icon('times'), notifies_path(s_field: :expiration_to, s_order: :desc), class: 'btn btn-info pull-right' %>
 

@@ -74,6 +74,11 @@
                     'data-field' => 'created_at',
                     class: "sort-link #{sort_class('created_at')}" %>
       </th>
+      <th>
+        <%= link_to 'Active', '#',
+                    'data-field' => 'active',
+                    class: "sort-link #{sort_class('active')}" %>
+      </th>
       <% if super_admin? %>
         <th>
           <%= link_to 'Company', '#',
@@ -101,6 +106,7 @@
         <td><%= date_format(notify.updated_at) %></td>
         <td><%= notify.user.full_name %></td>
         <td><%= date_format(notify.created_at) %></td>
+        <td><%= fa_icon(notify.active ? 'check' : 'times') %></td>
         <% if super_admin? %>
           <td><%= notify.company.name %></td>
         <% end %>

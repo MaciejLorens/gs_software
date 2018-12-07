@@ -55,6 +55,13 @@ module NotifiesHelper
     end
   end
 
+  def options_for_active
+    [
+      ['Yes', true],
+      ['No', false],
+    ]
+  end
+
   def options_for_companies
     Company.visible.map do |company|
       [company.name, company.id]

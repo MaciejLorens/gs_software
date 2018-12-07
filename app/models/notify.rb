@@ -24,6 +24,7 @@ class Notify < ApplicationRecord
       product_name: product.name,
       driver_id: driver_id,
       driver_full_name: driver.full_name,
+      active: active,
       company_id: company_id,
       company_name: company.name
     }.to_json.to_s

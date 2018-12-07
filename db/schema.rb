@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.datetime "hidden_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["hidden"], name: "index_companies_on_hidden"
   end
 
@@ -46,10 +47,6 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.datetime "sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_invitations_on_company_id"
-    t.index ["email"], name: "index_invitations_on_email"
-    t.index ["role"], name: "index_invitations_on_role"
-    t.index ["token"], name: "index_invitations_on_token"
   end
 
   create_table "notifies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,12 +58,14 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.datetime "expiration_to", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
+    t.boolean "active", default: true, null: false
     t.integer "product_id", null: false
     t.integer "driver_id", null: false
     t.integer "user_id", null: false
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["active"], name: "index_notifies_on_active"
     t.index ["company_id"], name: "index_notifies_on_company_id"
     t.index ["created_at"], name: "index_notifies_on_created_at"
     t.index ["driver_id"], name: "index_notifies_on_driver_id"

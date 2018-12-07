@@ -44,7 +44,12 @@
 
       <%= select_tag :f_active,
                      options_for_select(options_for_active, params[:f_active]),
-                     include_blank: 'All Actives',
+                     include_blank: 'All',
+                     class: 'form-control filter' %>
+
+      <%= select_tag :f_hidden,
+                     options_for_select(options_for_hidden, params[:f_hidden]),
+                     include_blank: 'All',
                      class: 'form-control filter' %>
 
       <% if super_admin? %>

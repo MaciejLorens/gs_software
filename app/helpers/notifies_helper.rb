@@ -57,8 +57,22 @@ module NotifiesHelper
 
   def options_for_active
     [
-      ['Yes', true],
-      ['No', false],
+      ['Active', true],
+      ['Inactive', false],
+    ]
+  end
+
+  def options_for_hidden
+    [
+      ['Hidden', true],
+      ['Visible', false],
+    ]
+  end
+
+  def options_for_indefinite
+    [
+      ['Indefinite', true],
+      ['Finite', false],
     ]
   end
 

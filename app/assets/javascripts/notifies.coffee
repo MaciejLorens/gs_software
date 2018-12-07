@@ -17,3 +17,10 @@ $(document).on 'turbolinks:load', ->
       $("#notify_expiration_to_1i").attr('readonly', false)
       $("#notify_expiration_to_2i").attr('readonly', false)
       $("#notify_expiration_to_3i").attr('readonly', false)
+
+
+  $("body").on 'change', '#notify_hidden', (e) ->
+    if $(@).val() == 'true'
+      $("#notify_hidden_at").val(new Date())
+    else
+      $("#notify_hidden_at").val(null)

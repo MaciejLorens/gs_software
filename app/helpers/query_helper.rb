@@ -1,7 +1,7 @@
 module QueryHelper
 
   def filter_query(default_field = nil)
-    query = "hidden = false"
+    query = "id IS NOT NULL"
 
     if params[:f_created_at_from].present? || default_field == :created_at
       value = params[:f_created_at_from].try(:to_date) || 1.month.ago
@@ -59,6 +59,14 @@ module QueryHelper
 
     if params[:f_semitrailer_number].present?
       query += " AND semitrailer_number LIKE '%#{params[:f_semitrailer_number]}%'"
+    end
+
+    if params[:f_active].present?
+      query += " AND active = #{params[:f_active]}"
+    end
+
+    if params[:f_hidden].present?
+      query += " AND hidden = #{params[:f_hidden]}"
     end
 
     if params[:f_driver_id].present?

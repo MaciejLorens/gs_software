@@ -81,6 +81,11 @@
       </th>
       <% if super_admin? %>
         <th>
+          <%= link_to 'Hidden', '#',
+                      'data-field' => 'hidden',
+                      class: "sort-link #{sort_class('hidden')}" %>
+        </th>
+        <th>
           <%= link_to 'Company', '#',
                       'data-field' => 'company_id',
                       class: "sort-link #{sort_class('company_id')}" %>
@@ -108,6 +113,7 @@
         <td><%= date_format(notify.created_at) %></td>
         <td><%= fa_icon(notify.active ? 'check' : 'times') %></td>
         <% if super_admin? %>
+          <td><%= fa_icon(notify.hidden ? 'check' : 'times') %></td>
           <td><%= notify.company.name %></td>
         <% end %>
         <td class="action-links">

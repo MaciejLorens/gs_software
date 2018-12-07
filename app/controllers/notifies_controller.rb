@@ -3,7 +3,7 @@ class NotifiesController < ApplicationController
   before_action :set_notify, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notifies = current_notifies.visible
+    @notifies = current_notifies
                   .where(filter_query(:created_at))
                   .includes(:product, :user, :driver, :company)
                   .order(sorting_query(:expiration_to))

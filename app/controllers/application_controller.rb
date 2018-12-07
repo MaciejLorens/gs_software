@@ -25,23 +25,23 @@ class ApplicationController < ActionController::Base
   end
 
   def current_notifies
-    @current_notifies = super_admin? ? Notify.all : current_company.notifies
+    @current_notifies = super_admin? ? Notify.all : current_company.notifies.visible
   end
 
   def current_drivers
-    @current_drivers = super_admin? ? Driver.all : current_company.drivers
+    @current_drivers = super_admin? ? Driver.all : current_company.drivers.visible
   end
 
   def current_products
-    @current_products = super_admin? ? Product.all : current_company.products
+    @current_products = super_admin? ? Product.all : current_company.products.visible
   end
 
   def current_users
-    @current_users = super_admin? ? User.all : current_company.users
+    @current_users = super_admin? ? User.all : current_company.users.visible
   end
 
   def current_invitations
-    @current_invitations = super_admin? ? Invitation.all : current_company.invitations
+    @current_invitations = super_admin? ? Invitation.all : current_company.invitations.visible
   end
 
   def authorize_super_admin

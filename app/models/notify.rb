@@ -35,7 +35,7 @@ class Notify < ApplicationRecord
   private
 
   def set_pin
-    self.pin = rand(36**6).to_s(36).upcase
+    self.pin = rand(36 ** 6).to_s(36).upcase
   end
 
   def set_number

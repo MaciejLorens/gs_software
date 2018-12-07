@@ -8,7 +8,7 @@ module Hideable
   end
 
   def hide!
-    self.update(hidden: true, hidden_at: Time.current)
+    self.update(hidden: true, hidden_at: Time.now)
   end
 
   def unhide!

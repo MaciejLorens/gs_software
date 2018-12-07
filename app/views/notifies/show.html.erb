@@ -49,13 +49,6 @@
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :active, 'Active:', class: 'col-sm-4 control-label' %>
-    <div class="col-sm-8 controls">
-      <%= fa_icon(@notify.active ? 'check' : 'times', class: 'active-icon') %>
-    </div>
-  </div>
-
-  <div class="form-group control-group">
     <%= label_tag :product, 'Product:', class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :product, @notify.product.name, class: 'form-control', readonly: true %>
@@ -76,7 +69,21 @@
     </div>
   </div>
 
+  <div class="form-group control-group">
+    <%= label_tag :active, 'Active:', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :active, @notify.active ? 'Yes' : 'No', class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
   <% if super_admin? %>
+    <div class="form-group control-group">
+      <%= label_tag :hidden, 'Hidden:', class: 'col-sm-4 control-label' %>
+      <div class="col-sm-8 controls">
+        <%= text_field_tag :hidden, @notify.hidden ? 'Yes' : 'No', class: 'form-control', readonly: true %>
+      </div>
+    </div>
+
     <div class="form-group control-group">
       <%= label_tag :company_id, 'Company:', class: 'col-sm-4 control-label' %>
       <div class="col-sm-8 controls">

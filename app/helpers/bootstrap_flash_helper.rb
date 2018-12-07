@@ -26,8 +26,6 @@ module BootstrapFlashHelper
       end
     end
 
-    Rails.logger.info "   ===== flash_messages.inspect : #{flash_messages.inspect}"
-
     flash_messages.join("\n").html_safe
   end
 

@@ -43,7 +43,7 @@
     <div class="form-group control-group">
       <%= form.label :expiration_from, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
-        <%= form.datetime_select :expiration_from, {}, class: 'form-control date-picker' %>
+        <%= form.date_select :expiration_from, {use_month_numbers: true}, class: 'form-control date-picker' %>
         <span class="help-block">Required</span>
       </div>
     </div>
@@ -51,7 +51,7 @@
     <div class="form-group control-group">
       <%= form.label :expiration_to, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
-        <%= form.datetime_select :expiration_to, {}, class: 'form-control date-picker' %>
+        <%= form.date_select :expiration_to, {use_month_numbers: true}, class: 'form-control date-picker' %>
         <span class="help-block">Required</span>
       </div>
     </div>

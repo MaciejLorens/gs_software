@@ -6,7 +6,7 @@ class AdminsController < ApplicationController
   before_action :set_invitation, only: [:resend, :invitation_destroy]
 
   def index
-    @admins = User.admins
+    @admins = User.admins.visible
                 .where(filter_query)
                 .includes(:company)
                 .order(sorting_query(:created_at))

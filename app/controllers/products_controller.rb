@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
-    @products = current_products.visible
+    @products = current_products
                   .where(filter_query)
                   .includes(:company)
                   .order(sorting_query(:created_at))

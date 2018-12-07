@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_action :set_invitation, only: [:resend, :invitation_destroy]
 
   def index
-    @users = current_users.clients.visible
+    @users = current_users.clients
                .where(filter_query)
                .includes(:company)
                .order(sorting_query(:created_at))

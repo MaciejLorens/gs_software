@@ -4,7 +4,7 @@ class DriversController < ApplicationController
   before_action :set_driver, only: [:edit, :update, :destroy]
 
   def index
-    @drivers = current_drivers.visible
+    @drivers = current_drivers
                   .where(filter_query)
                   .includes(:company)
                   .order(sorting_query(:created_at))

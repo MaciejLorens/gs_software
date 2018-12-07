@@ -14,6 +14,7 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
     end
 
     add_index :companies, :hidden,  unique: false
+    add_index :companies, :email,   unique: true
 
   end
 end

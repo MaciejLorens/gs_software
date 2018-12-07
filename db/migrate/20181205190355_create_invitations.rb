@@ -10,10 +10,11 @@ class CreateInvitations < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :invitations, :email,         unique: false
-    add_index :invitations, :token,         unique: false
-    add_index :invitations, :role,          unique: false
-    add_index :invitations, :company_id,    unique: false
+    # === TODO:Maciej: fix DB issue with lenght
+    # add_index :invitations, :email,         unique: false
+    # add_index :invitations, :token,         unique: false
+    # add_index :invitations, :role,          unique: false
+    # add_index :invitations, :company_id,    unique: false
 
   end
 end

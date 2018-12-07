@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_invitations
-    @current_invitations = super_admin? ? Invitation.all : current_company.invitations.visible
+    @current_invitations = super_admin? ? Invitation.all : current_company.invitations
   end
 
   def authorize_super_admin

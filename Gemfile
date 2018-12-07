@@ -24,8 +24,8 @@ gem 'rqrcode'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'capistrano-rails', group: :development
 gem 'hirb'
+gem 'newrelic_rpm'
 gem 'puma', '~> 3.11'
-
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

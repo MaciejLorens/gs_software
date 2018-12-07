@@ -12,7 +12,7 @@ class Invitation < ApplicationRecord
   def send_email
     time = Time.now
 
-    UserMailer.invitation_email(self)
+    UserMailer.invitation_email(self).deliver_now
     self.update(sent_at: time, updated_at: time)
   end
 

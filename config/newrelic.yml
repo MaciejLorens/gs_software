@@ -1,0 +1,20 @@
+common: &default_settings
+  license_key: <%= Rails.application.credentials.production[:new_relic_key] %>
+  app_name: WGT Notify Turow
+  log_level: info
+
+
+development:
+  <<: *default_settings
+  app_name: WGT Notify Turow (Development)
+
+test:
+  <<: *default_settings
+  monitor_mode: false
+
+staging:
+  <<: *default_settings
+  app_name: WGT Notify Turow (Staging)
+
+production:
+  <<: *default_settings

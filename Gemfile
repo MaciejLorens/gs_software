@@ -2,29 +2,30 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.3'
-
 gem 'rails', '~> 5.2.1'
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
-gem 'puma', '~> 3.11'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'devise'
 
-gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
-
-gem 'hirb'
-gem 'rails_admin', '~> 1.3'
+# front-end
 gem 'bootstrap', '~> 4.1.3'
-gem 'jquery-rails'
+gem 'coffee-rails', '~> 4.2'
 gem 'font-awesome-rails'
-gem 'rqrcode'
+gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'mini_racer'
+gem 'sass-rails', '~> 5.0'
+gem 'turbolinks', '~> 5'
+gem 'uglifier', '>= 1.3.0'
 
-gem 'capistrano-rails', group: :development
+# back-end
+gem 'devise'
+gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem 'rqrcode'
 
+# support
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'capistrano-rails', group: :development
+gem 'hirb'
+gem 'puma', '~> 3.11'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

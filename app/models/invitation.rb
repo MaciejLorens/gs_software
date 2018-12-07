@@ -10,8 +10,9 @@ class Invitation < ApplicationRecord
   scope :clients, -> { where(role: 'client') }
 
   def send_email
-    # === TODO:Maciej: send email based on company smtp credentials
     time = Time.now
+
+    UserMailer.invitation_email(self)
     self.update(sent_at: time, updated_at: time)
   end
 

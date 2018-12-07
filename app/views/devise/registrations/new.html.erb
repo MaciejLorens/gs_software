@@ -9,11 +9,12 @@
     <%= devise_error_messages! %>
 
     <%= hidden_field_tag :token, params[:token] %>
+    <%= hidden_field_tag 'user[email]', params[:email] %>
 
     <div class="form-group control-group">
       <%= form.label :email, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
-        <%= form.text_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+        <%= text_field_tag 'user[email]', params[:email], class: 'form-control' %>
         <span class="help-block">Required</span>
       </div>
     </div>
@@ -21,7 +22,7 @@
     <div class="form-group control-group">
       <%= form.label :first_name, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
-        <%= form.text_field :first_name, class: 'form-control' %>
+        <%= form.text_field :first_name, autofocus: true, class: 'form-control' %>
         <span class="help-block">Required</span>
       </div>
     </div>

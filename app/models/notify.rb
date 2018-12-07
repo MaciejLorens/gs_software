@@ -2,7 +2,7 @@ class Notify < ApplicationRecord
 
   include Hideable
 
-  before_create :set_number
+  before_create :set_number, :set_pin
 
   belongs_to :company
   belongs_to :driver
@@ -12,6 +12,7 @@ class Notify < ApplicationRecord
   def qr_code_string
     {
       id: id,
+      pin: pin,
       number: number,
       car_number: car_number,
       semitrailer_number: semitrailer_number,
@@ -29,6 +30,10 @@ class Notify < ApplicationRecord
   end
 
   private
+
+  def set_pin
+    self.pin = rand(36**6).to_s(36).upcase
+  end
 
   def set_number
     date = DateTime.now.beginning_of_month

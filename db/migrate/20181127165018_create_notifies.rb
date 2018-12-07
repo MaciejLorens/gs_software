@@ -1,6 +1,7 @@
 class CreateNotifies < ActiveRecord::Migration[5.2]
   def change
     create_table :notifies do |t|
+      t.string :pin,                      null: false
       t.string :number,                   null: false
       t.string :car_number,               null: false
       t.string :semitrailer_number,       null: false

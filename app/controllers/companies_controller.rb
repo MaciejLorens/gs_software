@@ -74,7 +74,8 @@ class CompaniesController < ApplicationController
       :address,
       :postcode,
       :city,
-      :country
+      :country,
+      :email
     )
   end
 

@@ -5,7 +5,8 @@
     postcode: "postcode_#{index}",
     city: "city_#{index}",
     country: "country_#{index}",
-    created_at: rand(10).days.ago
+    created_at: rand(10).days.ago,
+    email: "info_#{index}@gs-software.pl"
   )
 end
 
@@ -79,17 +80,16 @@ end
   driver = company.drivers.sample
 
   Notify.create(
-    number: "notify_#{index}",
     car_number: "car_no_#{index}",
     semitrailer_number: "semi_no_#{index}",
-    expiration_from: 1.day.from_now,
-    expiration_to: 3.days.from_now,
+    expiration_from: rand(1000).minutes.ago,
+    expiration_to: rand(1000).minutes.from_now,
     hidden: false,
     hidden_at: nil,
     product_id: product.id,
     driver_id: driver.id,
     user_id: user.id,
     company_id: company.id,
-    created_at: rand(10).days.ago
+    created_at: rand(1000).minutes.ago
   )
 end

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.string "postcode", null: false
     t.string "city", null: false
     t.string "country", null: false
+    t.string "email", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.datetime "created_at", null: false
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
   end
 
   create_table "notifies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "pin", null: false
     t.string "number", null: false
     t.string "car_number", null: false
     t.string "semitrailer_number", null: false
@@ -66,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_notifies_on_company_id"
+    t.index ["created_at"], name: "index_notifies_on_created_at"
     t.index ["driver_id"], name: "index_notifies_on_driver_id"
     t.index ["hidden"], name: "index_notifies_on_hidden"
     t.index ["product_id"], name: "index_notifies_on_product_id"

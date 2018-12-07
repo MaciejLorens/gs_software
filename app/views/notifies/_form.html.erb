@@ -14,13 +14,15 @@
       </div>
     <% end %>
 
-    <div class="form-group control-group">
-      <%= form.label :number, class: 'col-sm-2 control-label' %>
-      <div class="col-sm-10 controls">
-        <%= form.text_field :number, class: 'form-control' %>
-        <span class="help-block">Required</span>
+    <% if controller.action_name == 'edit' %>
+      <div class="form-group control-group">
+        <%= form.label :number, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10 controls">
+          <%= form.text_field :number, class: 'form-control' %>
+          <span class="help-block">Required</span>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="form-group control-group">
       <%= form.label :car_number, class: 'col-sm-2 control-label' %>

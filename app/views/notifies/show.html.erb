@@ -7,6 +7,13 @@
 <form class="form-horizontal denser fieldset col-sm-5 show-action">
 
   <div class="form-group control-group">
+    <%= label_tag :pin, 'PIN:', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :pin, @notify.pin, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
     <%= label_tag :number, 'Number:', class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :number, @notify.number, class: 'form-control', readonly: true %>
@@ -66,8 +73,32 @@
 
 </form>
 
-<div class="col-sm-2"></div>
-<div class="col-sm-5 qr-code">
-  <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
-  <%= raw qrcode.as_html %>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2 qr-code small">
+    <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
+    <%= raw qrcode.as_html %>
+  </div>
 </div>
+
+<br><br>
+
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2 qr-code medium">
+    <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
+    <%= raw qrcode.as_html %>
+  </div>
+</div>
+
+<br><br>
+
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2 qr-code large">
+    <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
+    <%= raw qrcode.as_html %>
+  </div>
+</div>
+
+<br><br>

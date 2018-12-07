@@ -41,6 +41,10 @@ module QueryHelper
       query += " AND country LIKE '%#{params[:f_country]}%'"
     end
 
+    if params[:f_pin].present?
+      query += " AND pin LIKE '%#{params[:f_pin]}%'"
+    end
+
     if params[:f_name].present?
       query += " AND name LIKE '%#{params[:f_name]}%'"
     end

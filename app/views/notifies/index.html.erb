@@ -15,6 +15,11 @@
     <tr>
       <th></th>
       <th>
+        <%= link_to 'PIN', '#',
+                    'data-field' => 'pin',
+                    class: "sort-link #{sort_class('pin')}" %>
+      </th>
+      <th>
         <%= link_to 'Number', '#',
                     'data-field' => 'number',
                     class: "sort-link #{sort_class('number')}" %>
@@ -84,6 +89,7 @@
     <% @notifies.each do |notify| %>
       <tr>
         <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => notify.id %></td>
+        <td><%= notify.pin %></td>
         <td><%= notify.number %></td>
         <td><%= notify.car_number %></td>
         <td><%= notify.semitrailer_number %></td>

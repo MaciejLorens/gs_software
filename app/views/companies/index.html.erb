@@ -41,6 +41,11 @@
                       class: "sort-link #{sort_class('country')}" %>
         </th>
         <th>
+          <%= link_to 'Email', '#',
+                      'data-field' => 'email',
+                      class: "sort-link #{sort_class('email')}" %>
+        </th>
+        <th>
           <%= link_to 'Edited at', '#',
                       'data-field' => 'updated_at',
                       class: "sort-link #{sort_class('updated_at')}" %>
@@ -63,6 +68,7 @@
           <td><%= company.postcode %></td>
           <td><%= company.city %></td>
           <td><%= company.country %></td>
+          <td><%= company.email %></td>
           <td><%= date_format(company.updated_at) %></td>
           <td><%= date_format(company.updated_at) %></td>
           <td class="action-links">

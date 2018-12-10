@@ -168,7 +168,7 @@ en:
     navbar:
       list: List
       edit_company: Edit driver
-      add_new: dd new
+      add_new: Add new
       selected_items: Selected items
       deleted_items: Deleted admins
     list:
@@ -225,6 +225,7 @@ en:
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
+        hidden: Visibility
         company_id: Company
         updated_at: Updated at
         created_at: Created at
@@ -236,12 +237,14 @@ en:
       product:
         name: Name
         number: Number
+        hidden: Visibility
         company_id: Company
         updated_at: Updated at
         created_at: Created at
       driver:
         first_name: First name
         last_name: Last name
+        hidden: Visibility
         company_id: Company
         updated_at: Updated at
         created_at: Created at

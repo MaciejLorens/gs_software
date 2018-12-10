@@ -223,6 +223,7 @@ pl:
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
+        hidden: Widoczność
         company_id: Firma
         updated_at: Data edycji
         created_at: Data utworzenia
@@ -234,12 +235,14 @@ pl:
       product:
         name: Nazwa
         number: Numer
+        hidden: Widoczność
         company_id: Firma
         updated_at: Data edycji
         created_at: Data utworzenia
       driver:
         first_name: Imię
         last_name: Nazwisko
+        hidden: Widoczność
         company_id: Firma
         updated_at: Data edycji
         created_at: Data utworzenia

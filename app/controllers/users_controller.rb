@@ -106,6 +106,8 @@ class UsersController < ApplicationController
       :last_name,
       :password,
       :password_confirmation,
+      :hidden,
+      :hidden_at,
       :company_id
     ).merge(role: 'client')
   end

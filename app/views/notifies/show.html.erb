@@ -72,7 +72,7 @@
   <div class="form-group control-group">
     <%= label_tag :active, t('activerecord.attributes.notify.active'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :active, @notify.active ? t('common._yes') : t('common._no'), class: 'form-control', readonly: true %>
+      <%= text_field_tag :active, @notify.active ? t('common.active') : t('common.inactive'), class: 'form-control', readonly: true %>
     </div>
   </div>
 
@@ -80,7 +80,7 @@
     <div class="form-group control-group">
       <%= label_tag :hidden, t('activerecord.attributes.notify.hidden'), class: 'col-sm-4 control-label' %>
       <div class="col-sm-8 controls">
-        <%= text_field_tag :hidden, @notify.hidden ? t('common._yes') : t('common._no'), class: 'form-control', readonly: true %>
+        <%= text_field_tag :hidden, @notify.hidden ? t('common.hidden') : t('common.visible'), class: 'form-control', readonly: true %>
       </div>
     </div>
 

@@ -37,6 +37,11 @@
         </th>
         <% if super_admin? %>
           <th>
+            <%= link_to t('activerecord.attributes.driver.hidden'), '#',
+                        'data-field' => 'hidden',
+                        class: "sort-link #{sort_class('hidden')}" %>
+          </th>
+          <th>
             <%= link_to t('activerecord.attributes.driver.company_id'), '#',
                         'data-field' => 'company_id',
                         class: "sort-link #{sort_class('company_id')}" %>
@@ -55,6 +60,7 @@
           <td><%= date_format(driver.updated_at) %></td>
           <td><%= date_format(driver.created_at) %></td>
           <% if super_admin? %>
+            <td><%= fa_icon(driver.hidden ? 'times' : 'check') %></td>
             <td><%= driver.company.name %></td>
           <% end %>
           <td class="action-links">

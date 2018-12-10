@@ -23,6 +23,11 @@
                          class: 'form-control filter' %>
 
       <% if super_admin? %>
+        <%= select_tag :f_hidden,
+                       options_for_select(options_for_hidden, params[:f_hidden]),
+                       include_blank: t('activerecord.attributes.user.hidden'),
+                       class: 'form-control filter' %>
+
         <%= select_tag :f_company_id,
                        options_for_select(options_for_companies, params[:f_company_id]),
                        include_blank: t('activerecord.attributes.user.company_id'),

@@ -37,6 +37,11 @@
         </th>
         <% if super_admin? %>
           <th>
+            <%= link_to t('activerecord.attributes.product.hidden'), '#',
+                        'data-field' => 'hidden',
+                        class: "sort-link #{sort_class('hidden')}" %>
+          </th>
+          <th>
             <%= link_to t('activerecord.attributes.product.company_id'), '#',
                         'data-field' => 'company_id',
                         class: "sort-link #{sort_class('company_id')}" %>
@@ -55,6 +60,7 @@
           <td><%= date_format(product.updated_at) %></td>
           <td><%= date_format(product.created_at) %></td>
           <% if super_admin? %>
+            <td><%= fa_icon(product.hidden ? 'times' : 'check') %></td>
             <td><%= product.company.name %></td>
           <% end %>
           <td class="action-links">

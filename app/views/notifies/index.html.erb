@@ -113,7 +113,7 @@
         <td><%= date_format(notify.created_at) %></td>
         <td><%= fa_icon(notify.active ? 'check' : 'times') %></td>
         <% if super_admin? %>
-          <td><%= fa_icon(notify.hidden ? 'check' : 'times') %></td>
+          <td><%= fa_icon(notify.hidden ? 'times' : 'check') %></td>
           <td><%= notify.company.name %></td>
         <% end %>
         <td class="action-links">

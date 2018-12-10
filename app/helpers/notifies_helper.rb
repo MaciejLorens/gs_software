@@ -64,8 +64,8 @@ module NotifiesHelper
 
   def options_for_hidden
     [
-      [t('common.hidden'), true],
       [t('common.visible'), false],
+      [t('common.hidden'), true],
     ]
   end
 

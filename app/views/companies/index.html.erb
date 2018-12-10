@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>List of Companies</h1>
+  <h1><%= t('company.list.header') %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
@@ -7,7 +7,7 @@
 <%= render partial: 'filter' %>
 
 <% if @companies.empty? %>
-  <p> - no results found - </p>
+  <p> - <%= t('common.no_results_found') %> - </p>
 <% else %>
 
   <div class="col-sm-12 without-padding">
@@ -16,46 +16,46 @@
       <tr>
         <th></th>
         <th>
-          <%= link_to 'Name', '#',
+          <%= link_to t('activerecord.attributes.company.name'), '#',
                       'data-field' => 'name',
                       class: "sort-link #{sort_class('name')}" %>
         </th>
         <th>
-          <%= link_to 'Address', '#',
+          <%= link_to t('activerecord.attributes.company.address'), '#',
                       'data-field' => 'address',
                       class: "sort-link #{sort_class('address')}" %>
         </th>
         <th>
-          <%= link_to 'Postcode', '#',
+          <%= link_to t('activerecord.attributes.company.postcode'), '#',
                       'data-field' => 'postcode',
                       class: "sort-link #{sort_class('postcode')}" %>
         </th>
         <th>
-          <%= link_to 'City', '#',
+          <%= link_to t('activerecord.attributes.company.city'), '#',
                       'data-field' => 'city',
                       class: "sort-link #{sort_class('city')}" %>
         </th>
         <th>
-          <%= link_to 'Country', '#',
+          <%= link_to t('activerecord.attributes.company.country'), '#',
                       'data-field' => 'country',
                       class: "sort-link #{sort_class('country')}" %>
         </th>
         <th>
-          <%= link_to 'Email', '#',
+          <%= link_to t('activerecord.attributes.company.email'), '#',
                       'data-field' => 'email',
                       class: "sort-link #{sort_class('email')}" %>
         </th>
         <th>
-          <%= link_to 'Edited at', '#',
+          <%= link_to t('activerecord.attributes.company.updated_at'), '#',
                       'data-field' => 'updated_at',
                       class: "sort-link #{sort_class('updated_at')}" %>
         </th>
         <th>
-          <%= link_to 'Created at', '#',
+          <%= link_to t('activerecord.attributes.company.created_at'), '#',
                       'data-field' => 'created_at',
                       class: "sort-link #{sort_class('created_at')}" %>
         </th>
-        <th>Actions</th>
+        <th><%= t('common.actions') %></th>
       </tr>
       </thead>
 
@@ -72,8 +72,8 @@
           <td><%= date_format(company.updated_at) %></td>
           <td><%= date_format(company.updated_at) %></td>
           <td class="action-links">
-            <%= link_to fa_icon('pencil', text: 'Edit'), edit_company_path(company), class: 'action-link' %>
-            <%= link_to fa_icon('times', text: 'Delete'), company, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_company_path(company), class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), company, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
           </td>
         </tr>
       <% end %>

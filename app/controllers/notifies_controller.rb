@@ -24,7 +24,7 @@ class NotifiesController < ApplicationController
 
     respond_to do |format|
       if @notify.save
-        format.html { redirect_to notifies_path, notice: 'Notify was successfully created.' }
+        format.html { redirect_to notifies_path, notice: t('notify.notify_was_successfully_created') }
         format.json { render :index, status: :created, location: @notify }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class NotifiesController < ApplicationController
   def update
     respond_to do |format|
       if @notify.update(notify_params)
-        format.html { redirect_to notifies_path, notice: 'Notify was successfully edited.' }
+        format.html { redirect_to notifies_path, notice: t('notify.notify_was_successfully_edited') }
         format.json { render :index, status: :ok, location: @notify }
       else
         format.html { render :edit }
@@ -49,7 +49,7 @@ class NotifiesController < ApplicationController
     @notify.hide!
 
     respond_to do |format|
-      format.html { redirect_to notifies_url, notice: 'Notify was successfully deleted.' }
+      format.html { redirect_to notifies_url, notice: t('notify.notify_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end
@@ -59,7 +59,7 @@ class NotifiesController < ApplicationController
     @notifies.each { |notify| notify.hide! }
 
     respond_to do |format|
-      format.html { redirect_to notifies_url, notice: 'Notifies was successfully deleted.' }
+      format.html { redirect_to notifies_url, notice: t('notify.notifys_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end

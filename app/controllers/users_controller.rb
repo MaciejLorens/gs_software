@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @invitation.send_email
 
     respond_to do |format|
-      format.html { redirect_to invitations_users_url, notice: 'Client was successfully invited.' }
+      format.html { redirect_to invitations_users_url, notice: t('user.client_was_successfully_invited') }
       format.json { head :no_content }
     end
   end
@@ -39,10 +39,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @invitation.save
-        format.html { redirect_to invitations_users_path, notice: 'Client was successfully invited.' }
+        format.html { redirect_to invitations_users_path, notice: t('user.client_was_successfully_invited') }
         format.json { render :index, status: :ok, location: @invitation }
       else
-        Rails.logger.info "   ===== @invitations.errors.inspect : #{@invitation.errors.inspect}"
         format.html { render :new }
         format.json { render json: @invitation.errors, status: :unprocessable_entity }
       end
@@ -52,7 +51,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'Client was successfully edited.' }
+        format.html { redirect_to users_path, notice: t('user.client_was_successfully_edited') }
         format.json { render :index, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -65,7 +64,7 @@ class UsersController < ApplicationController
     @user.hide!
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Client was successfully deleted.' }
+      format.html { redirect_to users_url, notice: t('user.client_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end
@@ -74,7 +73,7 @@ class UsersController < ApplicationController
     @invitation.destroy
 
     respond_to do |format|
-      format.html { redirect_to invitations_users_url, notice: 'Invitation was successfully deleted.' }
+      format.html { redirect_to invitations_users_url, notice: t('user.invitation_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end
@@ -84,7 +83,7 @@ class UsersController < ApplicationController
     @users.each { |user| user.hide! }
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Clients was successfully deleted.' }
+      format.html { redirect_to users_url, notice: t('user.clients_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end

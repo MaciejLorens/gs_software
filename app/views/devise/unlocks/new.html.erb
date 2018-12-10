@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Resend unlock instructions</h1>
+  <h1><%= t('devise.resend_unlock_instructions') %></h1>
 </div>
 
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, class: 'form-horizontal denser' }) do |form| %>
@@ -18,7 +18,7 @@
     <div class="form-group control-group">
       <div class=' col-sm-2'></div>
       <div class=' col-sm-10'>
-        <%= form.submit 'Resend unlock instructionsn', class: 'btn btn-primary btn-save' %>
+        <%= form.submit t('devise.resend_unlock_instructions'), class: 'btn btn-primary btn-save' %>
 
         <br>
         <br>

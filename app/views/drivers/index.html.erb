@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>List of Drivers</h1>
+  <h1><%= t('driver.list.header') %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
@@ -7,7 +7,7 @@
 <%= render partial: 'filter' %>
 
 <% if @drivers.empty? %>
-  <p> - no results found - </p>
+  <p> - <%= t('common.no_results_found') %> - </p>
 <% else %>
 
   <div class="col-sm-12 without-padding">
@@ -16,33 +16,33 @@
       <tr>
         <th></th>
         <th>
-          <%= link_to 'First Name', '#',
+          <%= link_to t('activerecord.attributes.driver.first_name'), '#',
                       'data-field' => 'first_name',
                       class: "sort-link #{sort_class('first_name')}" %>
         </th>
         <th>
-          <%= link_to 'Last Name', '#',
+          <%= link_to t('activerecord.attributes.driver.last_name'), '#',
                       'data-field' => 'last_name',
                       class: "sort-link #{sort_class('last_name')}" %>
         </th>
         <th>
-          <%= link_to 'Edited at', '#',
+          <%= link_to t('activerecord.attributes.driver.updated_at'), '#',
                       'data-field' => 'updated_at',
                       class: "sort-link #{sort_class('updated_at')}" %>
         </th>
         <th>
-          <%= link_to 'Created at', '#',
+          <%= link_to t('activerecord.attributes.driver.created_at'), '#',
                       'data-field' => 'created_at',
                       class: "sort-link #{sort_class('created_at')}" %>
         </th>
         <% if super_admin? %>
           <th>
-            <%= link_to 'Company', '#',
+            <%= link_to t('activerecord.attributes.driver.company_id'), '#',
                         'data-field' => 'company_id',
                         class: "sort-link #{sort_class('company_id')}" %>
           </th>
         <% end %>
-        <th>Actions</th>
+        <th><%= t('common.actions') %></th>
       </tr>
       </thead>
 
@@ -58,8 +58,8 @@
             <td><%= driver.company.name %></td>
           <% end %>
           <td class="action-links">
-            <%= link_to fa_icon('pencil', text: 'Edit'), edit_driver_path(driver), class: 'action-link' %>
-            <%= link_to fa_icon('times', text: 'Delete'), driver, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_driver_path(driver), class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), driver, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
           </td>
         </tr>
       <% end %>

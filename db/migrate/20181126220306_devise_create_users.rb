@@ -19,6 +19,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name,                      null: false, default: nil
       t.boolean :hidden,                        null: false, default: false
       t.datetime :hidden_at,                    null: true
+      t.string :locale,                         null: false, default: 'pl'
       t.string :role,                           null: false, default: 'client'
       t.integer :company_id,                    null: true, default: nil
 

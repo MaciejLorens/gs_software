@@ -22,7 +22,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to companies_path, notice: 'Company was successfully created.' }
+        format.html { redirect_to companies_path, notice: t('company.company_was_successfully_created') }
         format.json { render :index, status: :created, location: @company }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        format.html { redirect_to companies_path, notice: 'Company was successfully edited.' }
+        format.html { redirect_to companies_path, notice: t('company.company_was_successfully_edited') }
         format.json { render :index, status: :ok, location: @company }
       else
         format.html { render :edit }
@@ -47,7 +47,7 @@ class CompaniesController < ApplicationController
     @company.hide!
 
     respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Company was successfully deleted.' }
+      format.html { redirect_to companies_url, notice: t('company.company_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end
@@ -57,7 +57,7 @@ class CompaniesController < ApplicationController
     @companies.each { |company| company.hide! }
 
     respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Companies was successfully deleted.' }
+      format.html { redirect_to companies_url, notice: t('company.companys_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end

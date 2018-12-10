@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     unless @invitation.present?
-      return redirect_to new_user_session_path, notice: 'Sorry, but your invitation is invalid.'
+      return redirect_to new_user_session_path, notice: t('devise.sorry_but_your_invitation_is_invalid')
     end
 
     super

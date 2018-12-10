@@ -57,22 +57,22 @@ module NotifiesHelper
 
   def options_for_active
     [
-      ['Active', true],
-      ['Inactive', false],
+      [t('common.active'), true],
+      [t('common.inactive'), false],
     ]
   end
 
   def options_for_hidden
     [
-      ['Hidden', true],
-      ['Visible', false],
+      [t('common.hidden'), true],
+      [t('common.visible'), false],
     ]
   end
 
   def options_for_indefinite
     [
-      ['Indefinite', true],
-      ['Finite', false],
+      [t('common.indefinite'), true],
+      [t('common.finite'), false],
     ]
   end
 

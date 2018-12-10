@@ -1,7 +1,256 @@
 en:
+
   date:
     formats:
       default: "%d/%m/%Y"
+    order: [ year, month, day ]
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
+
+
+  common:
+    _yes: Yes
+    _no: No
+    active: Active
+    inactive: Inactive
+    hidden: Hidden
+    visible: Visible
+    indefinite: Indefinite
+    finite: Finite
+    actions: Actions
+    view: View
+    edit: Edit
+    delete: Delete
+    are_you_sure: Are you sure?
+    refresh: Refresh
+    cancel: Cancel
+    save: Save
+    no_results_found: No results found
+    errors: errors
+
+
+  menu:
+    notifies: Notifies
+    clients: Clients
+    products: Products
+    drivers: Drivers
+    users: Users
+    admins: Admins
+    companies: Companies
+
+
+  locale:
+    locale_was_successfully_updated: Język pomyślnie uaktualniony.
+
+
+  notify:
+    navbar:
+      list: List
+      edit_notify: Edit Notify
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Delete notifies
+      print: Print
+    filters:
+      created: Created
+    list:
+      header: List of notifies
+    show:
+      view_notify: View Notify
+    new:
+      new_notify: New Notify
+    errors:
+      prohibited: prohibited this notify from being saved
+    notify_was_successfully_created: Notify was successfully created.
+    notify_was_successfully_edited: Notify was successfully edited.
+    notify_was_successfully_deleted: Notify was successfully deleted.
+    notifys_was_successfully_deleted: Notifys was successfully deleted.
+
+
+  product:
+    navbar:
+      list: List
+      edit_product: Edit product
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted items
+    filters:
+      created: Created
+    list:
+      header: List of products
+    new:
+      new_product: New product
+    errors:
+      prohibited: prohibited this product from being saved
+    product_was_successfully_created: Product was successfully created.
+    product_was_successfully_edited: Product was successfully edited.
+    product_was_successfully_deleted: Product was successfully deleted.
+    products_was_successfully_deleted: Products was successfully deleted.
+
+
+  driver:
+    navbar:
+      list: List
+      edit_driver: Edit driver
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted items
+    list:
+      header: List of drivers
+    new:
+      new_driver: New driver
+    errors:
+      prohibited: prohibited this driver from being saved
+    driver_was_successfully_created: Driver was successfully created.
+    driver_was_successfully_edited: Driver was successfully edited.
+    driver_was_successfully_deleted: Driver was successfully deleted.
+    drivers_was_successfully_deleted: Drivers was successfully deleted.
+
+
+  user:
+    navbar:
+      list: List
+      invitations: Invitations
+      add_invitation: Add invitation
+      edit_user: Edit client
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted users
+    list:
+      header: List of clients
+    invitation:
+      list:
+        header: List of clients invitations
+        resend: Resend
+      new:
+        new_client_invitation: New client invitation
+    new:
+      new_user: New client
+    errors:
+      prohibited: prohibited this client from being saved
+    client_was_successfully_invited: Client was successfully invited.
+    client_was_successfully_edited: Client was successfully edited.
+    client_was_successfully_deleted: Client was successfully deleted.
+    invitation_was_successfully_deleted: Invitation was successfully deleted.
+    clients_was_successfully_deleted: Clients was successfully deleted.
+
+
+  admin:
+    navbar:
+      list: List
+      invitations: Invitations
+      add_invitation: Add invitation
+      edit_admin: Edit admin
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted admins
+    list:
+      header: List of admins
+    invitation:
+      list:
+        header: List of admins invitations
+        resend: Resend
+      new:
+        new_admin_invitation: New admin invitation
+    new:
+      new_admin: New admin
+    errors:
+      prohibited: prohibited this admin from being saved
+    admin_was_successfully_invited: Admin was successfully invited.
+    admin_was_successfully_edited: Admin was successfully edited.
+    admin_was_successfully_deleted: Admin was successfully deleted.
+    invitation_was_successfully_deleted: Invitation was successfully deleted.
+    admins_was_successfully_deleted: Admins was successfully deleted.
+
+
+  company:
+    navbar:
+      list: List
+      edit_company: Edit driver
+      add_new: dd new
+      selected_items: Selected items
+      deleted_items: Deleted admins
+    list:
+      header: List of companies
+    new:
+      new_company: New company
+    errors:
+      prohibited: prohibited this company from being saved
+    company_was_successfully_created: Company was successfully invited.
+    company_was_successfully_edited: Company was successfully edited.
+    company_was_successfully_deleted: Company was successfully deleted.
+    companys_was_successfully_deleted: Companies was successfully deleted.
+
+
+  activerecord:
+    models:
+      notify: Notifies
+      user: User
+      client: Client
+      product: Product
+      driver: Driver
+      company: Company
+      admin: Admin
+    errors:
+      models:
+        notify:
+          attributes:
+            driver:
+              required: is required
+            product:
+              required: is required
+    attributes:
+      notify:
+        pin: PIN
+        number: Number
+        car_number: Car number
+        semitrailer_number: Semitrailer number
+        expiration_from: Expiration from
+        indefinite: Indefinite
+        expiration_to: Expiration to
+        product_id: Product
+        driver_id: Driver
+        active: Activity
+        hidden: Visibility
+        user_id: Creator
+        company_id: Company
+        editor: Editor
+        updated_at: Updated at
+        created_at: Created at
+      user:
+        email: Email
+        first_name: First name
+        last_name: Last name
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
+        company_id: Company
+        updated_at: Updated at
+        created_at: Created at
+      invitation:
+        email: Email
+        sent_at: Sent at
+        company_id: Company
+        created_at: Created at
+      product:
+        name: Name
+        number: Number
+        company_id: Company
+        updated_at: Updated at
+        created_at: Created at
+      driver:
+        first_name: First name
+        last_name: Last name
+        company_id: Company
+        updated_at: Updated at
+        created_at: Created at
+      company:
+        name: Name
+        address: Address
+        postcode: Postcode
+        city: City
+        country: Country
+        email: Email
+        updated_at: Updated at
+        created_at: Created at

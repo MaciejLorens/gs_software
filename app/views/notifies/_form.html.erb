@@ -3,8 +3,10 @@
   <div class="fieldset">
     <% if notify.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(notify.errors.count, 'error') %> prohibited this
-          notify from being saved:</h2>
+        <h2>
+          <%= pluralize(notify.errors.count, t('common.errors')) %>
+          <%= t('notify.errors.prohibited') %>
+        </h2>
 
         <ul>
           <% notify.errors.full_messages.each do |message| %>
@@ -102,10 +104,10 @@
       </div>
       <div class='col-sm-8'>
         <%= form.button :submit, class: 'btn btn-primary btn-save' do %>
-          <%= fa_icon('check', text: 'Save') %>
+          <%= fa_icon('check', text: t('common.save')) %>
         <% end %>
 
-        <%= link_to fa_icon('times', text: 'Cancel'), notifies_path, class: 'btn btn-secondary' %>
+        <%= link_to fa_icon('times', text: t('common.cancel')), notifies_path, class: 'btn btn-secondary' %>
       </div>
     </div>
 

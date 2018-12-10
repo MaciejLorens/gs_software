@@ -29,7 +29,7 @@ class AdminsController < ApplicationController
     @invitation.send_email
 
     respond_to do |format|
-      format.html { redirect_to invitations_admins_url, notice: 'Admin was successfully invited.' }
+      format.html { redirect_to invitations_admins_url, notice: t('admin.admin_was_successfully_invited') }
       format.json { head :no_content }
     end
   end
@@ -39,7 +39,7 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @invitation.save
-        format.html { redirect_to invitations_admins_path, notice: 'Admin was successfully invited.' }
+        format.html { redirect_to invitations_admins_path, notice: t('admin.admin_was_successfully_invited') }
         format.json { render :index, status: :ok, location: @invitation }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class AdminsController < ApplicationController
   def update
     respond_to do |format|
       if @admin.update(admin_params)
-        format.html { redirect_to admins_path, notice: 'Admin was successfully edited.' }
+        format.html { redirect_to admins_path, notice: t('admin.admin_was_successfully_edited') }
         format.json { render :index, status: :ok, location: @admin }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class AdminsController < ApplicationController
     @admin.hide!
 
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admin was successfully deleted.' }
+      format.html { redirect_to admins_url, notice: t('admin.admin_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end
@@ -73,7 +73,7 @@ class AdminsController < ApplicationController
     @invitation.destroy
 
     respond_to do |format|
-      format.html { redirect_to invitations_admins_url, notice: 'Invitation was successfully deleted.' }
+      format.html { redirect_to invitations_admins_url, notice: t('user.invitation_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end
@@ -83,7 +83,7 @@ class AdminsController < ApplicationController
     @admins.each { |admin| admin.hide! }
 
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admins was successfully deleted.' }
+      format.html { redirect_to admins_url, notice: t('admin.admins_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end

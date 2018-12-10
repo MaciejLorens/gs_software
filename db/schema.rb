@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.datetime "hidden_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_companies_on_email", unique: true
-    t.index ["hidden"], name: "index_companies_on_hidden"
   end
 
   create_table "drivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -35,8 +33,6 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_drivers_on_company_id"
-    t.index ["hidden"], name: "index_drivers_on_hidden"
   end
 
   create_table "invitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,13 +62,6 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["active"], name: "index_notifies_on_active"
-    t.index ["company_id"], name: "index_notifies_on_company_id"
-    t.index ["created_at"], name: "index_notifies_on_created_at"
-    t.index ["driver_id"], name: "index_notifies_on_driver_id"
-    t.index ["hidden"], name: "index_notifies_on_hidden"
-    t.index ["product_id"], name: "index_notifies_on_product_id"
-    t.index ["user_id"], name: "index_notifies_on_user_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,8 +72,6 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_products_on_company_id"
-    t.index ["hidden"], name: "index_products_on_hidden"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.string "last_name", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
+    t.string "locale", default: "pl", null: false
     t.string "role", default: "client", null: false
     t.integer "company_id"
     t.datetime "created_at", null: false

@@ -10,6 +10,8 @@
   </head>
 
   <body>
+    <%= hidden_field_tag :current_user_locale, current_user.try(:locale) %>
+
     <%= bootstrap_flash %>
 
     <%= render partial: 'shared/header' %>

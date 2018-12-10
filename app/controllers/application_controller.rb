@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
 
   include QueryHelper
 
+  before_action :set_locale
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action :authenticate_user!
@@ -58,6 +60,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:admin])
+  end
+
+  def set_locale
+    I18n.locale = current_user.try(:locale) || I18n.default_locale
   end
 
   helper_method :current_company, :current_notifies, :current_drivers,

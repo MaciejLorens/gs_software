@@ -9,33 +9,33 @@
 
       <%= text_field_tag :f_name,
                          params[:f_name],
-                         placeholder: 'All Names',
+                         placeholder: t('activerecord.attributes.company.name'),
                          class: 'form-control filter' %>
 
       <%= text_field_tag :f_address,
                          params[:f_address],
-                         placeholder: 'All Addresses',
+                         placeholder: t('activerecord.attributes.company.address'),
                          class: 'form-control filter' %>
 
       <%= text_field_tag :f_postcode,
                          params[:f_postcode],
-                         placeholder: 'All postcodes',
+                         placeholder: t('activerecord.attributes.company.postcode'),
                          class: 'form-control filter' %>
 
       <%= text_field_tag :f_city,
                          params[:f_city],
-                         placeholder: 'All Cities',
+                         placeholder: t('activerecord.attributes.company.city'),
                          class: 'form-control filter' %>
 
       <%= text_field_tag :f_country,
                          params[:f_country],
-                         placeholder: 'All Countries',
+                         placeholder: t('activerecord.attributes.company.country'),
                          class: 'form-control filter' %>
 
       <%= link_to fa_icon('times'), companies_path(s_field: :created_at, s_order: :desc), class: 'btn btn-info pull-right' %>
 
       <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>
-        <%= fa_icon('retweet', text: 'Refresh') %>
+        <%= fa_icon('retweet', text: t('common.refresh')) %>
       <% end %>
 
     </div>

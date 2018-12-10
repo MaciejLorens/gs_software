@@ -1,11 +1,11 @@
 <div class="page-header">
-  <h1>List of Admins Invitations</h1>
+  <h1><%= t('admin.invitation.list.header') %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
 
 <% if @invitations.empty? %>
-  <p> - no results found - </p>
+  <p> - <%= t('common.no_results_found') %> - </p>
 <% else %>
 
   <div class="col-sm-12 without-padding">
@@ -13,28 +13,28 @@
       <thead>
       <tr>
         <th>
-          <%= link_to 'Email', '#',
+          <%= link_to t('activerecord.attributes.user.email'), '#',
                       'data-field' => 'email',
                       class: "sort-link #{sort_class('email')}" %>
         </th>
         <th>
-          <%= link_to 'Last sent at', '#',
+          <%= link_to t('activerecord.attributes.invitation.sent_at'), '#',
                       'data-field' => 'sent_at',
                       class: "sort-link #{sort_class('sent_at')}" %>
         </th>
         <th>
-          <%= link_to 'Created at', '#',
+          <%= link_to t('activerecord.attributes.invitation.created_at'), '#',
                       'data-field' => 'created_at',
                       class: "sort-link #{sort_class('created_at')}" %>
         </th>
         <% if super_admin? %>
           <th>
-            <%= link_to 'Company', '#',
+            <%= link_to t('activerecord.attributes.invitation.company_id'), '#',
                         'data-field' => 'company_id',
                         class: "sort-link #{sort_class('company_id')}" %>
           </th>
         <% end %>
-        <th>Actions</th>
+        <th><%= t('common.actions') %></th>
       </tr>
       </thead>
 
@@ -49,8 +49,8 @@
             <td><%= invitation.company.name %></td>
           <% end %>
           <td class="action-links">
-            <%= link_to fa_icon('envelope', text: 'Resend'), resend_admin_path(invitation), method: :patch, class: 'action-link' %>
-            <%= link_to fa_icon('times', text: 'Delete'), invitation_destroy_admin_path(invitation), method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+            <%= link_to fa_icon('envelope', text: t('admin.invitation.list.resend')), resend_admin_path(invitation), method: :patch, class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), invitation_destroy_admin_path(invitation), method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
           </td>
         </tr>
       <% end %>

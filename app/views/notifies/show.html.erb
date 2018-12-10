@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>View Notify <%= @notify.number %></h1>
+  <h1><%= t('notify.show.view_notify') %> <%= @notify.number %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
@@ -7,85 +7,85 @@
 <form class="form-horizontal denser fieldset col-sm-5 show-action">
 
   <div class="form-group control-group">
-    <%= label_tag :pin, 'PIN:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :pin, t('activerecord.attributes.notify.pin'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :pin, @notify.pin, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :number, 'Number:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :number, t('activerecord.attributes.notify.number'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :number, @notify.number, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :car_number, 'Car number:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :car_number, t('activerecord.attributes.notify.car_number'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :car_number, @notify.car_number, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :semitrailer_number, 'Semitrailer number:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :semitrailer_number, t('activerecord.attributes.notify.semitrailer_number'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :semitrailer_number, @notify.semitrailer_number, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :expiration_from, 'Expiration from:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :expiration_from, t('activerecord.attributes.notify.expiration_from'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :expiration_from, @notify.expiration_from, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :expiration_to, 'Expiration to:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :expiration_to, t('activerecord.attributes.notify.expiration_to'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :expiration_to, @notify.expiration_to, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :product, 'Product:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :product, t('activerecord.attributes.notify.product_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :product, @notify.product.name, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :driver, 'Driver:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :driver, t('activerecord.attributes.notify.driver_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :driver, @notify.driver.full_name, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :created_at, 'Created at:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :created_at, t('activerecord.attributes.notify.created_at'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :created_at, datetime_format(@notify.created_at), class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :active, 'Active:', class: 'col-sm-4 control-label' %>
+    <%= label_tag :active, t('activerecord.attributes.notify.active'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :active, @notify.active ? 'Yes' : 'No', class: 'form-control', readonly: true %>
+      <%= text_field_tag :active, @notify.active ? t('common._yes') : t('common._no'), class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <% if super_admin? %>
     <div class="form-group control-group">
-      <%= label_tag :hidden, 'Hidden:', class: 'col-sm-4 control-label' %>
+      <%= label_tag :hidden, t('activerecord.attributes.notify.hidden'), class: 'col-sm-4 control-label' %>
       <div class="col-sm-8 controls">
-        <%= text_field_tag :hidden, @notify.hidden ? 'Yes' : 'No', class: 'form-control', readonly: true %>
+        <%= text_field_tag :hidden, @notify.hidden ? t('common._yes') : t('common._no'), class: 'form-control', readonly: true %>
       </div>
     </div>
 
     <div class="form-group control-group">
-      <%= label_tag :company_id, 'Company:', class: 'col-sm-4 control-label' %>
+      <%= label_tag :company_id, t('activerecord.attributes.notify.company_id'), class: 'col-sm-4 control-label' %>
       <div class="col-sm-8 controls">
         <%= text_field_tag :company_id, @notify.company.name, class: 'form-control', readonly: true %>
       </div>

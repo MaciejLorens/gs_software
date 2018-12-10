@@ -1,32 +1,32 @@
 <ul class='nav nav-tabs'>
 
   <li class="icon index_collection_link <%= index_active? %>">
-    <%= link_to fa_icon('th-list', text: 'List'), notifies_path %>
+    <%= link_to fa_icon('th-list', text: t('notify.navbar.list')), notifies_path %>
   </li>
 
   <li class="icon new_collection_link <%= new_active? %>">
-    <%= link_to fa_icon('plus', text: 'Add new'), new_notify_path %>
+    <%= link_to fa_icon('plus', text: t('notify.navbar.add_new')), new_notify_path %>
   </li>
 
   <% if show_action? %>
     <li class="icon new_collection_link <%= show_active? %>">
-      <%= link_to fa_icon('eye', text: 'View'), '#' %>
+      <%= link_to fa_icon('eye', text: t('common.view')), '#' %>
     </li>
   <% end %>
 
   <% if edit_action? %>
     <li class="icon new_collection_link <%= edit_active? %>">
-      <%= link_to fa_icon('pencil', text: 'Edit'), '#' %>
+      <%= link_to fa_icon('pencil', text: t('common.edit')), '#' %>
     </li>
   <% end %>
 
   <% if index_action? %>
 
     <li class="dropdown right">
-      <%= link_to 'Selected items', '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' %>
+      <%= link_to t('notify.navbar.selected_items'), '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' %>
       <ul class="dropdown-menu dropdown-menu-right">
         <li>
-          <%= link_to 'Delete Notifies', batch_destroy_notifies_path, class: 'batch-destroy' %>
+          <%= link_to t('notify.navbar.deleted_items'), batch_destroy_notifies_path, class: 'batch-destroy' %>
         </li>
       </ul>
     </li>
@@ -35,7 +35,7 @@
 
   <% if show_action? %>
     <li class='right'>
-      <%= link_to 'Print', '#', onclick: 'window.print()' %>
+      <%= link_to t('notify.navbar.print'), '#', onclick: 'window.print()' %>
     </li>
   <% end %>
 

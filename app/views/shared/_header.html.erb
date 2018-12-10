@@ -5,15 +5,15 @@
     <%= link_to 'WGT Notify Turow', root_path, class: 'navbar-brand' %>
 
     <% if admin? %>
-      <%= link_to 'Notifies', notifies_path, class: 'link' %>
-      <%= link_to 'Products', products_path, class: 'link' %>
-      <%= link_to 'Drivers', drivers_path, class: 'link' %>
-      <%= link_to 'Clients', users_path, class: 'link' %>
+      <%= link_to t('menu.notifies'), notifies_path, class: 'link' %>
+      <%= link_to t('menu.products'), products_path, class: 'link' %>
+      <%= link_to t('menu.drivers'), drivers_path, class: 'link' %>
+      <%= link_to t('menu.clients'), users_path, class: 'link' %>
     <% end %>
 
     <% if super_admin? %>
-      <%= link_to 'Admins', admins_path, class: 'link' %>
-      <%= link_to 'Companies', companies_path, class: 'link' %>
+      <%= link_to t('menu.admins'), admins_path, class: 'link' %>
+      <%= link_to t('menu.companies'), companies_path, class: 'link' %>
     <% end %>
 
   </div>
@@ -23,9 +23,14 @@
       <span class="login-username">
         <%= "#{current_user.first_name} #{current_user.last_name} (#{current_user.email})" %>
       </span>
-      <%= link_to 'Log out', destroy_user_session_path, {method: 'delete', class: 'btn btn-outline-primary devise-link'} %>
+      <% if current_user.locale == 'pl' %>
+        <%= link_to image_tag('pl_50.png', class: 'i18n-flag'), locale_set_path(locale: 'en'), method: :patch %>
+      <% else %>
+        <%= link_to image_tag('en_50.png', class: 'i18n-flag'), locale_set_path(locale: 'pl'), method: :patch %>
+      <% end %>
+      <%= link_to t('devise.logout'), destroy_user_session_path, { method: 'delete', class: 'btn btn-outline-primary devise-link' } %>
     <% else %>
-      <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-primary devise-link' %>
+      <%= link_to t('devise.login'), new_user_session_path, class: 'btn btn-outline-primary devise-link' %>
     <% end %>
   </div>
 

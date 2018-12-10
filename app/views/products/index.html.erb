@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>List of Products</h1>
+  <h1><%= t('product.list.header') %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
@@ -7,7 +7,7 @@
 <%= render partial: 'filter' %>
 
 <% if @products.empty? %>
-  <p> - no results found - </p>
+  <p> - <%= t('common.no_results_found') %> - </p>
 <% else %>
 
   <div class="col-sm-12 without-padding">
@@ -16,33 +16,33 @@
       <tr>
         <th></th>
         <th>
-          <%= link_to 'Name', '#',
+          <%= link_to t('activerecord.attributes.product.name'), '#',
                       'data-field' => 'name',
                       class: "sort-link #{sort_class('name')}" %>
         </th>
         <th>
-          <%= link_to 'Number', '#',
+          <%= link_to t('activerecord.attributes.product.number'), '#',
                       'data-field' => 'number',
                       class: "sort-link #{sort_class('number')}" %>
         </th>
         <th>
-          <%= link_to 'Edited at', '#',
+          <%= link_to t('activerecord.attributes.product.updated_at'), '#',
                       'data-field' => 'updated_at',
                       class: "sort-link #{sort_class('updated_at')}" %>
         </th>
         <th>
-          <%= link_to 'Created at', '#',
+          <%= link_to t('activerecord.attributes.product.created_at'), '#',
                       'data-field' => 'created_at',
                       class: "sort-link #{sort_class('created_at')}" %>
         </th>
         <% if super_admin? %>
           <th>
-            <%= link_to 'Company', '#',
+            <%= link_to t('activerecord.attributes.product.company_id'), '#',
                         'data-field' => 'company_id',
                         class: "sort-link #{sort_class('company_id')}" %>
           </th>
         <% end %>
-        <th>Actions</th>
+        <th><%= t('common.actions') %></th>
       </tr>
       </thead>
 
@@ -58,8 +58,8 @@
             <td><%= product.company.name %></td>
           <% end %>
           <td class="action-links">
-            <%= link_to fa_icon('pencil', text: 'Edit'), edit_product_path(product), class: 'action-link' %>
-            <%= link_to fa_icon('times', text: 'Delete'), product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_product_path(product), class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), product, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
           </td>
         </tr>
       <% end %>

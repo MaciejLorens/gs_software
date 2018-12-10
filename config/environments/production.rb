@@ -73,7 +73,10 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = true
+
+  config.i18n.available_locales = [:en, :pl]
+  config.i18n.default_locale = :pl
+  config.i18n.fallbacks = false
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
@@ -102,6 +105,12 @@ Rails.application.configure do
     :enable_starttls_auto => true,
     :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE
   }
+
+  config.action_view.raise_on_missing_translations = true
+
+  config.i18n.available_locales = [:en, :pl]
+  config.i18n.default_locale = :pl
+
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

@@ -22,7 +22,7 @@ class DriversController < ApplicationController
 
     respond_to do |format|
       if @driver.save
-        format.html { redirect_to drivers_path, notice: 'Driver was successfully created.' }
+        format.html { redirect_to drivers_path, notice: t('driver.driver_was_successfully_created') }
         format.json { render :index, status: :created, location: @driver }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class DriversController < ApplicationController
   def update
     respond_to do |format|
       if @driver.update(driver_params)
-        format.html { redirect_to drivers_path, notice: 'Driver was successfully edited.' }
+        format.html { redirect_to drivers_path, notice: t('driver.driver_was_successfully_edited') }
         format.json { render :index, status: :ok, location: @driver }
       else
         format.html { render :edit }
@@ -47,7 +47,7 @@ class DriversController < ApplicationController
     @driver.hide!
 
     respond_to do |format|
-      format.html { redirect_to drivers_url, notice: 'Driver was successfully deleted.' }
+      format.html { redirect_to drivers_url, notice: t('driver.driver_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end
@@ -57,7 +57,7 @@ class DriversController < ApplicationController
     @drivers.each { |driver| driver.hide! }
 
     respond_to do |format|
-      format.html { redirect_to drivers_url, notice: 'Drivers was successfully deleted.' }
+      format.html { redirect_to drivers_url, notice: t('driver.drivers_was_successfully_deleted') }
       format.json { head :no_content }
     end
   end

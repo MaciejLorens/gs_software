@@ -9,60 +9,60 @@
 
       <%= text_field_tag :f_pin,
                          params[:f_pin],
-                         placeholder: 'All PIN-s',
+                         placeholder: t('activerecord.attributes.notify.pin'),
                          class: 'form-control filter' %>
 
       <%= text_field_tag :f_number,
                          params[:f_number],
-                         placeholder: 'All Numbers',
+                         placeholder: t('activerecord.attributes.notify.number'),
                          class: 'form-control filter' %>
 
       <%= text_field_tag :f_car_number,
                          params[:f_car_number],
-                         placeholder: 'All Car Numbers',
+                         placeholder: t('activerecord.attributes.notify.car_number'),
                          class: 'form-control filter' %>
 
       <%= text_field_tag :f_semitrailer_number,
                          params[:f_semitrailer_number],
-                         placeholder: 'All Semitrailers',
+                         placeholder: t('activerecord.attributes.notify.semitrailer_number'),
                          class: 'form-control filter' %>
 
       <%= select_tag :f_driver_id,
                      options_for_select(options_for_drivers, params[:f_driver_id]),
-                     include_blank: 'All Drivers',
+                     include_blank: t('activerecord.attributes.notify.driver_id'),
                      class: 'form-control filter' %>
 
       <%= select_tag :f_product_id,
                      options_for_select(options_for_products, params[:f_product_id]),
-                     include_blank: 'All Products',
+                     include_blank: t('activerecord.attributes.notify.product_id'),
                      class: 'form-control filter' %>
 
       <%= select_tag :f_user_id,
                      options_for_select(options_for_users, params[:f_user_id]),
-                     include_blank: 'All Creators',
+                     include_blank: t('activerecord.attributes.notify.user_id'),
                      class: 'form-control filter' %>
 
       <%= select_tag :f_active,
                      options_for_select(options_for_active, params[:f_active]),
-                     include_blank: 'All',
+                     include_blank: t('activerecord.attributes.notify.active'),
                      class: 'form-control filter' %>
 
       <% if super_admin? %>
         <%= select_tag :f_hidden,
                        options_for_select(options_for_hidden, params[:f_hidden]),
-                       include_blank: 'All',
+                       include_blank: t('activerecord.attributes.notify.hidden'),
                        class: 'form-control filter' %>
 
         <%= select_tag :f_company_id,
                        options_for_select(options_for_companies, params[:f_company_id]),
-                       include_blank: 'All Companies',
+                       include_blank: t('activerecord.attributes.notify.company_id'),
                        class: 'form-control filter' %>
       <% end %>
 
       <br>
       <br>
 
-      Created:
+      <%= t('notify.filters.created') %>:
       <%= date_field_tag :f_created_at_from,
                          params[:f_created_at_from] || Date.today - 1.month,
                          class: 'form-control filter-date-picker' %>
@@ -71,12 +71,10 @@
                          params[:f_created_at_to] || Date.today,
                          class: 'form-control filter-date-picker' %>
 
-
-
       <%= link_to fa_icon('times'), notifies_path(s_field: :expiration_to, s_order: :desc), class: 'btn btn-info pull-right' %>
 
       <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>
-        <%= fa_icon('retweet', text: 'Refresh') %>
+        <%= fa_icon('retweet', text: t('common.refresh')) %>
       <% end %>
 
     </div>

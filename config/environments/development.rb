@@ -66,8 +66,11 @@ Rails.application.configure do
     :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE
   }
 
-  # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
+  config.action_view.raise_on_missing_translations = true
+
+  config.i18n.available_locales = [:en, :pl]
+  config.i18n.default_locale = :pl
+  config.i18n.fallbacks = false
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.

@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Log in</h1>
+  <h1><%= t('devise.login') %></h1>
 </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal denser'}) do |form| %>
@@ -37,7 +37,7 @@
 
         <br>
         <br>
-        <%= render "devise/shared/links" %>
+        <%= render 'devise/shared/links' %>
       </div>
     </div>
 

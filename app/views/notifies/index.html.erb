@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>List of Notifies</h1>
+  <h1><%= t('notify.list.header') %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
@@ -7,7 +7,7 @@
 <%= render partial: 'filter' %>
 
 <% if @notifies.empty? %>
-  <p> - no results found - </p>
+  <p> - <%= t('common.no_results_found') %> - </p>
 <% else %>
 
   <table class="table table-condensed table-striped">
@@ -15,83 +15,83 @@
     <tr>
       <th></th>
       <th>
-        <%= link_to 'PIN', '#',
+        <%= link_to t('activerecord.attributes.notify.pin'), '#',
                     'data-field' => 'pin',
                     class: "sort-link #{sort_class('pin')}" %>
       </th>
       <th>
-        <%= link_to 'Number', '#',
+        <%= link_to t('activerecord.attributes.notify.number'), '#',
                     'data-field' => 'number',
                     class: "sort-link #{sort_class('number')}" %>
       </th>
       <th>
-        <%= link_to 'Car number', '#',
+        <%= link_to t('activerecord.attributes.notify.car_number'), '#',
                     'data-field' => 'car_number',
                     class: "sort-link #{sort_class('car_number')}" %>
       </th>
       <th>
-        <%= link_to 'Semitrailer number', '#',
+        <%= link_to t('activerecord.attributes.notify.semitrailer_number'), '#',
                     'data-field' => 'semitrailer_number',
                     class: "sort-link #{sort_class('semitrailer_number')}" %>
       </th>
       <th>
-        <%= link_to 'Driver', '#',
+        <%= link_to t('activerecord.attributes.notify.driver_id'), '#',
                     'data-field' => 'driver_id',
                     class: "sort-link #{sort_class('driver_id')}" %>
       </th>
       <th>
-        <%= link_to 'Product', '#',
+        <%= link_to t('activerecord.attributes.notify.product_id'), '#',
                     'data-field' => 'product_id',
                     class: "sort-link #{sort_class('product_id')}" %>
       </th>
       <th>
-        <%= link_to 'Expiration from', '#',
+        <%= link_to t('activerecord.attributes.notify.expiration_from'), '#',
                     'data-field' => 'expiration_from',
                     class: "sort-link #{sort_class('expiration_from')}" %>
       </th>
       <th>
-        <%= link_to 'Expiration to', '#',
+        <%= link_to t('activerecord.attributes.notify.expiration_to'), '#',
                     'data-field' => 'expiration_to',
                     class: "sort-link #{sort_class('expiration_to')}" %>
       </th>
       <th>
-        <%= link_to 'Editor', '#',
+        <%= link_to t('activerecord.attributes.notify.user_id'), '#',
                     'data-field' => 'user_id',
                     class: "sort-link #{sort_class('user_id')}" %>
       </th>
       <th>
-        <%= link_to 'Edited at', '#',
+        <%= link_to t('activerecord.attributes.notify.updated_at'), '#',
                     'data-field' => 'updated_at',
                     class: "sort-link #{sort_class('updated_at')}" %>
       </th>
       <th>
-        <%= link_to 'Creator', '#',
+        <%= link_to t('activerecord.attributes.notify.user_id'), '#',
                     'data-field' => 'user_id',
                     class: "sort-link #{sort_class('user_id')}" %>
       </th>
       <th>
-        <%= link_to 'Created at', '#',
+        <%= link_to t('activerecord.attributes.notify.created_at'), '#',
                     'data-field' => 'created_at',
                     class: "sort-link #{sort_class('created_at')}" %>
       </th>
       <th>
-        <%= link_to 'Active', '#',
+        <%= link_to t('activerecord.attributes.notify.active'), '#',
                     'data-field' => 'active',
                     class: "sort-link #{sort_class('active')}" %>
       </th>
       <% if super_admin? %>
         <th>
-          <%= link_to 'Hidden', '#',
+          <%= link_to t('activerecord.attributes.notify.hidden'), '#',
                       'data-field' => 'hidden',
                       class: "sort-link #{sort_class('hidden')}" %>
         </th>
         <th>
-          <%= link_to 'Company', '#',
+          <%= link_to t('activerecord.attributes.notify.company_id'), '#',
                       'data-field' => 'company_id',
                       class: "sort-link #{sort_class('company_id')}" %>
         </th>
       <% end %>
-      <th>Actions</th>
+      <th><%= t('common.actions') %></th>
     </tr>
     </thead>
 
@@ -117,9 +117,9 @@
           <td><%= notify.company.name %></td>
         <% end %>
         <td class="action-links">
-          <%= link_to fa_icon('eye', text: 'View'), notify, class: 'action-link' %>
-          <%= link_to fa_icon('pencil', text: 'Edit'), edit_notify_path(notify), class: 'action-link' %>
-          <%= link_to fa_icon('times', text: 'Delete'), notify, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+          <%= link_to fa_icon('eye', text: t('common.view')), notify, class: 'action-link' %><br>
+          <%= link_to fa_icon('pencil', text: t('common.edit')), edit_notify_path(notify), class: 'action-link' %><br>
+          <%= link_to fa_icon('times', text: t('common.delete')), notify, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
         </td>
       </tr>
     <% end %>

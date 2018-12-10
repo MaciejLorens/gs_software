@@ -2,7 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   before_action :set_invitation, only: [:new, :create]
 
-
   def new
     unless @invitation.present?
       return redirect_to new_user_session_path, notice: t('devise.sorry_but_your_invitation_is_invalid')

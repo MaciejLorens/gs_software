@@ -38,6 +38,7 @@ pl:
     users: Użytkownicy
     admins: Admini
     companies: Firmy
+    api_tokens: API Token
 
   locale:
     locale_was_successfully_updated: Language was successfully edited.
@@ -180,6 +181,13 @@ pl:
     company_was_successfully_deleted: Firma pomyślnie usunięta.
     companys_was_successfully_deleted: Firmy pomyślnie usunięte.
 
+  api_token:
+    navbar:
+      edit_api_token: Edycja API token
+    errors:
+      prohibited: uniemożliwiły zapisanie api tokena
+    api_token_was_successfully_edited: API token pomyślnie uaktualniony.
+
 
   activerecord:
     models:
@@ -190,6 +198,7 @@ pl:
       driver: Kierowca
       company: Firma
       admin: Admin
+      api_token: API token
     errors:
       models:
         notify:
@@ -255,3 +264,5 @@ pl:
         email: Email
         updated_at: Data edycji
         created_at: Data utworzenia
+      api_token:
+        value: Wartość

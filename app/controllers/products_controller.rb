@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   before_action :authorize_admin
 
   before_action :set_product, only: [:edit, :update, :destroy]
@@ -20,46 +21,32 @@ class ProductsController < ApplicationController
   def create
     @product = current_products.new(product_params)
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to products_path, notice: t('product.product_was_successfully_created') }
-        format.json { render :index, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.save
+      redirect_to products_path, notice: t('product.product_was_successfully_created')
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to products_path, notice: t('product.product_was_successfully_edited') }
-        format.json { render :index, status: :ok, location: @product }
-      else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.update(product_params)
+      redirect_to products_path, notice: t('product.product_was_successfully_edited')
+    else
+      render :edit
     end
   end
 
   def destroy
     @product.hide!
 
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: t('product.product_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to products_url, notice: t('product.product_was_successfully_deleted')
   end
 
   def batch_destroy
     @products = Product.where(id: params[:ids])
     @products.each { |product| product.hide! }
 
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: t('product.products_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to products_url, notice: t('product.products_was_successfully_deleted')
   end
 
   private

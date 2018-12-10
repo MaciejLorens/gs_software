@@ -28,64 +28,44 @@ class UsersController < ApplicationController
   def resend
     @invitation.send_email
 
-    respond_to do |format|
-      format.html { redirect_to invitations_users_url, notice: t('user.client_was_successfully_invited') }
-      format.json { head :no_content }
-    end
+    redirect_to invitations_users_url, notice: t('user.client_was_successfully_invited')
   end
 
   def invite
     @invitation = current_invitations.create(invitation_params)
 
-    respond_to do |format|
-      if @invitation.save
-        format.html { redirect_to invitations_users_path, notice: t('user.client_was_successfully_invited') }
-        format.json { render :index, status: :ok, location: @invitation }
-      else
-        format.html { render :new }
-        format.json { render json: @invitation.errors, status: :unprocessable_entity }
-      end
+    if @invitation.save
+      redirect_to invitations_users_path, notice: t('user.client_was_successfully_invited')
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_path, notice: t('user.client_was_successfully_edited') }
-        format.json { render :index, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.update(user_params)
+      redirect_to users_path, notice: t('user.client_was_successfully_edited')
+    else
+      render :edit
     end
   end
 
   def destroy
     @user.hide!
 
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: t('user.client_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to users_url, notice: t('user.client_was_successfully_deleted')
   end
 
   def invitation_destroy
     @invitation.destroy
 
-    respond_to do |format|
-      format.html { redirect_to invitations_users_url, notice: t('user.invitation_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to invitations_users_url, notice: t('user.invitation_was_successfully_deleted')
   end
 
   def batch_destroy
     @users = current_users.where(id: params[:ids])
     @users.each { |user| user.hide! }
 
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: t('user.clients_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to users_url, notice: t('user.clients_was_successfully_deleted')
   end
 
   private

@@ -38,6 +38,7 @@ en:
     users: Users
     admins: Admins
     companies: Companies
+    api_tokens: API Token
 
 
   locale:
@@ -183,6 +184,14 @@ en:
     companys_was_successfully_deleted: Companies was successfully deleted.
 
 
+  api_tokens:
+    navbar:
+      edit_api_token: Edit API token
+    errors:
+      prohibited: prohibited this api token from being saved
+    api_token_was_successfully_edited: API token was successfully edited.
+
+
   activerecord:
     models:
       notify: Notifies
@@ -192,6 +201,7 @@ en:
       driver: Driver
       company: Company
       admin: Admin
+      api_token: API token
     errors:
       models:
         notify:
@@ -257,3 +267,5 @@ en:
         email: Email
         updated_at: Updated at
         created_at: Created at
+      api_token:
+        value: Value

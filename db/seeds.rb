@@ -1,3 +1,7 @@
+ApiToken.create(
+  value: SecureRandom.hex(20)
+)
+
 3.times do |index|
   Company.create(
     name: "company_#{index}",

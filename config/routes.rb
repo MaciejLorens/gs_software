@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'registrations'}
 
+  resources :api_tokens, only: [:edit, :update]
+
   resources :admins, except: [:show] do
     get :invitations, on: :collection
 
@@ -40,6 +42,12 @@ Rails.application.routes.draw do
 
   resources :companies, except: [:show] do
     delete :batch_destroy, on: :collection
+  end
+
+  namespace :api do
+    namespace :v1 do
+      get 'notifies/show'
+    end
   end
 
   root to: 'notifies#index'

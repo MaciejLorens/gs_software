@@ -28,64 +28,44 @@ class AdminsController < ApplicationController
   def resend
     @invitation.send_email
 
-    respond_to do |format|
-      format.html { redirect_to invitations_admins_url, notice: t('admin.admin_was_successfully_invited') }
-      format.json { head :no_content }
-    end
+    redirect_to invitations_admins_url, notice: t('admin.admin_was_successfully_invited')
   end
 
   def invite
     @invitation = Invitation.new(invitation_params)
 
-    respond_to do |format|
       if @invitation.save
-        format.html { redirect_to invitations_admins_path, notice: t('admin.admin_was_successfully_invited') }
-        format.json { render :index, status: :ok, location: @invitation }
+        redirect_to invitations_admins_path, notice: t('admin.admin_was_successfully_invited')
       else
-        format.html { render :new }
-        format.json { render json: @invitation.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   def update
-    respond_to do |format|
       if @admin.update(admin_params)
-        format.html { redirect_to admins_path, notice: t('admin.admin_was_successfully_edited') }
-        format.json { render :index, status: :ok, location: @admin }
+        redirect_to admins_path, notice: t('admin.admin_was_successfully_edited')
       else
-        format.html { render :edit }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   def destroy
     @admin.hide!
 
-    respond_to do |format|
-      format.html { redirect_to admins_url, notice: t('admin.admin_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to admins_url, notice: t('admin.admin_was_successfully_deleted')
   end
 
   def invitation_destroy
     @invitation.destroy
 
-    respond_to do |format|
-      format.html { redirect_to invitations_admins_url, notice: t('user.invitation_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to invitations_admins_url, notice: t('user.invitation_was_successfully_deleted')
   end
 
   def batch_destroy
     @admins = User.admins.where(id: params[:ids])
     @admins.each { |admin| admin.hide! }
 
-    respond_to do |format|
-      format.html { redirect_to admins_url, notice: t('admin.admins_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to admins_url, notice: t('admin.admins_was_successfully_deleted')
   end
 
   private

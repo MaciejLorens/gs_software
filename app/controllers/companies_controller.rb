@@ -20,46 +20,32 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
 
-    respond_to do |format|
-      if @company.save
-        format.html { redirect_to companies_path, notice: t('company.company_was_successfully_created') }
-        format.json { render :index, status: :created, location: @company }
-      else
-        format.html { render :new }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
+    if @company.save
+      redirect_to companies_path, notice: t('company.company_was_successfully_created')
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @company.update(company_params)
-        format.html { redirect_to companies_path, notice: t('company.company_was_successfully_edited') }
-        format.json { render :index, status: :ok, location: @company }
-      else
-        format.html { render :edit }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
+    if @company.update(company_params)
+      redirect_to companies_path, notice: t('company.company_was_successfully_edited')
+    else
+      render :edit
     end
   end
 
   def destroy
     @company.hide!
 
-    respond_to do |format|
-      format.html { redirect_to companies_url, notice: t('company.company_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to companies_url, notice: t('company.company_was_successfully_deleted')
   end
 
   def batch_destroy
     @companies = Company.where(id: params[:ids])
     @companies.each { |company| company.hide! }
 
-    respond_to do |format|
-      format.html { redirect_to companies_url, notice: t('company.companys_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to companies_url, notice: t('company.companys_was_successfully_deleted')
   end
 
   private

@@ -22,46 +22,32 @@ class NotifiesController < ApplicationController
   def create
     @notify = current_notifies.new(notify_params)
 
-    respond_to do |format|
-      if @notify.save
-        format.html { redirect_to notifies_path, notice: t('notify.notify_was_successfully_created') }
-        format.json { render :index, status: :created, location: @notify }
-      else
-        format.html { render :new }
-        format.json { render json: @notify.errors, status: :unprocessable_entity }
-      end
+    if @notify.save
+      redirect_to notifies_path, notice: t('notify.notify_was_successfully_created')
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @notify.update(notify_params)
-        format.html { redirect_to notifies_path, notice: t('notify.notify_was_successfully_edited') }
-        format.json { render :index, status: :ok, location: @notify }
-      else
-        format.html { render :edit }
-        format.json { render json: @notify.errors, status: :unprocessable_entity }
-      end
+    if @notify.update(notify_params)
+      redirect_to notifies_path, notice: t('notify.notify_was_successfully_edited')
+    else
+      render :edit
     end
   end
 
   def destroy
     @notify.hide!
 
-    respond_to do |format|
-      format.html { redirect_to notifies_url, notice: t('notify.notify_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to notifies_url, notice: t('notify.notify_was_successfully_deleted')
   end
 
   def batch_destroy
     @notifies = Notify.where(id: params[:ids])
     @notifies.each { |notify| notify.hide! }
 
-    respond_to do |format|
-      format.html { redirect_to notifies_url, notice: t('notify.notifys_was_successfully_deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to notifies_url, notice: t('notify.notifys_was_successfully_deleted')
   end
 
   private

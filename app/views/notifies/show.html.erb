@@ -58,7 +58,7 @@
   <div class="form-group control-group">
     <%= label_tag :driver, t('activerecord.attributes.notify.driver_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :driver, @notify.driver.full_name, class: 'form-control', readonly: true %>
+      <%= text_field_tag :driver, @notify.driver.try(:full_name), class: 'form-control', readonly: true %>
     </div>
   </div>
 

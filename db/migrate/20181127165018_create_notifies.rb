@@ -12,7 +12,7 @@ class CreateNotifies < ActiveRecord::Migration[5.2]
       t.datetime :hidden_at,              null: true
       t.boolean :active,                  null: false, default: true
       t.integer :product_id,              null: false
-      t.integer :driver_id,               null: false
+      t.integer :driver_id,               null: true
       t.integer :user_id,                 null: false, default: nil
       t.integer :company_id,              null: false
 

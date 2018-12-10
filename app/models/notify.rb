@@ -5,7 +5,7 @@ class Notify < ApplicationRecord
   before_create :set_number, :set_pin
 
   belongs_to :company
-  belongs_to :driver
+  belongs_to :driver, optional: true
   belongs_to :product
   belongs_to :user
 
@@ -24,7 +24,7 @@ class Notify < ApplicationRecord
       product_id: product_id,
       product_name: product.name,
       driver_id: driver_id,
-      driver_full_name: driver.full_name,
+      driver_full_name: driver.try(:full_name),
       active: active,
       created_at: created_at.to_i,
       company_id: company_id,

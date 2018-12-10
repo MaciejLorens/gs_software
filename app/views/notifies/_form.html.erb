@@ -28,14 +28,14 @@
     <div class="form-group control-group">
       <%= form.label :car_number, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
-        <%= form.text_field :car_number, class: 'form-control', required: true %>
+        <%= form.text_field :car_number, class: 'form-control' %>
       </div>
     </div>
 
     <div class="form-group control-group">
       <%= form.label :semitrailer_number, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
-        <%= form.text_field :semitrailer_number, class: 'form-control', required: true %>
+        <%= form.text_field :semitrailer_number, class: 'form-control' %>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
     <div class="form-group control-group">
       <%= form.label :driver_id, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
-        <%= form.select :driver_id, options_for_drivers, {}, class: 'form-control' %>
+        <%= form.select :driver_id, options_for_drivers, {include_blank: t('activerecord.models.driver')}, class: 'form-control' %>
       </div>
     </div>
 

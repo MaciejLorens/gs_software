@@ -103,7 +103,7 @@
         <td><%= notify.number %></td>
         <td><%= notify.car_number %></td>
         <td><%= notify.semitrailer_number %></td>
-        <td><%= notify.driver.full_name %></td>
+        <td><%= notify.driver.try(:full_name) %></td>
         <td><%= notify.product.name %></td>
         <td><%= date_format(notify.expiration_from) %></td>
         <td><%= date_format(notify.expiration_to) %></td>

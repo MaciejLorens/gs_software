@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_190355) do
     t.datetime "hidden_at"
     t.boolean "active", default: true, null: false
     t.integer "product_id", null: false
-    t.integer "driver_id", null: false
+    t.integer "driver_id"
     t.integer "user_id", null: false
     t.integer "company_id", null: false
     t.datetime "created_at", null: false

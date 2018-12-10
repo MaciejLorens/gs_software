@@ -2,6 +2,14 @@ class Api::ApiController < ActionController::Base
 
   before_action :authorize!
 
+  def not_found
+    render json: { error: 'Record not found.' }, status: 404
+  end
+
+  def invalid_token
+    render json: { error: 'Token is invalid.' }, status: 400
+  end
+
   private
 
   def authorize!
@@ -10,10 +18,6 @@ class Api::ApiController < ActionController::Base
 
       true
     end
-  end
-
-  def invalid_token
-    render json: { error: "Token is invalid, this incident was reported to admin" }, status: 400
   end
 
 end

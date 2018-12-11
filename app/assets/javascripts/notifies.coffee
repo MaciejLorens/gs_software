@@ -24,3 +24,9 @@ $(document).on 'turbolinks:load', ->
       $("#notify_hidden_at").val(new Date())
     else
       $("#notify_hidden_at").val(null)
+
+
+  $("body").on 'keyup', '.only-capital', (e) ->
+    value = $(@).val()
+    white_listed_value = value.replace(/[^a-z0-9]/gi,'').toUpperCase()
+    $(@).val(white_listed_value)

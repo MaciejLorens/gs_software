@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def index
     @users = current_users.users
                .where(filter_query)
-               .includes(:company)
+               .includes(:client, :company)
                .order(sorting_query(:created_at))
   end
 
@@ -88,6 +88,7 @@ class UsersController < ApplicationController
       :password_confirmation,
       :hidden,
       :hidden_at,
+      :client_id,
       :company_id
     ).merge(role: 'user')
   end
@@ -96,6 +97,7 @@ class UsersController < ApplicationController
     # === TODO:Maciej: merge company_id only if super_admin?
     params.require(:invitation).permit(
       :email,
+      :client_id,
       :company_id
     ).merge(role: 'user')
   end

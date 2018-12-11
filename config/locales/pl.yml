@@ -32,6 +32,7 @@ pl:
 
   menu:
     notifies: Awizacje
+    clients: Klienci
     products: Produkty
     drivers: Kierowcy
     users: Użytkownicy
@@ -64,6 +65,25 @@ pl:
     notify_was_successfully_edited: Awizacja pomyślnie uaktualniona.
     notify_was_successfully_deleted: Awizacja pomyślnie usunięta.
     notifys_was_successfully_deleted: Awizacje pomyślnie usunięte.
+
+
+  client:
+    navbar:
+      list: Lista
+      edit_client: Edycja klienta
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń klientów
+    list:
+      header: Lista klientów
+    new:
+      new_client: Nowy klient
+    errors:
+      prohibited: uniemożliwiły zapisanie klienta
+    client_was_successfully_created: Klient pomyślnie utworzony.
+    client_was_successfully_edited: Klient pomyślnie uaktualniony.
+    client_was_successfully_deleted: Klient pomyślnie usunięty.
+    clients_was_successfully_deleted: Klienci pomyślnie usunięci.
 
 
   product:
@@ -191,6 +211,7 @@ pl:
   activerecord:
     models:
       notify: Awizacja
+      client: Klient
       product: Produkt
       driver: Kierowca
       company: Firma
@@ -201,9 +222,9 @@ pl:
       models:
         notify:
           attributes:
-            driver:
-              required: jest wymagany
             product:
+              required: jest wymagany
+            client:
               required: jest wymagany
     attributes:
       notify:
@@ -214,6 +235,7 @@ pl:
         expiration_from: Ważność od
         indefinite: Terminowość
         expiration_to: Ważność do
+        client_id: Klient
         product_id: Produkt
         driver_id: Kierowca
         active: Aktywność
@@ -221,6 +243,16 @@ pl:
         user_id: Tworzący
         company_id: Firma
         editor: Edytor
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      client:
+        name: Nazwa
+        address: Adres
+        postcode: Kod pocztowy
+        city: Miasto
+        country: Kraj
+        hidden: Widoczność
+        company_id: Firma
         updated_at: Data edycji
         created_at: Data utworzenia
       user:
@@ -231,12 +263,14 @@ pl:
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
         hidden: Widoczność
+        client_id: Klient
         company_id: Firma
         updated_at: Data edycji
         created_at: Data utworzenia
       invitation:
         email: Email
         sent_at: Data wysłania
+        client_id: Klient
         company_id: Firma
         created_at: Data utworzenia
       product:

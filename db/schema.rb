@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_10_192426) do
+ActiveRecord::Schema.define(version: 2018_12_11_141216) do
 
   create_table "api_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "postcode", null: false
+    t.string "city", null: false
+    t.string "country", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
+    t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,10 +55,11 @@ ActiveRecord::Schema.define(version: 2018_12_10_192426) do
   end
 
   create_table "invitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email"
-    t.string "token"
-    t.integer "company_id"
-    t.string "role"
+    t.string "email", null: false
+    t.string "token", null: false
+    t.string "role", null: false
+    t.integer "client_id"
+    t.integer "company_id", null: false
     t.datetime "sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,6 +79,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_192426) do
     t.integer "product_id", null: false
     t.integer "driver_id"
     t.integer "user_id", null: false
+    t.integer "client_id", null: false
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -95,6 +110,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_192426) do
     t.datetime "hidden_at"
     t.string "locale", default: "pl", null: false
     t.string "role", default: "user", null: false
+    t.integer "client_id"
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

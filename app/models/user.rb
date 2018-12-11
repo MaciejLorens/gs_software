@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :notifies
 
   belongs_to :company, optional: true
+  belongs_to :client, optional: true
 
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :validatable, :lockable

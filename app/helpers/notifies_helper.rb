@@ -37,20 +37,26 @@ module NotifiesHelper
     controller.action_name == 'edit' ? 'active' : ''
   end
 
-  def options_for_drivers
-    current_drivers.visible.map do |driver|
-      [driver.full_name, driver.id]
+  def options_for_clients
+    current_clients.map do |client|
+      [client.name, client.id]
     end
   end
 
   def options_for_products
-    current_products.visible.map do |product|
+    current_products.map do |product|
       ["#{product.name} (#{product.number})", product.id]
     end
   end
 
+  def options_for_drivers
+    current_drivers.map do |driver|
+      [driver.full_name, driver.id]
+    end
+  end
+
   def options_for_users
-    current_users.visible.map do |user|
+    current_users.map do |user|
       [user.full_name, user.id]
     end
   end

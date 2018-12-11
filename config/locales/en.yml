@@ -32,6 +32,7 @@ en:
 
   menu:
     notifies: Notifies
+    clients: Clients
     products: Products
     drivers: Drivers
     users: Users
@@ -67,6 +68,23 @@ en:
     notify_was_successfully_deleted: Notify was successfully deleted.
     notifys_was_successfully_deleted: Notifys was successfully deleted.
 
+  client:
+    navbar:
+      list: List
+      edit_client: Edit client
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted clients
+    list:
+      header: List of clients
+    new:
+      new_client: New client
+    errors:
+      prohibited: prohibited this client from being saved
+    client_was_successfully_created: Client was successfully invited.
+    client_was_successfully_edited: Client was successfully edited.
+    client_was_successfully_deleted: Client was successfully deleted.
+    clients_was_successfully_deleted: Clients was successfully deleted.
 
   product:
     navbar:
@@ -194,6 +212,7 @@ en:
   activerecord:
     models:
       notify: Notifies
+      client: Client
       product: Product
       driver: Driver
       company: Company
@@ -204,9 +223,9 @@ en:
       models:
         notify:
           attributes:
-            driver:
-              required: is required
             product:
+              required: is required
+            client:
               required: is required
     attributes:
       notify:
@@ -217,6 +236,7 @@ en:
         expiration_from: Expiration from
         indefinite: Indefinite
         expiration_to: Expiration to
+        client_id: Client
         product_id: Product
         driver_id: Driver
         active: Activity
@@ -224,6 +244,16 @@ en:
         user_id: Creator
         company_id: Company
         editor: Editor
+        updated_at: Updated at
+        created_at: Created at
+      client:
+        name: Name
+        address: Address
+        postcode: Postcode
+        city: City
+        country: Country
+        hidden: Visibility
+        company_id: Company
         updated_at: Updated at
         created_at: Created at
       user:
@@ -234,12 +264,14 @@ en:
         password_confirmation: Password confirmation
         remember_me: Remember me
         hidden: Visibility
+        client_id: Client
         company_id: Company
         updated_at: Updated at
         created_at: Created at
       invitation:
         email: Email
         sent_at: Sent at
+        client_id: Client
         company_id: Company
         created_at: Created at
       product:

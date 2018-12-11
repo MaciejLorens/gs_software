@@ -21,6 +21,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :hidden_at,                    null: true
       t.string :locale,                         null: false, default: 'pl'
       t.string :role,                           null: false, default: 'user'
+      t.integer :client_id,                     null: true, default: nil
       t.integer :company_id,                    null: true, default: nil
 
       t.timestamps

@@ -14,6 +14,20 @@ ApiToken.create(
   )
 end
 
+9.times do |index|
+  company = Company.all.to_a.sample
+
+  Client.create(
+    name: "client_#{index}",
+    address: "address_#{index}",
+    postcode: "postcode_#{index}",
+    city: "city_#{index}",
+    country: "country_#{index}",
+    company_id: company.id,
+    created_at: rand(10).days.ago,
+  )
+end
+
 User.create(
   first_name: "Maciej",
   last_name: "Lorens",
@@ -42,6 +56,7 @@ end
 
 15.times do |index|
   company = Company.all.to_a.sample
+  client = company.clients.to_a.sample
 
   User.create(
     first_name: "first_#{index}",
@@ -50,6 +65,7 @@ end
     password: '1234567890',
     password_confirmation: '1234567890',
     role: 'user',
+    client_id: client.id,
     company_id: company.id,
     created_at: rand(10).days.ago
   )
@@ -79,6 +95,7 @@ end
 
 50.times do |index|
   company = Company.all.to_a.sample
+  client = company.clients.sample
   product = company.products.sample
   user = (company.users.users + company.users.admins + company.users.super_admins).sample
   driver = company.drivers.sample
@@ -90,6 +107,7 @@ end
     expiration_to: rand(1000).minutes.from_now,
     hidden: false,
     hidden_at: nil,
+    client_id: client.id,
     product_id: product.id,
     driver_id: driver.id,
     user_id: user.id,

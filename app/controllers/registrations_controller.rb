@@ -45,6 +45,7 @@ class RegistrationsController < Devise::RegistrationsController
       :password_confirmation
     ).merge(
        role: @invitation.role,
+       client_id: @invitation.client_id,
        company_id: @invitation.company_id
     )
   end

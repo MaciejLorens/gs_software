@@ -73,6 +73,10 @@ module QueryHelper
       query += " AND driver_id = #{params[:f_driver_id]}"
     end
 
+    if params[:f_client_id].present?
+      query += " AND client_id = #{params[:f_client_id]}"
+    end
+
     if params[:f_product_id].present?
       query += " AND product_id = #{params[:f_product_id]}"
     end

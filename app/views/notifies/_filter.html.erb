@@ -27,15 +27,22 @@
                          placeholder: t('activerecord.attributes.notify.semitrailer_number'),
                          class: 'form-control filter' %>
 
-      <%= select_tag :f_driver_id,
-                     options_for_select(options_for_drivers, params[:f_driver_id]),
-                     include_blank: t('activerecord.attributes.notify.driver_id'),
+      <%= select_tag :f_client_id,
+                     options_for_select(options_for_clients, params[:f_client_id]),
+                     include_blank: t('activerecord.attributes.notify.client_id'),
                      class: 'form-control filter' %>
 
       <%= select_tag :f_product_id,
                      options_for_select(options_for_products, params[:f_product_id]),
                      include_blank: t('activerecord.attributes.notify.product_id'),
                      class: 'form-control filter' %>
+
+      <%= select_tag :f_driver_id,
+                     options_for_select(options_for_drivers, params[:f_driver_id]),
+                     include_blank: t('activerecord.attributes.notify.driver_id'),
+                     class: 'form-control filter' %>
+      <br>
+      <br>
 
       <%= select_tag :f_user_id,
                      options_for_select(options_for_users, params[:f_user_id]),
@@ -59,10 +66,6 @@
                        class: 'form-control filter' %>
       <% end %>
 
-      <br>
-      <br>
-
-      <%= t('notify.filters.created') %>:
       <%= date_field_tag :f_created_at_from,
                          params[:f_created_at_from] || Date.today - 1.month,
                          class: 'form-control filter-date-picker' %>

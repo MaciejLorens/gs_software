@@ -70,7 +70,7 @@
           <td><%= company.country %></td>
           <td><%= company.email %></td>
           <td><%= date_format(company.updated_at) %></td>
-          <td><%= date_format(company.updated_at) %></td>
+          <td><%= date_format(company.created_at) %></td>
           <td class="action-links">
             <%= link_to fa_icon('pencil', text: t('common.edit')), edit_company_path(company), class: 'action-link' %><br>
             <%= link_to fa_icon('times', text: t('common.delete')), company, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>

@@ -8,6 +8,7 @@ class Notify < ApplicationRecord
   belongs_to :driver, optional: true
   belongs_to :product
   belongs_to :user
+  belongs_to :client
 
   def qr_code_string
     {
@@ -18,19 +19,17 @@ class Notify < ApplicationRecord
         car_number: car_number,
         semitrailer_number: semitrailer_number,
         expiration_from: expiration_from.to_i,
-        expiration_to: expiration_to.to_i,
         indefinite: indefinite,
+        expiration_to: expiration_to.to_i,
+        active: active,
         hidden: hidden,
         hidden_at: hidden_at.to_i,
-        active: active,
         updated_at: updated_at.to_i,
         created_at: created_at.to_i,
       },
-      creator: {
-        id: user.id,
-        email: user.email,
-        first_name: user.first_name,
-        last_name: user.last_name
+      client: {
+        id: client_id,
+        name: client.name
       },
       product: {
         id: product_id,
@@ -40,6 +39,12 @@ class Notify < ApplicationRecord
         id: driver_id,
         first_name: driver.first_name,
         last_name: driver.last_name
+      },
+      creator: {
+        id: user.id,
+        email: user.email,
+        first_name: user.first_name,
+        last_name: user.last_name
       },
       company: {
         id: company_id,

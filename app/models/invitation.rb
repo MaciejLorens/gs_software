@@ -1,5 +1,6 @@
 class Invitation < ApplicationRecord
 
+  belongs_to :client, optional: true
   belongs_to :company
 
   before_create :set_token

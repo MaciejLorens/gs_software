@@ -40,6 +40,11 @@
                       'data-field' => 'created_at',
                       class: "sort-link #{sort_class('created_at')}" %>
         </th>
+        <th>
+          <%= link_to t('activerecord.attributes.user.client_id'), '#',
+                      'data-field' => 'client_id',
+                      class: "sort-link #{sort_class('client_id')}" %>
+        </th>
         <% if super_admin? %>
           <th>
             <%= link_to t('activerecord.attributes.user.hidden'), '#',
@@ -65,6 +70,7 @@
           <td><%= user.last_name %></td>
           <td><%= date_format(user.updated_at) %></td>
           <td><%= date_format(user.created_at) %></td>
+          <td><%= user.client.name %></td>
           <% if super_admin? %>
             <td><%= fa_icon(user.hidden ? 'times' : 'check') %></td>
             <td><%= user.company.name %></td>

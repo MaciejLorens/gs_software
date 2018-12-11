@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
     @current_notifies = super_admin? ? Notify.all : current_company.notifies.visible
   end
 
+  def current_clients
+    @current_clients = super_admin? ? Client.all : current_company.clients.visible
+  end
+
   def current_drivers
     @current_drivers = super_admin? ? Driver.all : current_company.drivers.visible
   end
@@ -66,7 +70,7 @@ class ApplicationController < ActionController::Base
     I18n.locale = current_user.try(:locale) || I18n.default_locale
   end
 
-  helper_method :current_company, :current_notifies, :current_drivers,
-                :current_products, :current_users, :current_invitations,
-                :super_admin?, :admin?
+  helper_method :current_company, :current_notifies, :current_clients,
+                :current_drivers, :current_products, :current_users,
+                :current_invitations, :super_admin?, :admin?
 end

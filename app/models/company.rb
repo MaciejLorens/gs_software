@@ -1,7 +1,5 @@
 class Company < ApplicationRecord
 
-
-
   include Hideable
 
   has_many :users
@@ -9,7 +7,6 @@ class Company < ApplicationRecord
   has_many :products
   has_many :notifies
   has_many :invitations
-
-  private
+  has_many :clients
 
 end

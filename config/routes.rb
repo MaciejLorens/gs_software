@@ -32,6 +32,10 @@ Rails.application.routes.draw do
     delete :batch_destroy, on: :collection
   end
 
+  resources :clients, except: [:show] do
+    delete :batch_destroy, on: :collection
+  end
+
   resources :products, except: [:show] do
     delete :batch_destroy, on: :collection
   end

@@ -14,6 +14,7 @@ class CreateNotifies < ActiveRecord::Migration[5.2]
       t.integer :product_id,              null: false
       t.integer :driver_id,               null: true
       t.integer :user_id,                 null: false, default: nil
+      t.integer :client_id,               null: false
       t.integer :company_id,              null: false
 
       t.timestamps

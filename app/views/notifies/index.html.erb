@@ -35,14 +35,19 @@
                     class: "sort-link #{sort_class('semitrailer_number')}" %>
       </th>
       <th>
-        <%= link_to t('activerecord.attributes.notify.driver_id'), '#',
-                    'data-field' => 'driver_id',
-                    class: "sort-link #{sort_class('driver_id')}" %>
+        <%= link_to t('activerecord.attributes.notify.client_id'), '#',
+                    'data-field' => 'client_id',
+                    class: "sort-link #{sort_class('client_id')}" %>
       </th>
       <th>
         <%= link_to t('activerecord.attributes.notify.product_id'), '#',
                     'data-field' => 'product_id',
                     class: "sort-link #{sort_class('product_id')}" %>
+      </th>
+      <th>
+        <%= link_to t('activerecord.attributes.notify.driver_id'), '#',
+                    'data-field' => 'driver_id',
+                    class: "sort-link #{sort_class('driver_id')}" %>
       </th>
       <th>
         <%= link_to t('activerecord.attributes.notify.expiration_from'), '#',
@@ -53,11 +58,6 @@
         <%= link_to t('activerecord.attributes.notify.expiration_to'), '#',
                     'data-field' => 'expiration_to',
                     class: "sort-link #{sort_class('expiration_to')}" %>
-      </th>
-      <th>
-        <%= link_to t('activerecord.attributes.notify.user_id'), '#',
-                    'data-field' => 'user_id',
-                    class: "sort-link #{sort_class('user_id')}" %>
       </th>
       <th>
         <%= link_to t('activerecord.attributes.notify.updated_at'), '#',
@@ -103,11 +103,11 @@
         <td><%= notify.number %></td>
         <td><%= notify.car_number %></td>
         <td><%= notify.semitrailer_number %></td>
-        <td><%= notify.driver.try(:full_name) %></td>
+        <td><%= notify.client.name %></td>
         <td><%= notify.product.name %></td>
+        <td><%= notify.driver.try(:full_name) %></td>
         <td><%= date_format(notify.expiration_from) %></td>
         <td><%= date_format(notify.expiration_to) %></td>
-        <td><%= notify.user.full_name %></td>
         <td><%= date_format(notify.updated_at) %></td>
         <td><%= notify.user.full_name %></td>
         <td><%= date_format(notify.created_at) %></td>

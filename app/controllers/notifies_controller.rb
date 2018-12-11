@@ -5,7 +5,7 @@ class NotifiesController < ApplicationController
   def index
     @notifies = current_notifies
                   .where(filter_query(:created_at))
-                  .includes(:product, :user, :driver, :company)
+                  .includes(:client, :product, :user, :driver, :company)
                   .order(sorting_query(:expiration_to))
   end
 
@@ -62,17 +62,19 @@ class NotifiesController < ApplicationController
       :number,
       :car_number,
       :semitrailer_number,
-      :driver_id,
-      :company_id,
+      :client_id,
       :product_id,
+      :driver_id,
       :expiration_from,
       :indefinite,
       :expiration_to,
       :hidden,
       :hidden_at,
-      :active
-    ).merge(
-      user_id: current_user.id
+      :active,
+      :company_id,
+      ).merge(
+      user_id: current_user.id,
+      client_id: current_user.client_id || params[:notify][:client_id]
     )
   end
 

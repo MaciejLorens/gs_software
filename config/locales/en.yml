@@ -52,6 +52,7 @@ en:
       add_new: Add new
       selected_items: Selected items
       deleted_items: Delete notifies
+      pdf: PDF export
       print: Print
     filters:
       created: Created
@@ -63,6 +64,7 @@ en:
       new_notify: New Notify
     errors:
       prohibited: prohibited this notify from being saved
+    notify_pdf_was_successfully_created: Notify PDF was successfully created.
     notify_was_successfully_created: Notify was successfully created.
     notify_was_successfully_edited: Notify was successfully edited.
     notify_was_successfully_deleted: Notify was successfully deleted.

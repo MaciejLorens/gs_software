@@ -50,6 +50,7 @@ pl:
       add_new: Dodaj
       selected_items: Zaznaczone rekordy
       deleted_items: Usuń awizacje
+      pdf: Eksport do PDF
       print: Drukuj
     filters:
       created: Stowrzono
@@ -61,6 +62,7 @@ pl:
       new_notify: Nowa awizacja
     errors:
       prohibited: uniemożliwiły zapisanie awizacji
+    notify_pdf_was_successfully_created: PDF Awizacji pomyślnie utworzony.
     notify_was_successfully_created: Awizacja pomyślnie utworzona.
     notify_was_successfully_edited: Awizacja pomyślnie uaktualniona.
     notify_was_successfully_deleted: Awizacja pomyślnie usunięta.

@@ -37,6 +37,9 @@
     <li class='right'>
       <%= link_to t('notify.navbar.print'), '#', onclick: 'window.print()' %>
     </li>
+    <li class='right'>
+      <%= link_to t('notify.navbar.pdf'), generate_pdf_notify_path(@notify) %>
+    </li>
   <% end %>
 
 </ul>

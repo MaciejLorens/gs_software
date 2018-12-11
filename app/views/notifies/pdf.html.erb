@@ -1,0 +1,183 @@
+<div class="page-header">
+  <h1><%= t('notify.show.view_notify') %> <%= @notify.number %></h1>
+</div>
+
+<form class="form-horizontal denser fieldset col-sm-5 show-action" style="float: left; margin-right: 100px;">
+
+  <div class="form-group control-group">
+    <%= label_tag :pin, t('activerecord.attributes.notify.pin'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :pin, @notify.pin, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :number, t('activerecord.attributes.notify.number'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :number, @notify.number, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :car_number, t('activerecord.attributes.notify.car_number'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :car_number, @notify.car_number, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :semitrailer_number, t('activerecord.attributes.notify.semitrailer_number'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :semitrailer_number, @notify.semitrailer_number, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :client, t('activerecord.attributes.notify.client_id'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :client, @notify.client.name, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :product, t('activerecord.attributes.notify.product_id'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :product, @notify.product.name, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :driver, t('activerecord.attributes.notify.driver_id'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :driver, @notify.driver.try(:full_name), class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :expiration_from, t('activerecord.attributes.notify.expiration_from'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :expiration_from, @notify.expiration_from, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :indefinite, t('activerecord.attributes.notify.indefinite'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :indefinite, @notify.indefinite ? t('common.indefinite') : t('common.finite'), class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :expiration_to, t('activerecord.attributes.notify.expiration_to'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :expiration_to, @notify.expiration_to, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :updated_at, t('activerecord.attributes.notify.updated_at'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :updated_at, datetime_format(@notify.updated_at), class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :user_id, t('activerecord.attributes.notify.user_id'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :user_id, @notify.user.full_name, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :created_at, t('activerecord.attributes.notify.created_at'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :created_at, datetime_format(@notify.created_at), class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :active, t('activerecord.attributes.notify.active'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :active, @notify.active ? t('common.active') : t('common.inactive'), class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <% if super_admin? %>
+    <div class="form-group control-group">
+      <%= label_tag :hidden, t('activerecord.attributes.notify.hidden'), class: 'col-sm-4 control-label' %>
+      <div class="col-sm-8 controls">
+        <%= text_field_tag :hidden, @notify.hidden ? t('common.hidden') : t('common.visible'), class: 'form-control', readonly: true %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <%= label_tag :company_id, t('activerecord.attributes.notify.company_id'), class: 'col-sm-4 control-label' %>
+      <div class="col-sm-8 controls">
+        <%= text_field_tag :company_id, @notify.company.name, class: 'form-control', readonly: true %>
+      </div>
+    </div>
+  <% end %>
+
+</form>
+
+<div class="row" style="float: left;">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2 qr-code small">
+    <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
+    <%= raw qrcode.as_html %>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row" style="float: left;">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2 qr-code medium">
+    <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
+    <%= raw qrcode.as_html %>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row" style="float: left;">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2 qr-code large">
+    <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
+    <%= raw qrcode.as_html %>
+  </div>
+</div>
+
+<br>

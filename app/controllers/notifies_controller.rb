@@ -1,6 +1,6 @@
 class NotifiesController < ApplicationController
 
-  before_action :set_notify, only: [:show, :edit, :update, :destroy]
+  before_action :set_notify, only: [:show, :generate_pdf, :edit, :update, :destroy]
 
   def index
     @notifies = current_notifies
@@ -10,6 +10,15 @@ class NotifiesController < ApplicationController
   end
 
   def show
+  end
+
+  def generate_pdf
+    html = render template: 'notifies/pdf', layout: 'pdf', locals: { notify: @notify }
+    kit = PDFKit.new(html)
+
+    file = kit.to_file("tmp/invoice.pdf")
+    send_file file
+    # return redirect_to notifies_path, notice: t('notify.notify_pdf_was_successfully_created')
   end
 
   def new

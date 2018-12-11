@@ -18,7 +18,9 @@ gem 'uglifier', '>= 1.3.0'
 # back-end
 gem 'devise'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem 'pdfkit'
 gem 'rqrcode'
+gem 'wkhtmltopdf-binary'
 
 # support
 gem 'bootsnap', '>= 1.1.0', require: false

@@ -31,7 +31,7 @@ end
 
 json.product do
   json.id @notify.product.id
-  json.number @notify.product.number
+  json.number @notify.product.code
   json.name @notify.product.name
   json.hidden @notify.product.hidden
   json.hidden_at @notify.product.hidden_at.to_i

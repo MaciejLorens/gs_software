@@ -12,9 +12,9 @@
                          placeholder: t('activerecord.attributes.product.name'),
                          class: 'form-control filter' %>
 
-      <%= text_field_tag :f_number,
-                         params[:f_number],
-                         placeholder: t('activerecord.attributes.product.number'),
+      <%= text_field_tag :f_code,
+                         params[:f_code],
+                         placeholder: t('activerecord.attributes.product.code'),
                          class: 'form-control filter' %>
 
       <% if super_admin? %>

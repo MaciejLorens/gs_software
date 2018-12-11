@@ -33,7 +33,8 @@ class Notify < ApplicationRecord
       },
       product: {
         id: product_id,
-        name: product.name
+        code: product.code,
+        name: product.name,
       },
       driver: {
         id: driver_id,

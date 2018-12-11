@@ -45,7 +45,7 @@ module NotifiesHelper
 
   def options_for_products
     current_products.map do |product|
-      ["#{product.name} (#{product.number})", product.id]
+      ["#{product.name} (#{product.code})", product.id]
     end
   end
 

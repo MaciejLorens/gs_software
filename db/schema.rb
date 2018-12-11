@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 2018_12_11_141216) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "code", null: false
     t.string "name", null: false
-    t.string "number", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.integer "company_id", null: false

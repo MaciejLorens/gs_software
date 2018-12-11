@@ -274,8 +274,8 @@ pl:
         company_id: Firma
         created_at: Data utworzenia
       product:
+        code: Kod
         name: Nazwa
-        number: Numer
         hidden: Widoczność
         company_id: Firma
         updated_at: Data edycji

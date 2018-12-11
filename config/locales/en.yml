@@ -275,8 +275,8 @@ en:
         company_id: Company
         created_at: Created at
       product:
+        code: Code
         name: Name
-        number: Number
         hidden: Visibility
         company_id: Company
         updated_at: Updated at

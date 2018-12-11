@@ -86,8 +86,8 @@ end
   company = Company.all.to_a.sample
 
   Product.create(
+    code: "code_#{index}",
     name: "name_#{index}",
-    number: "number_#{index}",
     company_id: company.id,
     created_at: rand(100).days.ago
   )

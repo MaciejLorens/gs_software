@@ -16,14 +16,14 @@
       <tr>
         <th></th>
         <th>
+          <%= link_to t('activerecord.attributes.product.code'), '#',
+                      'data-field' => 'code',
+                      class: "sort-link #{sort_class('code')}" %>
+        </th>
+        <th>
           <%= link_to t('activerecord.attributes.product.name'), '#',
                       'data-field' => 'name',
                       class: "sort-link #{sort_class('name')}" %>
-        </th>
-        <th>
-          <%= link_to t('activerecord.attributes.product.number'), '#',
-                      'data-field' => 'number',
-                      class: "sort-link #{sort_class('number')}" %>
         </th>
         <th>
           <%= link_to t('activerecord.attributes.product.updated_at'), '#',
@@ -55,8 +55,8 @@
       <% @products.each do |product| %>
         <tr>
           <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => product.id %></td>
+          <td><%= product.code %></td>
           <td><%= product.name %></td>
-          <td><%= product.number %></td>
           <td><%= date_format(product.updated_at) %></td>
           <td><%= date_format(product.created_at) %></td>
           <% if super_admin? %>

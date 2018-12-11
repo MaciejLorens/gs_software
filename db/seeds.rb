@@ -9,8 +9,8 @@ ApiToken.create(
     postcode: "postcode_#{index}",
     city: "city_#{index}",
     country: "country_#{index}",
-    created_at: rand(10).days.ago,
-    email: "info_#{index}@gs-software.pl"
+    email: "info_#{index}@gs-software.pl",
+    created_at: rand(100).days.ago
   )
 end
 
@@ -24,7 +24,7 @@ end
     city: "city_#{index}",
     country: "country_#{index}",
     company_id: company.id,
-    created_at: rand(10).days.ago,
+    created_at: rand(100).days.ago
   )
 end
 
@@ -36,7 +36,7 @@ User.create(
   password_confirmation: '1234567890',
   role: 'super_admin',
   company_id: nil,
-  created_at: rand(10).days.ago
+  created_at: rand(100).days.ago
 )
 
 6.times do |index|
@@ -50,7 +50,7 @@ User.create(
     password_confirmation: '1234567890',
     role: 'admin',
     company_id: company.id,
-    created_at: rand(10).days.ago
+    created_at: rand(100).days.ago
   )
 end
 
@@ -67,7 +67,7 @@ end
     role: 'user',
     client_id: client.id,
     company_id: company.id,
-    created_at: rand(10).days.ago
+    created_at: rand(100).days.ago
   )
 end
 
@@ -77,7 +77,7 @@ Company.all.each_with_index do |company, i|
       first_name: "first_#{i}_#{j}",
       last_name: "last_#{i}_#{j}",
       company_id: company.id,
-      created_at: rand(10).days.ago
+      created_at: rand(100).days.ago
     )
   end
 end
@@ -89,7 +89,7 @@ end
     name: "name_#{index}",
     number: "number_#{index}",
     company_id: company.id,
-    created_at: rand(10).days.ago
+    created_at: rand(100).days.ago
   )
 end
 
@@ -112,6 +112,6 @@ end
     driver_id: driver.id,
     user_id: user.id,
     company_id: company.id,
-    created_at: rand(1000).minutes.ago
+    created_at: rand(100).days.ago
   )
 end

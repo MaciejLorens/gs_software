@@ -9,13 +9,13 @@ class AdminsController < ApplicationController
     @admins = User.admins.visible
                 .where(filter_query)
                 .includes(:company)
-                .order(sorting_query(:created_at))
+                .order(sorting_query)
   end
 
   def invitations
     @invitations = Invitation.all.admins
                      .includes(:company)
-                     .order(sorting_query(:created_at))
+                     .order(sorting_query)
   end
 
   def new

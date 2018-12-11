@@ -8,7 +8,7 @@ class ClientsController < ApplicationController
     @clients = current_clients
                  .where(filter_query)
                  .includes(:company)
-                 .order(sorting_query(:created_at))
+                 .order(sorting_query)
   end
 
   def new

@@ -6,7 +6,7 @@ class NotifiesController < ApplicationController
     @notifies = current_notifies
                   .where(filter_query(:created_at))
                   .includes(:client, :product, :user, :driver, :company)
-                  .order(sorting_query(:expiration_to))
+                  .order(sorting_query)
   end
 
   def show

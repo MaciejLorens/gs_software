@@ -8,7 +8,7 @@ class DriversController < ApplicationController
     @drivers = current_drivers
                  .where(filter_query)
                  .includes(:company)
-                 .order(sorting_query(:created_at))
+                 .order(sorting_query)
   end
 
   def new

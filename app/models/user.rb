@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   scope :super_admins, -> { where(role: 'super_admin') }
   scope :admins, -> { where(role: 'admin') }
-  scope :clients, -> { where(role: 'client') }
+  scope :users, -> { where(role: 'user') }
 
   validates_presence_of :first_name, :last_name, :role
 
@@ -23,8 +23,8 @@ class User < ApplicationRecord
     role == 'admin'
   end
 
-  def client?
-    role == 'client'
+  def user?
+    role == 'user'
   end
 
   def full_name

@@ -32,7 +32,6 @@ en:
 
   menu:
     notifies: Notifies
-    clients: Clients
     products: Products
     drivers: Drivers
     users: Users
@@ -114,27 +113,27 @@ en:
       list: List
       invitations: Invitations
       add_invitation: Add invitation
-      edit_user: Edit client
+      edit_user: Edit user
       add_new: Add new
       selected_items: Selected items
       deleted_items: Deleted users
     list:
-      header: List of clients
+      header: List of users
     invitation:
       list:
-        header: List of clients invitations
+        header: List of users invitations
         resend: Resend
       new:
-        new_client_invitation: New client invitation
+        new_user_invitation: New user invitation
     new:
-      new_user: New client
+      new_user: New user
     errors:
-      prohibited: prohibited this client from being saved
-    client_was_successfully_invited: Client was successfully invited.
-    client_was_successfully_edited: Client was successfully edited.
-    client_was_successfully_deleted: Client was successfully deleted.
+      prohibited: prohibited this user from being saved
+    user_was_successfully_invited: User was successfully invited.
+    user_was_successfully_edited: User was successfully edited.
+    user_was_successfully_deleted: User was successfully deleted.
     invitation_was_successfully_deleted: Invitation was successfully deleted.
-    clients_was_successfully_deleted: Clients was successfully deleted.
+    users_was_successfully_deleted: Users was successfully deleted.
 
 
   admin:
@@ -195,11 +194,10 @@ en:
   activerecord:
     models:
       notify: Notifies
-      user: User
-      client: Client
       product: Product
       driver: Driver
       company: Company
+      user: User
       admin: Admin
       api_token: API token
     errors:

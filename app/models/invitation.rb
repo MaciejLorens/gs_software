@@ -7,7 +7,7 @@ class Invitation < ApplicationRecord
   after_create :send_email
 
   scope :admins, -> { where(role: 'admin') }
-  scope :clients, -> { where(role: 'client') }
+  scope :users, -> { where(role: 'user') }
 
   def send_email
     time = Time.now

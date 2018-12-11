@@ -6,14 +6,14 @@ class UsersController < ApplicationController
   before_action :set_invitation, only: [:resend, :invitation_destroy]
 
   def index
-    @users = current_users.clients
+    @users = current_users.users
                .where(filter_query)
                .includes(:company)
                .order(sorting_query(:created_at))
   end
 
   def invitations
-    @invitations = current_invitations.clients
+    @invitations = current_invitations.users
                      .includes(:company)
                      .order(created_at: :desc)
   end
@@ -28,14 +28,14 @@ class UsersController < ApplicationController
   def resend
     @invitation.send_email
 
-    redirect_to invitations_users_url, notice: t('user.client_was_successfully_invited')
+    redirect_to invitations_users_url, notice: t('user.user_was_successfully_invited')
   end
 
   def invite
     @invitation = current_invitations.create(invitation_params)
 
     if @invitation.save
-      redirect_to invitations_users_path, notice: t('user.client_was_successfully_invited')
+      redirect_to invitations_users_path, notice: t('user.user_was_successfully_invited')
     else
       render :new
     end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to users_path, notice: t('user.client_was_successfully_edited')
+      redirect_to users_path, notice: t('user.user_was_successfully_edited')
     else
       render :edit
     end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   def destroy
     @user.hide!
 
-    redirect_to users_url, notice: t('user.client_was_successfully_deleted')
+    redirect_to users_url, notice: t('user.user_was_successfully_deleted')
   end
 
   def invitation_destroy
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     @users = current_users.where(id: params[:ids])
     @users.each { |user| user.hide! }
 
-    redirect_to users_url, notice: t('user.clients_was_successfully_deleted')
+    redirect_to users_url, notice: t('user.users_was_successfully_deleted')
   end
 
   private
@@ -89,7 +89,7 @@ class UsersController < ApplicationController
       :hidden,
       :hidden_at,
       :company_id
-    ).merge(role: 'client')
+    ).merge(role: 'user')
   end
 
   def invitation_params
@@ -97,7 +97,7 @@ class UsersController < ApplicationController
     params.require(:invitation).permit(
       :email,
       :company_id
-    ).merge(role: 'client')
+    ).merge(role: 'user')
   end
 
 end

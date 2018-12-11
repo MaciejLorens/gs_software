@@ -46,10 +46,10 @@ end
   User.create(
     first_name: "first_#{index}",
     last_name: "last_#{index}",
-    email: "client#{index}@gs.com",
+    email: "user#{index}@gs.com",
     password: '1234567890',
     password_confirmation: '1234567890',
-    role: 'client',
+    role: 'user',
     company_id: company.id,
     created_at: rand(10).days.ago
   )
@@ -80,7 +80,7 @@ end
 50.times do |index|
   company = Company.all.to_a.sample
   product = company.products.sample
-  user = (company.users.clients + company.users.admins + company.users.super_admins).sample
+  user = (company.users.users + company.users.admins + company.users.super_admins).sample
   driver = company.drivers.sample
 
   Notify.create(

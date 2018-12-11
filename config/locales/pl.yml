@@ -32,7 +32,6 @@ pl:
 
   menu:
     notifies: Awizacje
-    clients: Klienci
     products: Produkty
     drivers: Kierowcy
     users: Użytkownicy
@@ -112,27 +111,27 @@ pl:
       list: Lista
       invitations: Zaproszenia
       add_invitation: Dodaj zaproszenie
-      edit_user: Edycja klienta
+      edit_user: Edycja użytkownika
       add_new: Dodaj
       selected_items: Zaznaczone rekordy
-      deleted_items: Usuń klientów
+      deleted_items: Usuń użytkowników
     list:
-      header: Lista klientów
+      header: Lista użytkowników
     invitation:
       list:
-        header: Lista zaproszeń klientów
+        header: Lista zaproszeń użytkowników
         resend: Wyślij ponownie
       new:
-        new_client_invitation: Nowe zaproszenie klienta
+        new_user_invitation: Nowe zaproszenie użytkownika
     new:
-      new_user: Nowy klient
+      new_user: Nowy użytkownik
     errors:
-      prohibited: uniemożliwiły zapisanie klienta
-    client_was_successfully_invited: Klient pomyślnie zaproszony.
-    client_was_successfully_edited: Klient pomyślnie uaktualniony.
-    client_was_successfully_deleted: Klient pomyślnie usunięty.
+      prohibited: uniemożliwiły zapisanie użytkownika
+    user_was_successfully_invited: Użytkownik pomyślnie zaproszony.
+    user_was_successfully_edited: Użytkownik pomyślnie uaktualniony.
+    user_was_successfully_deleted: Użytkownik pomyślnie usunięty.
     invitation_was_successfully_deleted: Zaproszenie pomyślnie usunięte.
-    clients_was_successfully_deleted: Klienci pomyślnie usunięci.
+    users_was_successfully_deleted: Użytkownicy pomyślnie usunięci.
 
 
   admin:
@@ -192,11 +191,10 @@ pl:
   activerecord:
     models:
       notify: Awizacja
-      user: Użytkownik
-      client: Klient
       product: Produkt
       driver: Kierowca
       company: Firma
+      user: Użytkownik
       admin: Admin
       api_token: API token
     errors:

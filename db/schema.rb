@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_192426) do
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.string "locale", default: "pl", null: false
-    t.string "role", default: "client", null: false
+    t.string "role", default: "user", null: false
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

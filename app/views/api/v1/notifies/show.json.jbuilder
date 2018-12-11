@@ -19,14 +19,13 @@ json.updated_at @notify.updated_at.to_i
 json.created_at @notify.created_at.to_i
 json.hidden_at @notify.hidden_at.to_i
 
-json.creator do
-  json.id @notify.user.id
-  json.email @notify.user.email
-  json.first_name @notify.user.first_name
-  json.last_name @notify.user.last_name
-  json.hidden @notify.user.hidden
-  json.hidden_at @notify.user.hidden_at.to_i
-  json.role @notify.user.role
+json.client do
+  json.id @notify.client.id
+  json.name @notify.client.name
+  json.address @notify.client.address
+  json.postcode @notify.client.postcode
+  json.city @notify.client.city
+  json.country @notify.client.country
 end
 
 json.product do
@@ -37,12 +36,26 @@ json.product do
   json.hidden_at @notify.product.hidden_at.to_i
 end
 
-json.driver do
-  json.id @notify.driver.id
-  json.first_name @notify.driver.first_name
-  json.last_name @notify.driver.last_name
-  json.hidden @notify.driver.hidden
-  json.hidden_at @notify.driver.hidden_at.to_i
+if @notify.driver.present?
+  json.driver do
+    json.id @notify.driver.id
+    json.first_name @notify.driver.first_name
+    json.last_name @notify.driver.last_name
+    json.hidden @notify.driver.hidden
+    json.hidden_at @notify.driver.hidden_at.to_i
+  end
+else
+  json.driver(nil)
+end
+
+json.creator do
+  json.id @notify.user.id
+  json.email @notify.user.email
+  json.first_name @notify.user.first_name
+  json.last_name @notify.user.last_name
+  json.hidden @notify.user.hidden
+  json.hidden_at @notify.user.hidden_at.to_i
+  json.role @notify.user.role
 end
 
 json.company do

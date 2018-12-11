@@ -38,8 +38,8 @@ class Notify < ApplicationRecord
       },
       driver: {
         id: driver_id,
-        first_name: driver.first_name,
-        last_name: driver.last_name
+        first_name: driver.try(:first_name),
+        last_name: driver.try(:last_name)
       },
       creator: {
         id: user.id,

@@ -47,7 +47,11 @@
                         class: "sort-link #{sort_class('company_id')}" %>
           </th>
         <% end %>
-        <th><%= t('common.actions') %></th>
+        <th>
+          <% if admin? %>
+            <%= t('common.actions') %>
+          <% end %>
+        </th>
       </tr>
       </thead>
 
@@ -64,8 +68,11 @@
             <td><%= driver.company.name %></td>
           <% end %>
           <td class="action-links">
-            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_driver_path(driver), class: 'action-link' %><br>
-            <%= link_to fa_icon('times', text: t('common.delete')), driver, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+            <% if admin? %>
+              <%= link_to fa_icon('pencil', text: t('common.edit')), edit_driver_path(driver), class: 'action-link' %>
+              <br>
+              <%= link_to fa_icon('times', text: t('common.delete')), driver, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+            <% end %>
           </td>
         </tr>
       <% end %>

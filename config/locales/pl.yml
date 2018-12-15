@@ -232,8 +232,8 @@ pl:
       notify:
         pin: PIN
         number: Numer
-        car_number: Numer samochodu
-        trailer_number: Numer naczepy
+        car_number: Nr pojazdu
+        trailer_number: Nr naczepy
         expiration_from: Ważność od
         indefinite: Terminowość
         expiration_to: Ważność do

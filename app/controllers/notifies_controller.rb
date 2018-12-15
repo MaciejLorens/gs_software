@@ -12,13 +12,17 @@ class NotifiesController < ApplicationController
   def show
   end
 
+  def pdf
+    @notify = Notify.find params[:id]
+    render :layout => false
+  end
+
   def generate_pdf
     html = render template: 'notifies/pdf', layout: 'pdf', locals: { notify: @notify }
     kit = PDFKit.new(html)
 
-    file = kit.to_file("tmp/invoice.pdf")
+    file = kit.to_file("tmp/#{@notify.number.gsub('/', '_')}.pdf")
     send_file file
-    # return redirect_to notifies_path, notice: t('notify.notify_pdf_was_successfully_created')
   end
 
   def new

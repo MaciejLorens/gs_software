@@ -122,32 +122,8 @@
 
 </form>
 
-<div class="row">
   <div class="col-sm-1"></div>
   <div class="col-sm-2 qr-code small">
     <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
     <%= raw qrcode.as_html %>
   </div>
-</div>
-
-<br>
-
-<div class="row">
-  <div class="col-sm-1"></div>
-  <div class="col-sm-2 qr-code medium">
-    <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
-    <%= raw qrcode.as_html %>
-  </div>
-</div>
-
-<br>
-
-<div class="row">
-  <div class="col-sm-1"></div>
-  <div class="col-sm-2 qr-code large">
-    <% qrcode = RQRCode::QRCode.new(@notify.qr_code_string) %>
-    <%= raw qrcode.as_html %>
-  </div>
-</div>
-
-<br>

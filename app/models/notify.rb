@@ -46,7 +46,7 @@ class Notify < ApplicationRecord
         id: company_id,
         na: company.name
       }
-    }.to_json.to_s
+    }.to_json.to_s.encode('Windows-1250')
   end
 
   private

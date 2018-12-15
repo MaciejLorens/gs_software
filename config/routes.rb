@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   end
 
   resources :notifies do
+    get :pdf, on: :member
     get :generate_pdf, on: :member
     delete :batch_destroy, on: :collection
   end

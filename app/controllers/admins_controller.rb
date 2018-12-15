@@ -9,7 +9,7 @@ class AdminsController < ApplicationController
     @admins = User.admins.visible
                 .where(filter_query)
                 .includes(:company)
-                .order(sorting_query)
+                .order(sorting_query('last_name ASC'))
   end
 
   def invitations

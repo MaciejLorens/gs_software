@@ -96,8 +96,8 @@ module QueryHelper
     query
   end
 
-  def sorting_query
-    query = "created_at DESC"
+  def sorting_query(default = nil)
+    query = default || "created_at DESC"
 
     if params[:s_field].present? && params[:s_order].present?
       query = "#{params[:s_field]} #{params[:s_order]}"

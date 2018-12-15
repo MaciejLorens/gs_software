@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     @products = current_products
                   .where(filter_query)
                   .includes(:company)
-                  .order(sorting_query)
+                  .order(sorting_query('name ASC'))
   end
 
   def new

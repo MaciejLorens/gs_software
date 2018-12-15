@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @users = current_users.users
                .where(filter_query)
                .includes(:client, :company)
-               .order(sorting_query)
+               .order(sorting_query('last_name ASC'))
   end
 
   def invitations

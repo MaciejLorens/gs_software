@@ -7,7 +7,7 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all.visible
                    .where(filter_query)
-                   .order(sorting_query)
+                   .order(sorting_query('name ASC'))
   end
 
   def new

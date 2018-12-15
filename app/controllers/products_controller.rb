@@ -58,6 +58,7 @@ class ProductsController < ApplicationController
   def product_params
     # === TODO:Maciej: merge company_id only if super_admin?
     params.require(:product).permit(
+      :code,
       :name,
       :number,
       :hidden,

@@ -16,6 +16,11 @@
       <tr>
         <th></th>
         <th>
+          <%= link_to t('activerecord.attributes.client.code'), '#',
+                      'data-field' => 'code',
+                      class: "sort-link #{sort_class('code')}" %>
+        </th>
+        <th>
           <%= link_to t('activerecord.attributes.client.name'), '#',
                       'data-field' => 'name',
                       class: "sort-link #{sort_class('name')}" %>
@@ -70,6 +75,7 @@
       <% @clients.each do |client| %>
         <tr>
           <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => client.id %></td>
+          <td><%= client.code %></td>
           <td><%= client.name %></td>
           <td><%= client.address %></td>
           <td><%= client.postcode %></td>

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_141216) do
   end
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "code", null: false
     t.string "name", null: false
     t.string "address", null: false
     t.string "postcode", null: false
@@ -69,7 +70,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_141216) do
     t.string "pin", null: false
     t.string "number", null: false
     t.string "car_number", null: false
-    t.string "semitrailer_number", null: false
+    t.string "trailer_number", null: false
     t.datetime "expiration_from", null: false
     t.datetime "expiration_to"
     t.boolean "indefinite", default: false, null: false

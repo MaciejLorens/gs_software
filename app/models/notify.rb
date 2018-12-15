@@ -14,42 +14,37 @@ class Notify < ApplicationRecord
     {
       notify: {
         id: id,
-        pin: pin,
-        number: number,
-        car_number: car_number,
-        semitrailer_number: semitrailer_number,
-        expiration_from: expiration_from.to_i,
-        indefinite: indefinite,
-        expiration_to: expiration_to.to_i,
-        active: active,
-        hidden: hidden,
-        hidden_at: hidden_at.to_i,
-        updated_at: updated_at.to_i,
-        created_at: created_at.to_i,
+        pi: pin,
+        nu: number,
+        cn: car_number,
+        tn: trailer_number,
+        ef: expiration_from.to_i,
+        in: indefinite ? 1 : 0,
+        et: expiration_to.to_i,
+        ac: active ? 1 : 0,
+        hi: hidden ? 1 : 0
       },
       client: {
         id: client_id,
-        name: client.name
+        na: client.name,
+        ad: client.address,
+        po: client.postcode,
+        ci: client.city,
+        co: client.country
       },
       product: {
         id: product_id,
-        code: product.code,
-        name: product.name,
+        co: product.code,
+        na: product.name,
       },
       driver: {
         id: driver_id,
-        first_name: driver.try(:first_name),
-        last_name: driver.try(:last_name)
-      },
-      creator: {
-        id: user.id,
-        email: user.email,
-        first_name: user.first_name,
-        last_name: user.last_name
+        fn: driver.try(:first_name),
+        ln: driver.try(:last_name)
       },
       company: {
         id: company_id,
-        name: company.name
+        na: company.name
       }
     }.to_json.to_s
   end

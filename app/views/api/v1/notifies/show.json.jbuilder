@@ -1,69 +1,42 @@
-json.extract! @notify,
-              :id,
-              :pin,
-              :number,
-              :car_number,
-              :semitrailer_number,
-              :expiration_from,
-              :expiration_to,
-              :indefinite,
-              :hidden,
-              :hidden_at,
-              :active,
-              :updated_at,
-              :created_at
-
-json.expiration_from @notify.expiration_from.to_i
-json.expiration_to @notify.expiration_to.to_i
-json.updated_at @notify.updated_at.to_i
-json.created_at @notify.created_at.to_i
-json.hidden_at @notify.hidden_at.to_i
+json.notify do
+  json.id @notify.id
+  json.pi @notify.pin
+  json.nu @notify.number
+  json.cn @notify.car_number
+  json.tn @notify.trailer_number
+  json.ef @notify.expiration_from.to_i
+  json.in @notify.indefinite ? 1 : 0
+  json.et @notify.expiration_to.to_i
+  json.ac @notify.active ? 1 : 0
+  json.hi @notify.hidden_at ? 1 : 0
+end
 
 json.client do
   json.id @notify.client.id
-  json.name @notify.client.name
-  json.address @notify.client.address
-  json.postcode @notify.client.postcode
-  json.city @notify.client.city
-  json.country @notify.client.country
+  json.na @notify.client.name
+  json.ad @notify.client.address
+  json.po @notify.client.postcode
+  json.ci @notify.client.city
+  json.co @notify.client.country
 end
 
 json.product do
   json.id @notify.product.id
-  json.number @notify.product.code
-  json.name @notify.product.name
-  json.hidden @notify.product.hidden
-  json.hidden_at @notify.product.hidden_at.to_i
+  json.co @notify.product.code
+  json.na @notify.product.name
 end
 
 if @notify.driver.present?
   json.driver do
     json.id @notify.driver.id
-    json.first_name @notify.driver.first_name
-    json.last_name @notify.driver.last_name
-    json.hidden @notify.driver.hidden
-    json.hidden_at @notify.driver.hidden_at.to_i
+    json.fn @notify.driver.first_name
+    json.ln @notify.driver.last_name
   end
 else
   json.driver(nil)
 end
 
-json.creator do
-  json.id @notify.user.id
-  json.email @notify.user.email
-  json.first_name @notify.user.first_name
-  json.last_name @notify.user.last_name
-  json.hidden @notify.user.hidden
-  json.hidden_at @notify.user.hidden_at.to_i
-  json.role @notify.user.role
-end
-
 json.company do
   json.id @notify.company.id
-  json.name @notify.company.name
-  json.address @notify.company.address
-  json.postcode @notify.company.postcode
-  json.city @notify.company.city
-  json.country @notify.company.country
-  json.email @notify.company.email
+  json.na @notify.company.name
 end

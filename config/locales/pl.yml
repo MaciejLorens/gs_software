@@ -36,7 +36,7 @@ pl:
     products: Produkty
     drivers: Kierowcy
     users: Użytkownicy
-    admins: Admini
+    admins: Administratorzy
     companies: Firmy
     api_tokens: API Token
 
@@ -166,7 +166,7 @@ pl:
       selected_items: Zaznaczone rekordy
       deleted_items: Usuń adminów
     list:
-      header: Lista adminów
+      header: Lista administratorów
     invitation:
       list:
         header: Lista zaproszeń adminów
@@ -233,7 +233,7 @@ pl:
         pin: PIN
         number: Numer
         car_number: Numer samochodu
-        semitrailer_number: Numer naczepy
+        trailer_number: Numer naczepy
         expiration_from: Ważność od
         indefinite: Terminowość
         expiration_to: Ważność do
@@ -248,6 +248,7 @@ pl:
         updated_at: Data edycji
         created_at: Data utworzenia
       client:
+        code: Kod
         name: Nazwa
         address: Adres
         postcode: Kod pocztowy

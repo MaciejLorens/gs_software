@@ -1,12 +1,13 @@
-<p>Hello!</p>
-
 <p>
-  You have been invited to setup account on WGT Notify Turow,
-  follow the link to finish registration:
+  Wiadomość została wysłana do Państwa z Elektrowni Turów celem dokończenia procesu rejestracji w systemie bezobsługowego ważenia na wadze samochodowej.
 </p>
 
 <p>
-  <%= link_to 'your-personal-registration-link',
+  Aby dokończyć rejestrację konta, proszę kliknąć poniższy link i wypełnić dane na formularzu.
+</p>
+
+<p>
+  <%= link_to 'personalny-link-rejestracyjny',
               controller: 'registrations',
               action: 'new',
               email: @email,

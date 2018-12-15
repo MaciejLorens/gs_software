@@ -18,6 +18,7 @@ end
   company = Company.all.to_a.sample
 
   Client.create(
+    code: "code_#{index}",
     name: "client_#{index}",
     address: "address_#{index}",
     postcode: "postcode_#{index}",
@@ -102,7 +103,7 @@ end
 
   Notify.create(
     car_number: "car_no_#{index}",
-    semitrailer_number: "semi_no_#{index}",
+    trailer_number: "trailer_no_#{index}",
     expiration_from: rand(1000).minutes.ago,
     expiration_to: rand(1000).minutes.from_now,
     hidden: false,

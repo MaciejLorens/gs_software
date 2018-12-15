@@ -70,7 +70,7 @@ class NotifiesController < ApplicationController
     params.require(:notify).permit(
       :number,
       :car_number,
-      :semitrailer_number,
+      :trailer_number,
       :client_id,
       :product_id,
       :driver_id,

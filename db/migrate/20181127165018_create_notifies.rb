@@ -4,7 +4,7 @@ class CreateNotifies < ActiveRecord::Migration[5.2]
       t.string :pin,                      null: false
       t.string :number,                   null: false
       t.string :car_number,               null: false
-      t.string :semitrailer_number,       null: false
+      t.string :trailer_number,           null: false
       t.datetime :expiration_from,        null: false
       t.datetime :expiration_to,          null: true
       t.boolean :indefinite,              null: false, default: false

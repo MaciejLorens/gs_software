@@ -45,6 +45,10 @@ module QueryHelper
       query += " AND pin LIKE '%#{params[:f_pin]}%'"
     end
 
+    if params[:f_code].present?
+      query += " AND code LIKE '%#{params[:f_code]}%'"
+    end
+
     if params[:f_name].present?
       query += " AND name LIKE '%#{params[:f_name]}%'"
     end
@@ -57,8 +61,8 @@ module QueryHelper
       query += " AND car_number LIKE '%#{params[:f_car_number]}%'"
     end
 
-    if params[:f_semitrailer_number].present?
-      query += " AND semitrailer_number LIKE '%#{params[:f_semitrailer_number]}%'"
+    if params[:f_trailer_number].present?
+      query += " AND trailer_number LIKE '%#{params[:f_trailer_number]}%'"
     end
 
     if params[:f_active].present?

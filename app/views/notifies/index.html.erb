@@ -30,9 +30,9 @@
                     class: "sort-link #{sort_class('car_number')}" %>
       </th>
       <th>
-        <%= link_to t('activerecord.attributes.notify.semitrailer_number'), '#',
-                    'data-field' => 'semitrailer_number',
-                    class: "sort-link #{sort_class('semitrailer_number')}" %>
+        <%= link_to t('activerecord.attributes.notify.trailer_number'), '#',
+                    'data-field' => 'trailer_number',
+                    class: "sort-link #{sort_class('trailer_number')}" %>
       </th>
       <th>
         <%= link_to t('activerecord.attributes.notify.client_id'), '#',
@@ -102,7 +102,7 @@
         <td><%= notify.pin %></td>
         <td><%= notify.number %></td>
         <td><%= notify.car_number %></td>
-        <td><%= notify.semitrailer_number %></td>
+        <td><%= notify.trailer_number %></td>
         <td><%= notify.client.name %></td>
         <td><%= notify.product.name %></td>
         <td><%= notify.driver.try(:full_name) %></td>

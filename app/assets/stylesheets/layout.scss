@@ -544,3 +544,26 @@ label {
 .api-token {
   width: 380px;
 }
+
+nav.navbar-light {
+  background-color: #5ba5e7;
+  color: white;
+  font-weight: 600;
+
+  .navbar-brand {
+    color: white;
+
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+
+  a {
+    color: white;
+  }
+
+  .btn {
+    font-weight: 600;
+  }
+}

@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
     @token = invitation.token
     @email = invitation.email
 
-    mail(to: @email, from: invitation.company.email, subject: 'Invitation from WGT Notify Turow')
+    mail(to: @email, from: invitation.company.email, subject: 'Invitation from PGE Turów - awizacja ważeń')
   end
 
 end

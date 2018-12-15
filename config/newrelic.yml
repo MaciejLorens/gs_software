@@ -1,12 +1,12 @@
 common: &default_settings
   license_key: <%= Rails.application.credentials.production[:new_relic_key] %>
-  app_name: WGT Notify Turow
+  app_name: PGE Turów - awizacja ważeń
   log_level: info
 
 
 development:
   <<: *default_settings
-  app_name: WGT Notify Turow (Development)
+  app_name: PGE Turów - awizacja ważeń (Development)
 
 test:
   <<: *default_settings
@@ -14,7 +14,7 @@ test:
 
 staging:
   <<: *default_settings
-  app_name: WGT Notify Turow (Staging)
+  app_name: PGE Turów - awizacja ważeń (Staging)
 
 production:
   <<: *default_settings

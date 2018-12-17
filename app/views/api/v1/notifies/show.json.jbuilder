@@ -20,10 +20,14 @@ json.client do
   json.co @notify.client.country
 end
 
-json.product do
-  json.id @notify.product.id
-  json.co @notify.product.code
-  json.na @notify.product.name
+if @notify.product.present?
+  json.product do
+    json.id @notify.product.id
+    json.co @notify.product.code
+    json.na @notify.product.name
+  end
+else
+  json.product(nil)
 end
 
 if @notify.driver.present?

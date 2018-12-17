@@ -213,6 +213,7 @@ pl:
   errors:
     messages:
       not_saved: Nie udało się zapisać zmian
+      must_be_valid_date: musi być większa od Wazność od
 
 
   activerecord:

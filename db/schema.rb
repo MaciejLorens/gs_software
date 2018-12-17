@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_141216) do
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.boolean "active", default: true, null: false
-    t.integer "product_id", null: false
+    t.integer "product_id"
     t.integer "driver_id"
     t.integer "user_id", null: false
     t.integer "client_id", null: false

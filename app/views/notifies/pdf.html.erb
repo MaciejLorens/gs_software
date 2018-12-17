@@ -17,7 +17,7 @@
   <p><%= "#{t('activerecord.attributes.notify.car_number')}: #{@notify.car_number}" %></p>
   <p><%= "#{t('activerecord.attributes.notify.trailer_number')}: #{@notify.trailer_number}" %></p>
   <p><%= "#{t('activerecord.models.client')}: #{@notify.client.name}" %></p>
-  <p><%= "#{t('activerecord.models.product')}: #{@notify.product.name}" %></p>
+  <p><%= "#{t('activerecord.models.product')}: #{@notify.product.try(:name)}" %></p>
   <p><%= "#{t('activerecord.models.driver')}: #{@notify.driver.try(:first_name)} #{@notify.driver.try(:last_name)}" %></p>
   <p><%= "#{t('activerecord.attributes.notify.expiration_from')}: #{@notify.expiration_from}" %></p>
   <p><%= "#{t('activerecord.attributes.notify.expiration_to')}: #{@notify.expiration_to}" %></p>

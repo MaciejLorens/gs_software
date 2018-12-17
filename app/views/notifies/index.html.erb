@@ -104,7 +104,7 @@
         <td><%= notify.car_number %></td>
         <td><%= notify.trailer_number %></td>
         <td><%= notify.client.name %></td>
-        <td><%= notify.product.name %></td>
+        <td><%= notify.product.try(:name) %></td>
         <td><%= notify.driver.try(:full_name) %></td>
         <td><%= date_format(notify.expiration_from) %></td>
         <td><%= date_format(notify.expiration_to) %></td>

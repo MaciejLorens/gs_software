@@ -214,6 +214,7 @@ en:
   errors:
     messages:
       not_saved: Failed to save the update
+      must_be_valid_date: must be grater then Expiry from
 
 
   activerecord:

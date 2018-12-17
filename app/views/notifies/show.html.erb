@@ -44,7 +44,7 @@
   <div class="form-group control-group">
     <%= label_tag :product, t('activerecord.attributes.notify.product_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :product, @notify.product.name, class: 'form-control', readonly: true %>
+      <%= text_field_tag :product, @notify.product.try(:name), class: 'form-control', readonly: true %>
     </div>
   </div>
 

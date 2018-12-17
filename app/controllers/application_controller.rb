@@ -27,7 +27,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_notifies
-    @current_notifies = super_admin? ? Notify.all : current_company.notifies.visible
+    @current_notifies = if super_admin?
+                          Notify.all
+                        elsif admin?
+                          current_company.notifies.visible
+                        else
+                          current_user.client.notifies.visible
+                        end
   end
 
   def current_clients

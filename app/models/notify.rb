@@ -6,9 +6,11 @@ class Notify < ApplicationRecord
 
   belongs_to :company
   belongs_to :driver, optional: true
-  belongs_to :product
+  belongs_to :product, optional: true
   belongs_to :user
   belongs_to :client
+
+  validate :validate_expiration
 
   def qr_code_string
     {
@@ -50,6 +52,12 @@ class Notify < ApplicationRecord
   end
 
   private
+
+  def validate_expiration
+    if expiration_to && (expiration_to <= expiration_from)
+      errors.add(:expiration_to, I18n.t('errors.messages.must_be_valid_date'))
+    end
+  end
 
   def set_pin
     self.pin = rand(36 ** 6).to_s(36).upcase

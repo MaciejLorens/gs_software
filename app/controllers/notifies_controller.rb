@@ -84,10 +84,11 @@ class NotifiesController < ApplicationController
       :hidden,
       :hidden_at,
       :active,
-      :company_id,
-      ).merge(
+      :company_id
+    ).merge(
       user_id: current_user.id,
-      client_id: current_user.client_id || params[:notify][:client_id]
+      client_id: current_user.client_id || params[:notify][:client_id],
+      company_id: current_user.company_id || params[:notify][:company_id]
     )
   end
 

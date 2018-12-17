@@ -67,3 +67,8 @@ pl:
     send_me_reset_password_instructions: Wyslij mi instrukje odnowy hasła
     resend_unlock_instructions: Wyślij mi instrukcje odblokowania
     sorry_but_your_invitation_is_invalid: Twoje zaproszenie jest nieważne.
+    change_your_password: Zmień swoje hasło
+    change_my_password: Zmień moje hasło
+    new_password: Nowe hasło
+    confirm_new_password: Potwierdź nowe hasło
+    all_fields_are_required: Wszystkie pola są wymagane

@@ -25,13 +25,13 @@ class RegistrationsController < Devise::RegistrationsController
         expire_data_after_sign_in!
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
+      @invitation.destroy
     else
       clean_up_passwords resource
       set_minimum_password_length
-      respond_with resource
+      redirect_to action: :new, params: { email: @invitation.email, token: @invitation.token }, notice: t('devise.all_fields_are_required')
     end
 
-    @invitation.destroy
   end
 
   private
@@ -44,9 +44,9 @@ class RegistrationsController < Devise::RegistrationsController
       :password,
       :password_confirmation
     ).merge(
-       role: @invitation.role,
-       client_id: @invitation.client_id,
-       company_id: @invitation.company_id
+      role: @invitation.role,
+      client_id: @invitation.client_id,
+      company_id: @invitation.company_id
     )
   end
 

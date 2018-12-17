@@ -13,7 +13,6 @@
       </div>
     </div>
 
-
     <div class="form-group control-group">
       <%= form.label :password, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
@@ -28,12 +27,10 @@
       </div>
     </div>
 
-
-
     <div class="form-group control-group">
       <div class=' col-sm-2'></div>
       <div class=' col-sm-10'>
-        <%= form.submit 'Log in', class: 'btn btn-primary btn-save' %>
+        <%= form.submit t('devise.login'), class: 'btn btn-primary btn-save' %>
 
         <br>
         <br>
@@ -42,4 +39,5 @@
     </div>
 
   </div>
+
 <% end %>

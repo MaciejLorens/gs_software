@@ -58,7 +58,7 @@
   <div class="form-group control-group">
     <%= label_tag :expiration_from, t('activerecord.attributes.notify.expiration_from'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :expiration_from, @notify.expiration_from, class: 'form-control', readonly: true %>
+      <%= text_field_tag :expiration_from, date_format(@notify.expiration_from), class: 'form-control', readonly: true %>
     </div>
   </div>
 
@@ -72,7 +72,7 @@
   <div class="form-group control-group">
     <%= label_tag :expiration_to, t('activerecord.attributes.notify.expiration_to'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :expiration_to, @notify.expiration_to, class: 'form-control', readonly: true %>
+      <%= text_field_tag :expiration_to, date_format(@notify.expiration_to), class: 'form-control', readonly: true %>
     </div>
   </div>
 

@@ -72,3 +72,8 @@ en:
     send_me_reset_password_instructions: Send me reset password instructions.
     resend_unlock_instructions: Resend unlock instructions.
     sorry_but_your_invitation_is_invalid: Sorry but your invitation is invalid.
+    change_your_password: Change your password
+    change_my_password: Change my password
+    new_password: New password
+    confirm_new_password: Confirm new password
+    all_fields_are_required: All fields are required

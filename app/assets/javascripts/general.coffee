@@ -1,7 +1,7 @@
 $(document).on 'turbolinks:load', ->
   setTimeout ->
     $(".alert").fadeOut(500)
-  , 1500
+  , 2000
 
 
   batch_delete_message = (ids)->

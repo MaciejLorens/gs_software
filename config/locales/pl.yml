@@ -210,6 +210,11 @@ pl:
     api_token_was_successfully_edited: API token pomyślnie uaktualniony.
 
 
+  errors:
+    messages:
+      not_saved: Nie udało się zapisać zmian
+
+
   activerecord:
     models:
       notify: Awizacja
@@ -228,6 +233,20 @@ pl:
               required: jest wymagany
             client:
               required: jest wymagany
+        user:
+          attributes:
+            email:
+              blank: jest wymagany
+              invalid: jest błędny
+            first_name:
+              blank: jest wymagane
+            last_name:
+              blank: jest wymagane
+            password:
+              blank: jest wymagane
+              too_short: za krótkie
+            password_confirmation:
+              confirmation: nie zgadza się
     attributes:
       notify:
         pin: PIN

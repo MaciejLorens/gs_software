@@ -14,55 +14,55 @@ module QueryHelper
     end
 
     if params[:f_email].present?
-      query += " AND email LIKE '%#{params[:f_email]}%'"
+      query += " AND email LIKE '%#{params[:f_email].gsub('*', '')}%'"
     end
 
     if params[:f_first_name].present?
-      query += " AND first_name LIKE '%#{params[:f_first_name]}%'"
+      query += " AND first_name LIKE '%#{params[:f_first_name].gsub('*', '')}%'"
     end
 
     if params[:f_last_name].present?
-      query += " AND last_name LIKE '%#{params[:f_last_name]}%'"
+      query += " AND last_name LIKE '%#{params[:f_last_name].gsub('*', '')}%'"
     end
 
     if params[:f_address].present?
-      query += " AND address LIKE '%#{params[:f_address]}%'"
+      query += " AND address LIKE '%#{params[:f_address].gsub('*', '')}%'"
     end
 
     if params[:f_postcode].present?
-      query += " AND postcode LIKE '%#{params[:f_postcode]}%'"
+      query += " AND postcode LIKE '%#{params[:f_postcode].gsub('*', '')}%'"
     end
 
     if params[:f_city].present?
-      query += " AND city LIKE '%#{params[:f_city]}%'"
+      query += " AND city LIKE '%#{params[:f_city].gsub('*', '')}%'"
     end
 
     if params[:f_country].present?
-      query += " AND country LIKE '%#{params[:f_country]}%'"
+      query += " AND country LIKE '%#{params[:f_country].gsub('*', '')}%'"
     end
 
     if params[:f_pin].present?
-      query += " AND pin LIKE '%#{params[:f_pin]}%'"
+      query += " AND pin LIKE '%#{params[:f_pin].gsub('*', '')}%'"
     end
 
     if params[:f_code].present?
-      query += " AND code LIKE '%#{params[:f_code]}%'"
+      query += " AND code LIKE '%#{params[:f_code].gsub('*', '')}%'"
     end
 
     if params[:f_name].present?
-      query += " AND name LIKE '%#{params[:f_name]}%'"
+      query += " AND name LIKE '%#{params[:f_name].gsub('*', '')}%'"
     end
 
     if params[:f_number].present?
-      query += " AND number LIKE '%#{params[:f_number]}%'"
+      query += " AND number LIKE '%#{params[:f_number].gsub('*', '')}%'"
     end
 
     if params[:f_car_number].present?
-      query += " AND car_number LIKE '%#{params[:f_car_number]}%'"
+      query += " AND car_number LIKE '%#{params[:f_car_number].gsub('*', '')}%'"
     end
 
     if params[:f_trailer_number].present?
-      query += " AND trailer_number LIKE '%#{params[:f_trailer_number]}%'"
+      query += " AND trailer_number LIKE '%#{params[:f_trailer_number].gsub('*', '')}%'"
     end
 
     if params[:f_active].present?

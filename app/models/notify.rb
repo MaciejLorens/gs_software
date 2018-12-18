@@ -60,7 +60,8 @@ class Notify < ApplicationRecord
   end
 
   def set_pin
-    self.pin = rand(36 ** 6).to_s(36).upcase
+    char_array = [('A'..'Z'), (0..9)].map(&:to_a).flatten - [0, 'O']
+    self.pin = (0...6).map { char_array[rand(char_array.length)] }.join
   end
 
   def set_number

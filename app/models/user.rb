@@ -8,7 +8,7 @@ class User < ApplicationRecord
   belongs_to :client, optional: true
 
   devise :database_authenticatable, :registerable, :recoverable,
-         :rememberable, :validatable, :lockable
+         :rememberable, :validatable, :lockable, :timeoutable
 
   scope :super_admins, -> { where(role: 'super_admin') }
   scope :admins, -> { where(role: 'admin') }

@@ -248,6 +248,18 @@ pl:
               too_short: za krótkie
             password_confirmation:
               confirmation: nie zgadza się
+        client:
+          attributes:
+            company:
+              required: jest wymagana
+        product:
+          attributes:
+            company:
+              required: jest wymagana
+        driver:
+          attributes:
+            company:
+              required: jest wymagana
     attributes:
       notify:
         pin: PIN

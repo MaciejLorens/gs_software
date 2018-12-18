@@ -36,8 +36,8 @@ class Notify < ApplicationRecord
       },
       product: {
         id: product_id,
-        co: product.code,
-        na: product.name,
+        co: product.try(:code),
+        na: product.try(:name),
       },
       driver: {
         id: driver_id,

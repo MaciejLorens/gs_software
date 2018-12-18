@@ -14,32 +14,6 @@ ApiToken.create(
   )
 end
 
-9.times do |index|
-  company = Company.all.to_a.sample
-
-  Client.create(
-    code: "code_#{index}",
-    name: "client_#{index}",
-    address: "address_#{index}",
-    postcode: "postcode_#{index}",
-    city: "city_#{index}",
-    country: "country_#{index}",
-    company_id: company.id,
-    created_at: rand(100).days.ago
-  )
-end
-
-User.create(
-  first_name: "Maciej",
-  last_name: "Lorens",
-  email: "maciej.lorens@gmail.com",
-  password: '1234567890',
-  password_confirmation: '1234567890',
-  role: 'super_admin',
-  company_id: nil,
-  created_at: rand(100).days.ago
-)
-
 6.times do |index|
   company = Company.all.to_a.sample
 
@@ -53,6 +27,30 @@ User.create(
     company_id: company.id,
     created_at: rand(100).days.ago
   )
+end
+
+Company.all.each_with_index do |company, i|
+  3.times do |j|
+    Driver.create(
+      first_name: "first_#{i}_#{j}",
+      last_name: "last_#{i}_#{j}",
+      company_id: company.id,
+      created_at: rand(100).days.ago
+    )
+  end
+
+  5.times do |index|
+    Client.create(
+      code: "code_#{index}",
+      name: "client_#{index}",
+      address: "address_#{index}",
+      postcode: "postcode_#{index}",
+      city: "city_#{index}",
+      country: "country_#{index}",
+      company_id: company.id,
+      created_at: rand(100).days.ago
+    )
+  end
 end
 
 15.times do |index|
@@ -70,17 +68,6 @@ end
     company_id: company.id,
     created_at: rand(100).days.ago
   )
-end
-
-Company.all.each_with_index do |company, i|
-  3.times do |j|
-    Driver.create(
-      first_name: "first_#{i}_#{j}",
-      last_name: "last_#{i}_#{j}",
-      company_id: company.id,
-      created_at: rand(100).days.ago
-    )
-  end
 end
 
 10.times do |index|

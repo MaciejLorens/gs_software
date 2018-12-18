@@ -249,6 +249,18 @@ en:
               too_short: is too short
             password_confirmation:
               confirmation: does not match
+        client:
+          attributes:
+            company:
+              required: is required
+        product:
+          attributes:
+            company:
+              required: is required
+        driver:
+          attributes:
+            company:
+              required: is required
     attributes:
       notify:
         pin: PIN

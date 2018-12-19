@@ -13,11 +13,12 @@ end
 
 json.client do
   json.id @notify.client.id
+  json.co @notify.client.code
   json.na @notify.client.name
   json.ad @notify.client.address
   json.po @notify.client.postcode
   json.ci @notify.client.city
-  json.co @notify.client.country
+  json.country @notify.client.country
 end
 
 if @notify.product.present?

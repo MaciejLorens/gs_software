@@ -28,11 +28,12 @@ class Notify < ApplicationRecord
       },
       client: {
         id: client_id,
+        co: client.code,
         na: client.name,
         ad: client.address,
         po: client.postcode,
         ci: client.city,
-        co: client.country
+        country: client.country,
       },
       product: {
         id: product_id,

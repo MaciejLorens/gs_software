@@ -14,9 +14,14 @@ class CreateClients < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    # === TODO:Maciej: fix DB issue with lenght
-    # add_index :clients, :hidden,  unique: false
-    # add_index :clients, :company_id,  unique: false
+    add_index :clients, :code,       unique: false
+    add_index :clients, :name,       unique: false
+    add_index :clients, :address,    unique: false
+    add_index :clients, :postcode,   unique: false
+    add_index :clients, :city,       unique: false
+    add_index :clients, :country,    unique: false
+    add_index :clients, :hidden,     unique: false
+    add_index :clients, :company_id, unique: false
 
   end
 end

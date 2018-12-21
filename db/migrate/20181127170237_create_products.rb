@@ -10,9 +10,10 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    # === TODO:Maciej: fix DB issue with lenght
-    # add_index :products, :hidden,         unique: false
-    # add_index :products, :company_id,     unique: false
+    add_index :products, :code,           unique: false
+    add_index :products, :name,           unique: false
+    add_index :products, :hidden,         unique: false
+    add_index :products, :company_id,     unique: false
 
   end
 end

@@ -20,14 +20,18 @@ class CreateNotifies < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    # === TODO:Maciej: fix DB issue with lenght
-    # add_index :notifies, :product_id,     unique: false
-    # add_index :notifies, :driver_id,      unique: false
-    # add_index :notifies, :user_id,        unique: false
-    # add_index :notifies, :company_id,     unique: false
-    # add_index :notifies, :hidden,         unique: false
-    # add_index :notifies, :created_at,     unique: false
-    # add_index :notifies, :active,         unique: false
+    add_index :notifies, :pin,            unique: false
+    add_index :notifies, :number,         unique: false
+    add_index :notifies, :car_number,     unique: false
+    add_index :notifies, :trailer_number, unique: false
+    add_index :notifies, :product_id,     unique: false
+    add_index :notifies, :driver_id,      unique: false
+    add_index :notifies, :user_id,        unique: false
+    add_index :notifies, :active,         unique: false
+    add_index :notifies, :hidden,         unique: false
+    add_index :notifies, :client_id,      unique: false
+    add_index :notifies, :company_id,     unique: false
+    add_index :notifies, :created_at,     unique: false
 
   end
 end

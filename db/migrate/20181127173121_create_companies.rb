@@ -13,9 +13,12 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    # === TODO:Maciej: fix DB issue with lenght
-    # add_index :companies, :hidden,  unique: false
-    # add_index :companies, :email,   unique: true
+    add_index :companies, :name,     unique: false
+    add_index :companies, :address,  unique: false
+    add_index :companies, :postcode, unique: false
+    add_index :companies, :city,     unique: false
+    add_index :companies, :country,  unique: false
+    add_index :companies, :hidden,   unique: false
 
   end
 end

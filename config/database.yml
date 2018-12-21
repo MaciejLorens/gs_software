@@ -7,13 +7,20 @@ default: &default
   username: root
   password:
 
+test:
+  <<: *default
+  database: wgt_notify_turow_test
+
 development:
   <<: *default
   database: wgt_notify_turow_development
 
-test:
+staging:
   <<: *default
-  database: wgt_notify_turow_test
+  host: <%= Rails.application.credentials.staging[:host] %>
+  database: <%= Rails.application.credentials.staging[:database] %>
+  username: <%= Rails.application.credentials.staging[:user] %>
+  password: <%= Rails.application.credentials.staging[:password] %>
 
 production:
   <<: *default
@@ -21,4 +28,3 @@ production:
   database: <%= Rails.application.credentials.production[:database] %>
   username: <%= Rails.application.credentials.production[:user] %>
   password: <%= Rails.application.credentials.production[:password] %>
-

@@ -1,12 +1,10 @@
 common: &default_settings
-  license_key: <%= Rails.application.credentials.production[:new_relic_key] %>
-  app_name: PGE Turów - awizacja ważeń
   log_level: info
-
+  license_key: <%= Rails.application.credentials[:new_relic_key] %>
 
 development:
   <<: *default_settings
-  app_name: PGE Turów - awizacja ważeń (Development)
+  monitor_mode: false
 
 test:
   <<: *default_settings
@@ -18,3 +16,4 @@ staging:
 
 production:
   <<: *default_settings
+  app_name: PGE Turów - awizacja ważeń (Production)

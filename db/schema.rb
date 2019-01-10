@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_141216) do
+ActiveRecord::Schema.define(version: 2019_01_10_114420) do
 
   create_table "api_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "value"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2018_12_11_141216) do
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_drivers_on_client_id"
     t.index ["company_id"], name: "index_drivers_on_company_id"
     t.index ["first_name"], name: "index_drivers_on_first_name"
     t.index ["hidden"], name: "index_drivers_on_hidden"

@@ -9,11 +9,5 @@ class CreateDrivers < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-
-    add_index :drivers, :first_name,    unique: false
-    add_index :drivers, :last_name,     unique: false
-    add_index :drivers, :hidden,        unique: false
-    add_index :drivers, :company_id,    unique: false
-
   end
 end

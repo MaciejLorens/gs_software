@@ -34,11 +34,13 @@
                     'data-field' => 'trailer_number',
                     class: "sort-link #{sort_class('trailer_number')}" %>
       </th>
-      <th>
-        <%= link_to t('activerecord.attributes.notify.client_id'), '#',
-                    'data-field' => 'client_id',
-                    class: "sort-link #{sort_class('client_id')}" %>
-      </th>
+      <% if admin? %>
+        <th>
+          <%= link_to t('activerecord.attributes.notify.client_id'), '#',
+                      'data-field' => 'client_id',
+                      class: "sort-link #{sort_class('client_id')}" %>
+        </th>
+      <% end %>
       <th>
         <%= link_to t('activerecord.attributes.notify.product_id'), '#',
                     'data-field' => 'product_id',
@@ -103,7 +105,9 @@
         <td><%= notify.number %></td>
         <td><%= notify.car_number %></td>
         <td><%= notify.trailer_number %></td>
-        <td><%= notify.client.name %></td>
+        <% if admin? %>
+          <td><%= notify.client.name %></td>
+        <% end %>
         <td><%= notify.product.try(:name) %></td>
         <td><%= notify.driver.try(:full_name) %></td>
         <td><%= date_format(notify.expiration_from) %></td>

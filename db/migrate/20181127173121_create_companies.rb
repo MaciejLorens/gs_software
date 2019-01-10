@@ -12,13 +12,5 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-
-    add_index :companies, :name,     unique: false
-    add_index :companies, :address,  unique: false
-    add_index :companies, :postcode, unique: false
-    add_index :companies, :city,     unique: false
-    add_index :companies, :country,  unique: false
-    add_index :companies, :hidden,   unique: false
-
   end
 end

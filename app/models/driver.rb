@@ -4,6 +4,7 @@ class Driver < ApplicationRecord
 
   has_many :notifies
 
+  belongs_to :client
   belongs_to :company
 
   def full_name

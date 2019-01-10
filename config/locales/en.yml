@@ -203,7 +203,7 @@ en:
     companys_was_successfully_deleted: Companies was successfully deleted.
 
 
-  api_tokens:
+  api_token:
     navbar:
       edit_api_token: Edit API token
     errors:
@@ -320,6 +320,7 @@ en:
         first_name: First name
         last_name: Last name
         hidden: Visibility
+        client_id: Client
         company_id: Company
         updated_at: Updated at
         created_at: Created at

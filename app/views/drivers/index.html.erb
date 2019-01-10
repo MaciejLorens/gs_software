@@ -25,6 +25,13 @@
                       'data-field' => 'last_name',
                       class: "sort-link #{sort_class('last_name')}" %>
         </th>
+        <% if admin? %>
+          <th>
+            <%= link_to t('activerecord.attributes.notify.client_id'), '#',
+                        'data-field' => 'client_id',
+                        class: "sort-link #{sort_class('client_id')}" %>
+          </th>
+        <% end %>
         <th>
           <%= link_to t('activerecord.attributes.driver.updated_at'), '#',
                       'data-field' => 'updated_at',
@@ -61,6 +68,9 @@
           <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => driver.id %></td>
           <td><%= driver.first_name %></td>
           <td><%= driver.last_name %></td>
+          <% if admin? %>
+            <td><%= driver.client.name %></td>
+          <% end %>
           <td><%= date_format(driver.updated_at) %></td>
           <td><%= date_format(driver.created_at) %></td>
           <% if super_admin? %>

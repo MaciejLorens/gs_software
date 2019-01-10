@@ -169,7 +169,7 @@ pl:
       header: Lista administratorów
     invitation:
       list:
-        header: Lista zaproszeń adminów
+        header: Lista zaproszeń administratorów
         resend: Wyślij ponownie
       new:
         new_admin_invitation: Nowe zaproszenie admina
@@ -213,7 +213,7 @@ pl:
   errors:
     messages:
       not_saved: Nie udało się zapisać zmian
-      must_be_valid_date: musi być większa od Wazność od
+      must_be_valid_date: musi być większa od Ważność od
 
 
   activerecord:
@@ -319,6 +319,7 @@ pl:
         first_name: Imię
         last_name: Nazwisko
         hidden: Widoczność
+        client_id: Klient
         company_id: Firma
         updated_at: Data edycji
         created_at: Data utworzenia

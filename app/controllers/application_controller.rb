@@ -41,7 +41,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_drivers
-    @current_drivers = super_admin? ? Driver.all : current_company.drivers.visible
+    @current_drivers = if super_admin?
+                         Driver.all
+                       elsif admin?
+                         current_company.drivers.visible
+                       else
+                         current_user.client.drivers.visible
+                       end
   end
 
   def current_products

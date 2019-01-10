@@ -63,6 +63,9 @@ class DriversController < ApplicationController
       :hidden,
       :hidden_at,
       :company_id
+    ).merge(
+      client_id: current_user.client_id || params[:driver][:client_id],
+      company_id: current_user.company_id || params[:driver][:company_id]
     )
   end
 

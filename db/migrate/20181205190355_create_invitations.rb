@@ -10,10 +10,5 @@ class CreateInvitations < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-
-    add_index :invitations, :token,        unique: false
-    add_index :invitations, :client_id,    unique: false
-    add_index :invitations, :company_id,   unique: false
-
   end
 end

@@ -1,7 +1,5 @@
 class DriversController < ApplicationController
 
-  before_action :authorize_admin, only: [:edit, :update, :destroy, :batch_destroy]
-
   before_action :set_driver, only: [:edit, :update, :destroy]
 
   def index

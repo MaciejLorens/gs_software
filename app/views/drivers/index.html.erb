@@ -78,11 +78,9 @@
             <td><%= driver.company.name %></td>
           <% end %>
           <td class="action-links">
-            <% if admin? %>
-              <%= link_to fa_icon('pencil', text: t('common.edit')), edit_driver_path(driver), class: 'action-link' %>
-              <br>
-              <%= link_to fa_icon('times', text: t('common.delete')), driver, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
-            <% end %>
+            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_driver_path(driver), class: 'action-link' %>
+            <br>
+            <%= link_to fa_icon('times', text: t('common.delete')), driver, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
           </td>
         </tr>
       <% end %>

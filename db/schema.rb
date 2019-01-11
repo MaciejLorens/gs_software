@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_10_114420) do
+ActiveRecord::Schema.define(version: 2019_01_11_000000) do
 
   create_table "api_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "value"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 2019_01_10_114420) do
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address"], name: "index_clients_on_address"
+    t.index ["city"], name: "index_clients_on_city"
+    t.index ["code"], name: "index_clients_on_code"
+    t.index ["company_id"], name: "index_clients_on_company_id"
+    t.index ["country"], name: "index_clients_on_country"
+    t.index ["hidden"], name: "index_clients_on_hidden"
+    t.index ["name"], name: "index_clients_on_name"
+    t.index ["postcode"], name: "index_clients_on_postcode"
   end
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,6 +51,12 @@ ActiveRecord::Schema.define(version: 2019_01_10_114420) do
     t.datetime "hidden_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address"], name: "index_companies_on_address"
+    t.index ["city"], name: "index_companies_on_city"
+    t.index ["country"], name: "index_companies_on_country"
+    t.index ["hidden"], name: "index_companies_on_hidden"
+    t.index ["name"], name: "index_companies_on_name"
+    t.index ["postcode"], name: "index_companies_on_postcode"
   end
 
   create_table "drivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -55,6 +69,10 @@ ActiveRecord::Schema.define(version: 2019_01_10_114420) do
     t.datetime "updated_at", null: false
     t.integer "client_id"
     t.index ["client_id"], name: "index_drivers_on_client_id"
+    t.index ["company_id"], name: "index_drivers_on_company_id"
+    t.index ["first_name"], name: "index_drivers_on_first_name"
+    t.index ["hidden"], name: "index_drivers_on_hidden"
+    t.index ["last_name"], name: "index_drivers_on_last_name"
   end
 
   create_table "invitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,6 +84,9 @@ ActiveRecord::Schema.define(version: 2019_01_10_114420) do
     t.datetime "sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_invitations_on_client_id"
+    t.index ["company_id"], name: "index_invitations_on_company_id"
+    t.index ["token"], name: "index_invitations_on_token"
   end
 
   create_table "notifies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,6 +107,18 @@ ActiveRecord::Schema.define(version: 2019_01_10_114420) do
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["active"], name: "index_notifies_on_active"
+    t.index ["car_number"], name: "index_notifies_on_car_number"
+    t.index ["client_id"], name: "index_notifies_on_client_id"
+    t.index ["company_id"], name: "index_notifies_on_company_id"
+    t.index ["created_at"], name: "index_notifies_on_created_at"
+    t.index ["driver_id"], name: "index_notifies_on_driver_id"
+    t.index ["hidden"], name: "index_notifies_on_hidden"
+    t.index ["number"], name: "index_notifies_on_number"
+    t.index ["pin"], name: "index_notifies_on_pin"
+    t.index ["product_id"], name: "index_notifies_on_product_id"
+    t.index ["trailer_number"], name: "index_notifies_on_trailer_number"
+    t.index ["user_id"], name: "index_notifies_on_user_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -96,6 +129,10 @@ ActiveRecord::Schema.define(version: 2019_01_10_114420) do
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_products_on_code"
+    t.index ["company_id"], name: "index_products_on_company_id"
+    t.index ["hidden"], name: "index_products_on_hidden"
+    t.index ["name"], name: "index_products_on_name"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -117,6 +154,15 @@ ActiveRecord::Schema.define(version: 2019_01_10_114420) do
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_users_on_client_id"
+    t.index ["company_id"], name: "index_users_on_company_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name"], name: "index_users_on_first_name"
+    t.index ["hidden"], name: "index_users_on_hidden"
+    t.index ["last_name"], name: "index_users_on_last_name"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role"], name: "index_users_on_role"
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
 end

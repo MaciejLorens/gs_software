@@ -55,7 +55,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_users
-    @current_users = super_admin? ? User.all : current_company.users.visible
+    @current_users = if super_admin?
+                       User.all
+                     elsif admin?
+                       current_company.users.visible
+                     else
+                       current_user.client.users.visible
+                     end
   end
 
   def current_invitations

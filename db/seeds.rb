@@ -30,16 +30,6 @@ end
 end
 
 Company.all.each_with_index do |company, i|
-  3.times do |j|
-    Driver.create(
-      first_name: "first_#{i}_#{j}",
-      last_name: "last_#{i}_#{j}",
-      client_id: company.clients.sample.id,
-      company_id: company.id,
-      created_at: rand(100).days.ago
-    )
-  end
-
   5.times do |index|
     Client.create(
       code: "code_#{index}",
@@ -48,6 +38,16 @@ Company.all.each_with_index do |company, i|
       postcode: "postcode_#{index}",
       city: "city_#{index}",
       country: "country_#{index}",
+      company_id: company.id,
+      created_at: rand(100).days.ago
+    )
+  end
+
+  3.times do |j|
+    Driver.create(
+      first_name: "first_#{i}_#{j}",
+      last_name: "last_#{i}_#{j}",
+      client_id: company.clients.sample.id,
       company_id: company.id,
       created_at: rand(100).days.ago
     )

@@ -1,6 +1,5 @@
-ApiToken.create(
-  value: SecureRandom.hex(20)
-)
+Setting.create(key: 'Api Token', value: SecureRandom.hex(20))
+Setting.create(key: 'QR Code Size', value: '200x200')
 
 3.times do |index|
   Company.create(

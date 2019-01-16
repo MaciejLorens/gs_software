@@ -24,7 +24,7 @@
     <% if super_admin? %>
       <%= link_to t('menu.admins'), admins_path, class: 'link' %>
       <%= link_to t('menu.companies'), companies_path, class: 'link' %>
-      <%= link_to t('menu.api_tokens'), edit_api_token_path(ApiToken.first), class: 'link' %>
+      <%= link_to t('menu.settings'), settings_path, class: 'link' %>
     <% end %>
 
   </div>

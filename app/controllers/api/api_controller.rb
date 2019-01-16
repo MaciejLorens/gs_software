@@ -14,7 +14,7 @@ class Api::ApiController < ActionController::Base
 
   def authorize!
     authenticate_or_request_with_http_token do |token, options|
-      return invalid_token unless token == ApiToken.first.value
+      return invalid_token unless token == Setting.token.value
 
       true
     end

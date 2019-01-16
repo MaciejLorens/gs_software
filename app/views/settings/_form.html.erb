@@ -1,0 +1,45 @@
+<%= form_tag(refresh_token_settings_path, method: :put, class: 'form-horizontal denser') do %>
+
+  <div class="fieldset">
+
+    <div class="form-group control-group">
+      <%= label_tag :key, @token_setting.key, class: 'col-sm-2 control-label' %>
+
+      <div class="col-sm-3 controls">
+        <%= text_field_tag :value, @token_setting.value, class: 'form-control super-admin-field' %>
+      </div>
+
+      <div class="col-sm-2 controls">
+        <%= button_tag :submit, class: 'btn btn-primary btn-save' do %>
+          <%= fa_icon('retweet', text: t('common.refresh')) %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+<br>
+
+<%= form_tag(set_qr_code_size_settings_path, method: :put, class: 'form-horizontal denser') do %>
+
+  <div class="fieldset">
+
+    <div class="form-group control-group">
+      <%= label_tag :key, @qr_code_size_setting.key, class: 'col-sm-2 control-label' %>
+
+      <div class="col-sm-3 controls">
+        <%= text_field_tag :value, @qr_code_size_setting.value, placeholder: '200x200', class: 'form-control super-admin-field' %>
+      </div>
+
+      <div class="col-sm-2 controls">
+        <%= button_tag :submit, class: 'btn btn-primary btn-save' do %>
+          <%= fa_icon('check', text: t('common.save')) %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'registrations'}
 
-  resources :api_tokens, only: [:edit, :update]
+  resources :settings, only: [:index] do
+    put :refresh_token, on: :collection
+    put :set_qr_code_size, on: :collection
+  end
 
   resources :admins, except: [:show] do
     get :invitations, on: :collection

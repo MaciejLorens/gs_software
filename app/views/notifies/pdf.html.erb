@@ -1,6 +1,6 @@
 <div class="row">
   <div class="qr-code">
-    <%= image_tag "data:image/jpeg;base64,#{@notify.base64_qrcode}", size: '200x200', class: 'qr-code' %>
+    <%= image_tag "data:image/jpeg;base64,#{@notify.base64_qrcode}", size: Setting.qr_code_size.value, class: 'qr-code' %>
   </div>
 </div>
 

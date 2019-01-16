@@ -3,6 +3,7 @@ class Notify < ApplicationRecord
   include Hideable
 
   before_create :set_number, :set_pin
+  before_save :set_base64_qrcode
 
   belongs_to :company
   belongs_to :driver, optional: true
@@ -50,6 +51,20 @@ class Notify < ApplicationRecord
         na: company.name
       }
     }.to_json.to_s.encode('Windows-1250')
+  end
+
+  def set_base64_qrcode
+    qrcode = RQRCode::QRCode.new(qr_code_string)
+    png = qrcode.as_png(
+      fill: 'white',
+      color: 'black',
+      size: 1000,
+      border_modules: 4,
+      module_px_size: 6,
+      file: nil # path to write
+    )
+
+    self.base64_qrcode = Base64.encode64(png.to_s)
   end
 
   private

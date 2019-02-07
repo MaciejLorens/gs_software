@@ -3,7 +3,7 @@ class Notify < ApplicationRecord
   include Hideable
 
   before_create :set_number, :set_pin
-  before_save :set_base64_qrcode
+  after_save :set_base64_qrcode
 
   belongs_to :company
   belongs_to :driver, optional: true
@@ -64,7 +64,7 @@ class Notify < ApplicationRecord
       file: nil # path to write
     )
 
-    self.base64_qrcode = Base64.encode64(png.to_s)
+    update_column(:base64_qrcode, Base64.encode64(png.to_s))
   end
 
   private

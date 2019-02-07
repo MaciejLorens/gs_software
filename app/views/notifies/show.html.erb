@@ -124,5 +124,5 @@
 
   <div class="col-sm-1"></div>
   <div class="col-sm-2 qr-code small">
-    <%= image_tag "data:image/jpeg;base64,#{@notify.base64_qrcode}", size: Setting.qr_code_size.value %>
+    <%= image_tag "data:image/png;base64,#{@notify.base64_qrcode}", size: Setting.qr_code_size.value %>
   </div>

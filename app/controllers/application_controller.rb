@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def super_admin?
-    current_user && current_user.super_admin?
+    current_user&.super_admin?
   end
 
   def admin?
@@ -37,21 +37,29 @@ class ApplicationController < ActionController::Base
   end
 
   def current_clients
-    @current_clients = super_admin? ? Client.all : current_company.clients.visible
+    @current_clients = if super_admin?
+                         Client.all.order(:name)
+                       else
+                         current_company.clients.visible.order(:name)
+                       end
   end
 
   def current_drivers
     @current_drivers = if super_admin?
-                         Driver.all
+                         Driver.all.order(:last_name)
                        elsif admin?
-                         current_company.drivers.visible
+                         current_company.drivers.visible.order(:last_name)
                        else
-                         current_user.client.drivers.visible
+                         current_user.client.drivers.visible.order(:last_name)
                        end
   end
 
   def current_products
-    @current_products = super_admin? ? Product.all : current_company.products.visible
+    @current_products = if super_admin?
+                          Product.all.order(:name)
+                        else
+                          current_company.products.visible.order(:name)
+                        end
   end
 
   def current_users

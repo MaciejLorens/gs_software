@@ -19,7 +19,7 @@ module DropdownOptionsHelper
   end
 
   def options_for_companies
-    Company.visible.map do |company|
+    Company.visible.order(:name).map do |company|
       [company.name, company.id]
     end
   end
